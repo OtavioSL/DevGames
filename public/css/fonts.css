@@ -2,3 +2,9 @@
     font-family: arcane;
     src: url(../assets/fonts/Arcane\ Nine.otf) format("opentype");
 }
+
+@font-face {
+    
+    font-family: 'Poly';
+    src: url('https://fonts.googleapis.com/css2?family=Poly:ital@0;1&display=swap');
+}
