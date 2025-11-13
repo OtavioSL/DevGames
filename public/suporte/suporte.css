@@ -1,0 +1,274 @@
+/* ======================================= */
+/* 0. CONFIG: VARIÁVEIS, RESET E UTILS     */
+/* ======================================= */
+
+:root {
+    /* 0.1 Cores (Sistema de Design) */
+    --color-primary: #1a1a1a;        /* Fundo principal */
+    --color-secondary: #292929;      /* Fundo de seções/cards */
+    --color-text-light: #f0f0f0;     /* Texto claro principal */
+    --color-text-muted: #888;        /* Texto secundário/cinza */
+    --color-accent: #6aa84f;         /* Cor de destaque principal (Verde/Disco Elysium) */
+    --color-cta: #559539;            /* Cor do botão de Ação */
+    --color-border: #444;            /* Cor de bordas e divisores */
+
+    /* 0.2 Tipografia */
+    --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 16px;
+
+    /* 0.3 Espaçamento (Escala de 8px) */
+    --space-xs: 4px;
+    --space-s: 8px;
+    --space-m: 16px;
+    --space-l: 32px;
+    --space-xl: 64px;
+}
+
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-family: var(--font-family-sans);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+
+/* Utilitários: Classes que fazem apenas uma coisa */
+.u-text--accent { color: var(--color-accent); }
+.u-border--accent { border: 2px solid var(--color-accent) !important; }
+.u-heading--section {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: var(--space-l);
+    color: var(--color-accent);
+}
+
+/* ======================================= */
+/* 1. LAYOUTS (L-): Estrutura da Página    */
+/* ======================================= */
+
+.l-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-l);
+}
+
+
+/* ======================================= */
+/* 2. COMPONENTES (C-): Blocos Reutilizáveis */
+/* ======================================= */
+
+/* --- 2.1 Navbar (c-navbar) --- */
+.c-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-m) var(--space-xl);
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px); /* Efeito moderno de transparência */
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+.c-navbar__logo {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.c-nav-link {
+    margin-left: var(--space-l);
+    padding: var(--space-s) var(--space-s);
+    opacity: 0.8;
+    transition: opacity 0.3s, color 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.c-nav-link:hover, .c-nav-link--active {
+    opacity: 1;
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+/* --- 2.2 Botões (c-button) --- */
+.c-button {
+    padding: var(--space-s) var(--space-m);
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+.c-button--primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.c-button--primary:hover {
+    background-color: var(--color-cta);
+    box-shadow: 0 0 15px rgba(106, 168, 79, 0.5); /* Efeito de brilho */
+}
+
+.c-button--cta { /* Botão de Chamada para Ação no banner */
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border: 3px solid var(--color-accent);
+    text-transform: uppercase;
+}
+
+.c-button--large {
+    padding: var(--space-m) var(--space-l);
+    font-size: 1.1em;
+}
+
+/* --- 2.3 Hero Banner (c-hero-banner) --- */
+.c-hero-banner {
+    position: relative;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: var(--space-xl);
+}
+
+.c-hero-banner__background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Imagem de alta resolução, otimizada para web */
+    background-image: url('https://i.imgur.com/G5gWwB9.png'); 
+    background-size: cover;
+    background-position: center top;
+    
+    /* Degradê escuro para melhorar a legibilidade do texto */
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); 
+    
+    /* Efeito de Parallax Simulado (opcional) */
+    transform: scale(1.05); 
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+
+.c-hero-banner:hover .c-hero-banner__background-overlay {
+    transform: scale(1.03); /* Suave zoom ao passar o mouse */
+}
+
+.c-hero-banner__content {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-l);
+    max-width: 800px;
+}
+
+.c-hero-banner__title-top {
+    font-size: 1.8em;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-s);
+}
+
+.c-hero-banner__subtitle {
+    font-size: 1.2em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-l);
+}
+
+.c-hero-banner__logo-wrapper {
+    margin: var(--space-l) 0;
+    padding: var(--space-m) var(--space-xl);
+    background: rgba(0, 0, 0, 0.7);
+    display: inline-block;
+    border-radius: 4px;
+    /* Linhas de acento em cima e embaixo */
+    border-top: 3px solid var(--color-accent);
+    border-bottom: 3px solid var(--color-accent);
+    transition: background 0.3s;
+}
+
+.c-hero-banner__logo-text {
+    font-size: 3.5em;
+    font-weight: 900;
+    letter-spacing: 5px;
+    color: var(--color-text-light);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+
+/* --- 2.4 Grid e Card (c-card-grid, c-info-card) --- */
+.c-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-l);
+}
+
+.c-info-card {
+    background-color: var(--color-secondary);
+    padding: var(--space-l);
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--color-border);
+}
+
+.c-info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-color: var(--color-accent);
+}
+
+.c-info-card--new::before {
+    content: "NOVO";
+    display: inline-block;
+    background-color: #ff5722; /* Laranja de Notificação */
+    color: var(--color-text-light);
+    font-size: 0.7em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: var(--space-s);
+    font-weight: bold;
+}
+
+.c-info-card__title {
+    font-size: 1.5em;
+    margin-bottom: var(--space-s);
+}
+
+.c-info-card__body {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-m);
+    min-height: 40px; /* Garante altura uniforme */
+}
+
+.c-info-card__link {
+    color: var(--color-accent);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* --- 2.5 Footer (c-footer) --- */
+.c-footer {
+    padding: var(--space-m) var(--space-xl);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9em;
+    background-color: var(--color-secondary);
+}
