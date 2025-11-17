@@ -1,0 +1,145 @@
+/* --- ESTILOS DE AUTENTICAÇÃO (LOGIN/CADASTRO) --- */
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da tela */
+    padding: 20px;
+    background-color: var(--primary-color);
+}
+
+.auth-box {
+    background-color: #1a1a20; /* Fundo mais escuro para o box */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-box h2 {
+    color: var(--text-color);
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #333;
+    color: var(--text-color);
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+}
+
+.auth-box .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.auth-link {
+    margin-top: 20px;
+    color: #aaa;
+}
+
+.auth-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #ff4d4d; /* Vermelho para erros */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.success-message {
+    color: #4CAF50; /* Verde para sucesso */
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* --- ESTILOS DE AUTENTICAÇÃO (LOGIN/CADASTRO) --- */
+
+body {
+    /* Copiado do style.css para o fundo principal */
+    background-image: url(../assets/images/backgrounds/medievalStandard.jpg); /* Ajuste este caminho se necessário */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--primary-color); /* Garante o fundo escuro primário */
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; 
+    line-height: 1.6;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Remove a cor de fundo aqui para que o background do body apareça */
+    /* background-color: var(--primary-color); <--- REMOVA OU COMENTE ESTA LINHA */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-box {
+    background-color: #3b3c40; /* Usa a cor principal do header/fundo escuro */
+    padding: 40px;
+    border-radius: 8px;/* Sombra mais suave para condizer com o estilo da DevGames */
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    /* Adiciona uma borda sutil para definir melhor o box */
+}
+
+.auth-box h2 {
+    color: var(--accent-color); /* Destaque a cor do título com a cor de acento */
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+/* Campos de entrada: devem ser escuros, como o site principal */
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--secondary-color); /* Borda da cor secundária */
+    border-radius: 4px;
+    background-color: #ffffff; /* Fundo do campo mais escuro que o box */
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+/* Botões */
+.auth-box .btn-primary {
+    /* Garante que o botão use o estilo principal do site */
+    background-color: var(--accent-color);
+    color: var(--primary-color); /* Texto escuro no botão de destaque */
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.auth-box .btn-primary:hover {
+    filter: brightness(1.2); /* Efeito hover sutil */
+}

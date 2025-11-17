@@ -1,8 +1,9 @@
 :root{
     --primary-color: #212226;
-    --secondary-color: #3B3C40;
-    --accent-color: #486773;
+    --secondary-color: #1F5373;
+    --accent-color: #D99311;
     --text-color: #BFBBB0;
+    
 }/*
     ESTILOS GERAIS
     (Use fontes limpas, como 'Arial', 'sans-serif' por enquanto)
@@ -24,7 +25,7 @@ body {
     HEADER / NAVEGAÇÃO
 */
 .main-header {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     padding: 10px 0;
     /* position: sticky; */
     width: 100%;
@@ -34,6 +35,7 @@ body {
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
 }
 
 .main-header .container {
@@ -123,23 +125,141 @@ body {
 }
 
 /* 
-Carrossel
+-------------------------------- Carrossel --------------------------------
 */
+.hero-carousel {
+    height: 450px;
+    margin-top: 70px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--primary-color);
+}
 .swiper-slide {
     /* Garante que o conteúdo fique centralizado no slide */
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    padding: 20px 30px;
+}    
+
+.slide-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+}
+
+.slide-text {
+    flex: 0 0 25%;
+    height: 100%;
+    padding: 0 15px;
+    text-align: left;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slide-text h2 {
+    font-size: 1.6em;
+    line-height: 1.1;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.slide-text p {
+    font-size: 1em;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.slide-image {
+    flex: 0 0 75%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.slide-content-wrapper.reverse-layout {
+    flex-direction: row-reverse;
+}
+
+.slide-content-wrapper.reverse-layout .slide-text {
+    text-align: right;
+}
+
+/* -------------------------------- Degradê da Imagem -------------------------------- */
+
+.slide-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5; /* Fica acima da imagem, mas abaixo do texto */
+    pointer-events: none; /* Não interfere em cliques */
     
-    /* Configuração de fundo para as imagens de slide */
-    background-position: center 0px;
-    background-size: 100% calc(100% - 0px);
-    background-repeat: no-repeat;
-    
-    
-    /* Overlay escuro para destacar o texto, inspirado na Blizzard */
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.4); 
+    /* Degradê padrão (Texto à Esquerda, Imagem à Direita): fade no lado esquerdo da imagem */
+    background: linear-gradient(to right, 
+        var(--primary-color) 0%,        /* Cor de Fundo no início da imagem (onde o texto começa) */
+        rgba(33, 34, 38, 0) 25%         /* Fade para transparente */
+    );
+}
+
+/* Degradê Invertido (Texto à Direita, Imagem à Esquerda): fade no lado direito da imagem */
+.slide-content-wrapper.reverse-layout .slide-image::after {
+    background: linear-gradient(to left, 
+        var(--primary-color) 0%,        /* Cor de Fundo no final da imagem (onde o texto começa) */
+        rgba(33, 34, 38, 0) 25%         /* Fade para transparente */
+    );
+}
+
+/* --- Animações --- */
+.slide-text, .slide-image {
+    opacity: 0; /* Esconde inicialmente */
+    transform: translateX(0); /* Posição inicial neutra para transição */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição suave */
+}
+
+.slide-text.active-animation.from-left {
+    transform: translateX(40px); /* Começa 50px à esquerda */
+}
+
+.slide-text.active-animation.from-right {
+    transform: translateX(50px); /* Começa 50px à direita */
+}
+
+.slide-image.active-animation.from-left {
+    transform: translateX(40px); /* Começa 50px à esquerda */
+}
+
+.slide-image.active-animation.from-right {
+    transform: translateX(50px); /* Começa 50px à direita */
+}
+
+/* Quando a animação está ativa, move para a posição final (0) e aparece */
+.swiper-slide-active .active-animation {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 /* Estilo para a Paginação (Bolinhas) */
@@ -155,40 +275,28 @@ Carrossel
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: #ffffff !important;
-    /* Mude a cor das setas */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    color: #ffffff !important; /* Mude a cor das setas */
+    cursor: pointer;
 }
 
-/* ------------------------------------------- */
-/* ESTILIZAÇÃO ESPECÍFICA DOS SLIDES (FUNDOS)  */
-/* ------------------------------------------- */
-
-/* Classe para o Slide 1 */
-.swiper-slide.slide-1 {
-    background-image: url('../assets/images/imgCarrossel/Disco-Elysium.jpg');
-    /* Certifique-se de que a imagem de fundo escureça corretamente para o texto branco */
-    background-color: rgba(0, 0, 0, 0.4); 
-    background-blend-mode: multiply;
+.swiper-button-prev {
+    left: 0px;
 }
 
-/* Classe para o Slide 2 */
-.swiper-slide.slide-2 {
-    background-image: url('../assets/images/imgCarrossel/Undertale.jpg');
-    background-color: rgba(0, 0, 0, 0.4); 
-    background-blend-mode: multiply;
+.swiper-button-next {
+    right: 0px;
 }
 
-/* Classe para o Slide 3 */
-.swiper-slide.slide-3 {
-    background-image: url('../assets/images/imgCarrossel/Omori.jpg');
-    background-color: rgba(0, 0, 0, 0.4); 
-    background-blend-mode: multiply;
+/* Ocultar o texto padrão do Swiper (se aparecer) */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    content: ''; /* Remove o texto padrão (tipo "prev" ou "next") */
+    font-size: 30px; /* Mantém o ícone de seta do Swiper */
 }
-
-/* Atenção: As propriedades de 'background-size: cover;', 
-   'background-position: center center;' e as regras do '.swiper-slide'
-   que definem a altura (height) devem continuar no seu CSS geral. 
-*/
 /*
     SEÇÃO DE DESTAQUE (HERO)
 */
@@ -208,9 +316,10 @@ Carrossel
     background-color: rgba(0, 0, 0, 0.4); 
 }
 
-.hero-content h2 {
-    font-family: arcane;
-    color: #ffffff;
+.hero-content h2, p {
+    text-align: center;
+    font-family: 'Arcane';
+    color: var(--secondary-color);
     font-size: 3em;
     margin-bottom: 10px;
 }
@@ -218,7 +327,8 @@ Carrossel
 .btn-primary {
     background-color: var(--accent-color); /* Dourado para o CTA principal */
     color: #1a1a20;
-    padding: 12px 25px;
+    padding: 10px 18px;
+    font-size: 0.9em;
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevGames</title>
     <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/fonts.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="shortcut icon" href="./public/assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
 </head>
@@ -27,53 +28,66 @@
                 </ul>
             </nav>
             <div class="user-actions">
-                <button class="btn-login">Login</button>
+                <a href="./public/html/login.html" class="btn-login">Login</a>
             </div>
     </header>
+    <section class="swiper mySwiper hero-carousel">
+        <div class="swiper-wrapper">
 
-   <section class="hero-section swiper mySwiper">
-    <div class="swiper-wrapper">
-        
-        <div class="swiper-slide slide-1"> 
-            <div class="hero-content">
-                <h2>DISCO ELYSIUM - THE FINAL CUT!</h2>
-                <p>Compre agora e receba bônus exclusivos no jogo.</p>
-                <a href="#" class="btn-primary">Comprar Agora</a>
+            <div class="swiper-slide slide-1">
+                <div class="slide-content-wrapper">
+                    <div class="slide-text active-animation from-left">
+                        <h2>DISCO ELYSIUM - THE FINAL CUT!</h2>
+                        <p>Compre agora e receba bônus exclusivos no jogo.</p>
+                        <a href="#" class="btn-primary">Comprar Agora</a>
+                    </div>
+                    <div class="slide-image active-animation from-right">
+                        <img src="./public/assets/images/imgCarrossel/Disco-Elysium.jpg" alt="Capa do Jogo Disco Elysium">
+                    </div>
+                </div>
             </div>
+
+            <div class="swiper-slide slide-2">
+                <div class="slide-content-wrapper">
+                    <div class="slide-text active-animation from-left">
+                        <h2>OFERTA RELÂMPAGO EM UNDERTALE!</h2>
+                        <p>20% de desconto por tempo limitado.</p>
+                        <a href="#" class="btn-primary">Ver Promoção</a>
+                    </div>
+                    <div class="slide-image active-animation from-right">
+                        <img src="./public/assets/images/imgCarrossel/Undertale.jpg" alt="Capa do Jogo Undertale">
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide-3">
+                <div class="slide-content-wrapper">
+                    <div class="slide-text active-animation from-left">
+                        <h2>OMORI</h2>
+                        <p>Enfrente o trauma e reescreva a sua história. Um JRPG sobre a coragem de lembrar.</p>
+                        <a href="#jogos" class="btn-primary">Conheça</a>
+                    </div>
+                    <div class="slide-image active-animation from-right">
+                        <img src="./public/assets/images/imgCarrossel/Omori.jpg" alt="Capa do Jogo Omori">
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="swiper-slide slide-2">
-            <div class="hero-content">
-                <h2>OFERTA RELÂMPAGO EM UNDERTALE!</h2>
-                <p>20% de desconto por tempo limitado.</p>
-                <a href="#" class="btn-primary">Ver Promoção</a>
-            </div>
-        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
 
-        <div class="swiper-slide slide-3">
-            <div class="hero-content">
-                <h2>OMORI</h2>
-                <p>Enfrente o trauma e reescreva a sua história. Um JRPG sobre a coragem de lembrar.</p>
-                <a href="#jogos" class="btn-primary">Conheça</a>
-            </div>
-        </div>
-        
-    </div>
+    </section>
 
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-
-</section>
-
-    <section class="hero-section">
+    <section class="launch-cta">
         <div class="hero-content">
             <h2>NOVO LANÇAMENTO EM DESTAQUE!</h2>
             <p>Compre agora e receba bônus exclusivos no jogo.</p>
             <a href="#" class="btn-primary">Saiba Mais / Pré-Venda</a>
         </div>
     </section>
-
     <main class="game-showcase" id="jogos">
         <h3>Nossos Jogos</h3>
         <div class="game-grid">
@@ -118,6 +132,7 @@
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="./public/js/main.js"></script>
+    <script src="./public/js/auth.js"></script>
 </body>
 
 </html>
