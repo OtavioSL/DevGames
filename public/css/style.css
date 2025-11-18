@@ -17,7 +17,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif; /* Mudar para uma fonte mais elegante depois */
     background-color: #0d0d10; /* Fundo escuro */
-    color: var(--text-color); /* Texto branco */
+    color: var(--secondary-color); /* Texto branco */
     line-height: 1.6;
 }
 
@@ -25,7 +25,7 @@ body {
     HEADER / NAVEGAÇÃO
 */
 .main-header {
-    background: var(--primary-color);
+    background: var(--secondary-color);
     padding: 10px 0;
     /* position: sticky; */
     width: 100%;
@@ -318,9 +318,9 @@ body {
 
 .hero-content h2, p {
     text-align: center;
-    font-family: 'Arcane';
+    font-family: 'Poly', sans-serif;
     color: var(--secondary-color);
-    font-size: 3em;
+    font-size: 1.8em;
     margin-bottom: 10px;
 }
 
