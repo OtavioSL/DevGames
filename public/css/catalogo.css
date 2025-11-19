@@ -1,0 +1,369 @@
+:root{
+    --primary-color: #212226;
+    --secondary-color: #1F5373;
+    --accent-color: #D99311;
+    --text-color: #BFBBB0;
+    
+}/*
+    ESTILOS GERAIS
+    (Use fontes limpas, como 'Arial', 'sans-serif' por enquanto)
+*/
+body {
+    background-image: url(../assets/images/backgrounds/medievalStandard.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Mudar para uma fonte mais elegante depois */
+    background-color: #0d0d10; /* Fundo escuro */
+    color: var(--secondary-color); /* Texto branco */
+    line-height: 1.6;
+}
+
+/*
+    HEADER / NAVEGAÇÃO
+*/
+.main-header {
+    background: var(--secondary-color);
+    padding: 10px 0;
+    /* position: sticky; */
+    width: 100%;
+    min-height: 50px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--accent-color);
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.logo .logoImg {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo span {
+    font-size: 20px;
+    color: #a0a0a0;
+    filter: drop-shadow(2px 2px 0px #5d7275);
+}
+
+.logo img {
+    height: auto;
+    width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: var(--accent-color); /* hover da nav */
+}
+
+.btn-login {
+    background-color: #007bff; /* Azul primário para botões */
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+/* --- ESTILOS ESPECÍFICOS DO CATÁLOGO DE JOGOS (catalogo.css) --- */
+
+/* 1. SEÇÃO PRINCIPAL */
+.game-showcase {
+    /* Padding maior no topo para dar espaço após o Header */
+    padding-top: 100px;
+    padding-bottom: 70px;
+    background-color: transparent; /* Permite que o body defina o fundo */
+    text-align: center;
+}
+
+.game-showcase h3 {
+    font-size: 2.5em;
+    color: var(--accent-color); /* Mantém o destaque do título */
+    margin-bottom: 40px;
+}
+
+/* 2. BARRA DE FILTROS */
+.game-filters {
+    /* Mantemos o estilo dark/elevado para a barra de filtros */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3b3c40; 
+    padding: 15px 30px;
+    border-radius: 6px;
+    margin-bottom: 40px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-group label {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.filter-group select {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: 1px solid #555;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.filter-group select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.filter-recommendation p {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin: 0;
+    font-size: 0.95em;
+}
+
+/* 3. GRID DE JOGOS */
+/* Herda o estilo do game-grid e game-card do style.css principal. 
+   Não é necessário redefinir, a não ser que queira um ajuste fino no espaçamento. */
+/* Ex: */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo: 3 ou 4 colunas */
+    gap: 30px;
+}
+
+.game-card {
+    background-color: #1a1a20;
+    margin: 25px;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card h4, p {
+    font-family: 'Arcane';
+    color: var(--text-color);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* --- ESTILO PARA AS TAGS DE GÊNERO DENTRO DO CARD --- */
+.game-card .game-genres {
+    color: var(--text-color);
+    font-size: 0.9em;
+    margin: 5px 0 10px 0;
+    padding-top: 5px;
+    display: block; /* Garante que ocupa a linha toda */
+}
+
+.genre-tag {
+    display: inline-block;
+    background-color: #3b3c40; /* Fundo escuro */
+    color: var(--accent-color); /* Cor de destaque */
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    white-space: nowrap; /* Evita quebras de linha indesejadas */
+}
+
+.btn-primary {
+    /* Cor de Fundo: A cor de destaque (Laranja/Amarelo) */
+    background-color: var(--accent-color); 
+    
+    /* Cor do Texto: O primário escuro para alto contraste */
+    color: var(--primary-color); 
+    
+    padding: 10px 20px;
+    border: none; /* Não precisa de borda, pois o fundo já define */
+    border-radius: 4px;
+    text-decoration: none; /* Remove sublinhado se for um <a> */
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-block; /* Garante que o padding funcione corretamente */
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    /* Aumenta o brilho para dar feedback visual de interação */
+    background-color: #f7a81a; /* Ex: Uma variação levemente mais clara do D99311 */
+    /* Ou simplesmente: filter: brightness(1.15); */
+    
+    /* Leve elevação e sombra para dar profundidade */
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:active {
+    /* Efeito de "clique" ou "pressionado" */
+    transform: translateY(0); 
+    box-shadow: none;
+    background-color: #b3730e; /* Cor ligeiramente mais escura que o padrão */
+}
+
+.btn-secondary {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    text-decoration: none;
+    display: block; /* Ocupa a largura total do card */
+    text-align: center;
+    margin-top: auto;
+    border-radius: 4px;
+}
+
+/* Container dos Cards: Configuração de 6 colunas */
+#gameList {
+    display: grid; /* Ativa o modelo de Grid */
+    /* 6 Colunas exatas, cada uma com 1 fração (1fr) de espaço */
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 20px; /* Espaçamento entre os cards */
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+/* ------------------------------------------- */
+/* RESPONSIVIDADE: Ajuste para Telas Menores */
+/* ------------------------------------------- */
+
+/* Para telas de até 1400px: 5 colunas */
+@media screen and (max-width: 1400px) {
+    #gameList {
+        grid-template-columns: repeat(5, 1fr); 
+        gap: 15px;
+    }
+}
+
+/* Para telas de até 1200px: 4 colunas */
+@media screen and (max-width: 1200px) {
+    #gameList {
+        grid-template-columns: repeat(4, 1fr); 
+    }
+}
+
+/* Para telas de até 992px (Tablets): 3 colunas (Pode usar a media query que já existia no seu arquivo) */
+@media screen and (max-width: 992px) {
+    #gameList {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* Para telas de até 600px (Celulares): 2 colunas */
+@media screen and (max-width: 600px) {
+    #gameList {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/*
+    RODAPÉ
+*/
+.main-footer {
+    background-color: #1a1a20;
+    padding: 5px 50px;
+    text-align: center;
+    color: #999;
+    border-top: 2px solid #333;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links ul li a {
+    color: #999;
+    text-decoration: none;
+}
+
+.social-media {
+    margin-top: 15px;
+}

@@ -143,3 +143,34 @@ body {
 .auth-box .btn-primary:hover {
     filter: brightness(1.2); /* Efeito hover sutil */
 }
+
+/*
+    RODAPÉ
+*/
+.main-footer {
+    background-color: #1a1a20;
+    padding: 5px 50px;
+    text-align: center;
+    color: #999;
+    border-top: 2px solid #333;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links ul li a {
+    color: #999;
+    text-decoration: none;
+}
+
+.social-media {
+    margin-top: 15px;
+}

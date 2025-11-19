@@ -62,7 +62,6 @@ if (menuToggle && mainNav) {
     });
 }
 
-
 // 3. EFEITO DE CLIQUE SIMPLES NO CARD DO JOGO
 // Adiciona um feedback visual quando o usuário clica para "comprar"
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,3 +84,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// =========================================================
+// 4. LÓGICA DE FILTRAGEM E BUSCA DO CATÁLOGO (catalogo.html)
+// =========================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Verifica se estamos na página de catálogo
+    const gameGridElement = document.querySelector('.game-grid');
+    if (!gameGridElement) return; // Sai se não for a página do catálogo
+
+    // ELEMENTOS DO FILTRO
+    const genreSelect = document.getElementById('genre-select');
+    const searchInput = document.getElementById('game-search');
+    const searchButton = document.getElementById('search-button');
+
+    // 1. FUNÇÃO PRINCIPAL DE FILTRAGEM (Filtra o array 'jogos' e renderiza)
+    function filterGames() {
+        // Obtém os valores de filtro
+        const selectedGenre = genreSelect ? genreSelect.value : 'all';
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        
+        // Filtra o array 'jogos' (que está em gameList.js)
+        const filteredGames = jogos.filter(jogo => {
+            const cardGenres = jogo.infos.genre; // Array de gêneros
+            const cardTitle = jogo.infos.name.toLowerCase(); 
+
+            // Critério 1: Gênero (Checa se o array do jogo INCLUI o gênero selecionado)
+            const matchesGenre = selectedGenre === 'all' || cardGenres.includes(selectedGenre);
+
+            // Critério 2: Busca por Nome (Checa se o nome do jogo INCLUI o termo de busca)
+            const matchesSearch = cardTitle.includes(searchTerm);
+            
+            // Retorna apenas se atender a AMBOS os critérios
+            return matchesGenre && matchesSearch;
+        });
+
+        // 2. RENDERIZA OS JOGOS FILTRADOS
+        renderGames(filteredGames);
+    }
+    
+    // 3. INICIALIZAÇÃO
+    // RENDERIZA TODOS OS JOGOS NA PRIMEIRA VEZ
+    renderGames(jogos); 
+
+    // 4. ADICIONA LISTENERS
+    if (genreSelect) {
+        genreSelect.addEventListener('change', filterGames);
+    }
+    if (searchButton) {
+        searchButton.addEventListener('click', filterGames);
+    }
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                filterGames();
+            }
+        });
+    }
+
+});
+

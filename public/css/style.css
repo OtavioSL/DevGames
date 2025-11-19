@@ -128,35 +128,46 @@ body {
 -------------------------------- Carrossel --------------------------------
 */
 .hero-carousel {
-    height: 450px;
-    margin-top: 70px;
+    /* height: 50vh; */
+    margin-top: 40px;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     background-color: var(--primary-color);
 }
-.swiper-slide {
+
+/* Garante que os slides ocupem 100% do container pai */
+.swiper-container, .swiper-slide {
+    width: 100%;
+    /* height: 800px; Herda a altura de 60vh do .hero-carousel */
+}
+
+/* .swiper-slide { */
     /* Garante que o conteúdo fique centralizado no slide */
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px 30px;
-}    
+    padding: 20px 30px; */
+/* }     */
 
 .slide-content-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 1200px;
-    height: 100%;
+    justify-content: space-between;
+    width: 100vw;
+    object-fit: cover;
+    /* max-width: 1200px; */
+    height: calc(85vh - 70px);
+    padding: 30px;
+    padding-bottom: 0;
 }
 
 .slide-text {
     flex: 0 0 25%;
     height: 100%;
-    padding: 0 15px;
+    padding-right: 30px;
+    /* padding: 0 15px; */
     text-align: left;
     z-index: 2;
     display: flex;
@@ -182,9 +193,9 @@ body {
     flex: 0 0 75%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
+    justify-content: right;
+    align-items: right;
+    padding: 10px;
     z-index: 1;
     position: relative;
     overflow: hidden;
@@ -194,7 +205,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
@@ -229,7 +240,7 @@ body {
 .slide-content-wrapper.reverse-layout .slide-image::after {
     background: linear-gradient(to left, 
         var(--primary-color) 0%,        /* Cor de Fundo no final da imagem (onde o texto começa) */
-        rgba(33, 34, 38, 0) 25%         /* Fade para transparente */
+        rgba(33, 34, 38, 0) 35%         /* Fade para transparente */
     );
 }
 
@@ -241,7 +252,7 @@ body {
 }
 
 .slide-text.active-animation.from-left {
-    transform: translateX(40px); /* Começa 50px à esquerda */
+    transform: translateX(60px); /* Começa 50px à esquerda */
 }
 
 .slide-text.active-animation.from-right {
@@ -249,7 +260,7 @@ body {
 }
 
 .slide-image.active-animation.from-left {
-    transform: translateX(40px); /* Começa 50px à esquerda */
+    transform: translateX(60px); /* Começa 50px à esquerda */
 }
 
 .slide-image.active-animation.from-right {
@@ -300,57 +311,125 @@ body {
 /*
     SEÇÃO DE DESTAQUE (HERO)
 */
-.hero-section {
-    background: url('img/hero-background.jpg') no-repeat center center/cover; /* Substitua pela imagem de fundo */
-    height: 450px; /* Altura do banner */
-    width: 100%;
-    margin-top: 70px;
-    margin: 0 auto;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    /* Para escurecer o fundo da imagem e destacar o texto */
-    background-blend-mode: multiply;
-    background-color: rgba(0, 0, 0, 0.4); 
+/* ========================================================= */
+/* --- BANNER DE DESTAQUE INDIE (featured-banner) --- */
+/* ========================================================= */
+.banner-indie-highlight {
+    /* Substitua 'url(../assets/images/seu_jogo_indie.jpg)' pela imagem real */
+    background-image: url(../assets/images/capasJogos/Silksong.jpg); 
+    background-size: cover;
+    background-position: center 30%; /* Ajuste a posição para focar no jogo */
+    background-repeat: no-repeat;
+    padding: 80px 0; /* Espaçamento interno */
+    margin-top: 0px;
+    margin-bottom: 0px; /* Separa do conteúdo abaixo */
+    position: relative;
+    color: var(--text-color);
 }
 
-.hero-content h2, p {
-    text-align: center;
-    font-family: 'Poly', sans-serif;
-    color: var(--secondary-color);
-    font-size: 1.8em;
+.banner-indie-highlight::before {
+    /* Overlay semi-transparente escuro para melhorar a leitura do texto */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay preto com 60% de opacidade */
+}
+
+.banner-indie-highlight .container {
+    display: flex;
+    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
+    z-index: 10; /* Garante que o conteúdo fique acima do overlay */
+    position: relative;
+}
+
+.banner-content {
+    max-width: 600px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.banner-content .tag-lancamento {
+    display: inline-block;
+    background-color: var(--accent-color); /* Laranja/Amarelo */
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-weight: bold;
     margin-bottom: 10px;
 }
 
-.btn-primary {
-    background-color: var(--accent-color); /* Dourado para o CTA principal */
-    color: #1a1a20;
-    padding: 10px 18px;
-    font-size: 0.9em;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 4px;
-    display: inline-block;
-    margin-top: 20px;
+.banner-content h2 {
+    font-size: 3em;
+    color: #ffffff; /* Título bem claro */
+    margin: 10px 0;
 }
 
-.hero-content p {
-    color: #ffffff;
-    font-size: 1.2em;
+.banner-content p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.banner-actions {
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+}
+
+/* ⚠️ Responsividade para o Banner */
+@media screen and (max-width: 768px) {
+    .banner-indie-highlight {
+        padding: 50px 0;
+    }
+    
+    .banner-content {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .banner-content h2 {
+        font-size: 2em;
+    }
+    
+    .banner-actions {
+        justify-content: center; /* Centraliza os botões no mobile */
+        flex-direction: column; /* Botões ficam empilhados */
+        gap: 10px;
+    }
+    
+    .banner-actions a {
+        width: 100%; /* Botões ocupam a largura total no mobile */
+    }
 }
 
 /*
     VITRINE DE JOGOS
 */
 .game-showcase {
-    padding: 50px;
+    background-image: url(../assets/images/backgrounds/bgMedieval.jpg);
+    background-size: 95%;
+    background-position: center;
+    background-color: #2b2c31;
+    padding: 70px 0;
     text-align: center;
+    /* Adiciona Sombra para o Efeito 3D de Nicho */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), /* Sombra inferior */
+                0 -5px 15px rgba(0, 0, 0, 0.3); /* Sombra superior (sutil) */
+}
+
+.game-showcase .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .game-showcase h3 {
+    font-family: 'Poly', sans-serif;
     font-size: 2em;
+    color: var(--accent-color);
     margin-bottom: 40px;
 }
 
@@ -362,10 +441,18 @@ body {
 
 .game-card {
     background-color: #1a1a20;
+    margin: 25px;
     padding: 15px;
     border-radius: 6px;
     text-align: left;
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card h4, p {
+    font-family: 'Arcane';
+    color: var(--text-color);
 }
 
 .game-card:hover {
@@ -380,6 +467,41 @@ body {
     margin-bottom: 10px;
 }
 
+.btn-primary {
+    /* Cor de Fundo: A cor de destaque (Laranja/Amarelo) */
+    background-color: var(--accent-color); 
+    
+    /* Cor do Texto: O primário escuro para alto contraste */
+    color: var(--primary-color); 
+    
+    padding: 10px 20px;
+    border: none; /* Não precisa de borda, pois o fundo já define */
+    border-radius: 4px;
+    text-decoration: none; /* Remove sublinhado se for um <a> */
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-block; /* Garante que o padding funcione corretamente */
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    /* Aumenta o brilho para dar feedback visual de interação */
+    background-color: #f7a81a; /* Ex: Uma variação levemente mais clara do D99311 */
+    /* Ou simplesmente: filter: brightness(1.15); */
+    
+    /* Leve elevação e sombra para dar profundidade */
+    transform: translateY(-1px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary:active {
+    /* Efeito de "clique" ou "pressionado" */
+    transform: translateY(0); 
+    box-shadow: none;
+    background-color: #b3730e; /* Cor ligeiramente mais escura que o padrão */
+}
+
 .btn-secondary {
     background-color: #007bff;
     color: white;
@@ -387,7 +509,7 @@ body {
     text-decoration: none;
     display: block; /* Ocupa a largura total do card */
     text-align: center;
-    margin-top: 10px;
+    margin-top: auto;
     border-radius: 4px;
 }
 
