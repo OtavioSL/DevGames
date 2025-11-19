@@ -1,0 +1,226 @@
+body {
+    background-image: url(../assets/images/backgrounds/bgMedieval.jpg);
+}
+/*
+    ESTILOS EXCLUSIVOS DA PÁGINA DE NOVIDADES (novidades.html)
+*/
+
+.news-page-content {
+    padding: 100px 0;
+    background-color: var(--primary-color);
+}
+
+.page-title {
+    font-size: 3em;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 60px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* --- ESTILO DESTAQUE PRINCIPAL --- */
+
+.featured-news {
+    display: flex;
+    background-color: #1a1a20;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    margin-bottom: 40px;
+}
+
+.featured-news:hover {
+    transform: translateY(-5px);
+}
+
+.featured-img {
+    width: 65%; /* Imagem em destaque maior */
+    height: 400px;
+    object-fit: cover;
+}
+
+.featured-content {
+    width: 35%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.featured-tag {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+.featured-content h2 {
+    font-size: 2em;
+    color: white;
+    margin: 15px 0;
+}
+
+.featured-content p {
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.btn-read-more {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+}
+
+.btn-read-more:hover {
+    background-color: #164057; /* Escurece o secundário */
+}
+
+/* --- ESTILO GRID SECUNDÁRIO --- */
+
+.secondary-news-section {
+    padding-top: 30px;
+}
+
+.news-grid {
+    display: grid;
+    /* 3 Colunas no desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+}
+
+.news-card {
+    background-color: #1a1a20;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 20px;
+    flex-grow: 1; /* Garante que o padding ocupe o espaço restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info h4 {
+    color: white;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.card-excerpt {
+    color: var(--text-color);
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.read-more-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto; /* Empurra o link para o rodapé do card */
+}
+
+.news-date {
+    font-size: 0.75em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+@media (max-width: 1200px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Colunas em tablets maiores */
+    }
+    .featured-img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    .featured-news {
+        flex-direction: column;
+    }
+    .featured-img, .featured-content {
+        width: 100%;
+    }
+    .featured-img {
+        height: 100%;
+    }
+    .featured-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-title {
+        font-size: 2em;
+    }
+    .news-grid {
+        grid-template-columns: 1fr; /* 1 Coluna em celulares */
+    }
+    .featured-content h2 {
+        font-size: 1.5em;
+    }
+}
+
+/* --- PAGINAÇÃO --- */
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.btn-pagination {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn-pagination:hover:not(:disabled) {
+    background-color: #164057;
+}
+
+.btn-pagination:disabled {
+    background-color: #333; /* Cor mais escura para botões desabilitados */
+    color: #888;
+    cursor: not-allowed;
+}
+
+#page-number {
+    font-size: 1.1em;
+    color: white;
+    font-weight: bold;
+}

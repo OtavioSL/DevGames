@@ -231,8 +231,8 @@ body {
     
     /* Degradê padrão (Texto à Esquerda, Imagem à Direita): fade no lado esquerdo da imagem */
     background: linear-gradient(to right, 
-        var(--primary-color) 0%,        /* Cor de Fundo no início da imagem (onde o texto começa) */
-        rgba(33, 34, 38, 0) 25%         /* Fade para transparente */
+        var(--primary-color) 15%,        /* Cor de Fundo no início da imagem (onde o texto começa) */
+        rgba(33, 34, 38, 0) 40%         /* Fade para transparente */
     );
 }
 
