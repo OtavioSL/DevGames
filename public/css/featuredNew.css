@@ -88,6 +88,32 @@
     padding-left: 0;
 }
 
+/* 1. Estado normal dos links (Não Visitado) */
+a, 
+a:link {
+    color: var(--accent-color); /* Cor que você usa para links (ex: azul) */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* 2. Estado de Hover e Ativo (Ao passar o mouse ou clicar) */
+a:hover, 
+a:active {
+    color: var(--secondary-color); /* Cor de destaque ao passar o mouse */
+    text-decoration: underline;
+}
+
+/* 3. O PONTO CHAVE: FORÇAR O LINK VISITADO A MANTER A COR NORMAL */
+a:visited {
+    /* O link visitado (visited) DEVE TER A MESMA COR do estado normal (:link) */
+    color: var(#ffffff); 
+    /* Você pode manter o sublinhado ou removê-lo, mas a cor é o importante */
+    text-decoration: none;
+}
+.article-content b {
+    color: var(--accent-color);
+}
+
 /* Bloco de Citação */
 .article-content blockquote {
     border-left: 5px solid var(--accent-color);

@@ -1,3 +1,25 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- LÓGICA DO MENU MOBILE ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener('click', () => {
+            // Alterna a classe que define se o menu está aberto ou fechado
+            mobileMenu.classList.toggle('menu-open');
+        });
+
+        // Opcional: Fechar o menu se o usuário clicar em um link (para mobile)
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('menu-open');
+            });
+        });
+    }
+});
+
 // 1. INICIALIZAÇÃO DO SWIPER CARROSSEL
 const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -144,4 +166,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
+// --- ELEMENTOS DO HEADER ---
+const loginContainer = document.getElementById('login-button-container');
+const profileContainer = document.getElementById('profile-menu-container');
+const logoutButton = document.getElementById('btn-logout');
+
+// --- LÓGICA DE ALTERNÂNCIA DO HEADER ---
+function renderHeader(isLoggedIn) {
+    if (loginContainer && profileContainer) {
+        if (isLoggedIn) {
+            // Se logado: Esconde o botão de Login e mostra o Menu de Perfil
+            loginContainer.classList.add('hidden');
+            profileContainer.classList.remove('hidden');
+        } else {
+            // Se deslogado: Mostra o botão de Login e esconde o Menu de Perfil
+            loginContainer.classList.remove('hidden');
+            profileContainer.classList.add('hidden');
+        }
+    }
+}
 

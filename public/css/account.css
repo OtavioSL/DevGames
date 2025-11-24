@@ -1,0 +1,174 @@
+/*
+    ESTILOS EXCLUSIVOS DA PÁGINA MINHA CONTA (conta.html)
+*/
+
+.account-page-content {
+    padding: 100px 20px;
+    background-color: var(--primary-color);
+    min-height: 80vh; /* Garante que a página não seja muito curta */
+}
+
+.page-title {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* --- ESTILOS DE CONTEÚDO (Não Logado) --- */
+
+.auth-message-box {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #1a1a20; /* Fundo mais escuro */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.auth-message-box p {
+    color: var(--text-color);
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.auth-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.auth-actions .btn-primary,
+.auth-actions .btn-secondary {
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.auth-actions .btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.auth-actions .btn-primary:hover {
+    background-color: #f7a81b; 
+}
+
+.auth-actions .btn-secondary {
+    background-color: #333;
+    color: white;
+}
+
+.auth-actions .btn-secondary:hover {
+    background-color: #555;
+}
+
+/* --- ESTILOS DE CONTEÚDO (Logado - Tracker) --- */
+
+.tracker-section {
+    color: white;
+}
+
+.tracker-info {
+    font-size: 1.1em;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.promo-grid {
+    display: grid;
+    /* Layout Responsivo: 2 colunas no desktop, 1 no mobile */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.promo-card {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a20;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.promo-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.promo-details {
+    flex-grow: 1;
+}
+
+.promo-details h4 {
+    font-size: 1.4em;
+    margin: 0 0 5px;
+    color: var(--secondary-color);
+}
+
+.promo-details p {
+    margin: 3px 0;
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+.promo-details .current-price {
+    font-weight: bold;
+    color: white;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.status.alert {
+    background-color: #d9534f; /* Vermelho para alerta */
+}
+
+.status.success {
+    background-color: #5cb85c; /* Verde para sucesso */
+}
+
+.btn-remove {
+    background-color: transparent;
+    border: 1px solid #d9534f;
+    color: #d9534f;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-remove:hover {
+    background-color: #d9534f;
+    color: white;
+}
+
+/* --- RESPONSIVIDADE (Ajuste para telas pequenas) --- */
+
+@media (max-width: 650px) {
+    .promo-grid {
+        /* Uma única coluna em telas menores */
+        grid-template-columns: 1fr;
+    }
+    .page-title {
+        font-size: 2em;
+    }
+    .auth-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
