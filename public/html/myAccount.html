@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta - Rastreador de Promoções | DevGames</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/account.css"> 
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="shortcut icon" href="../assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+     <header class="main-header">
+        <div class="container">
+            <a href="../../index.html" class="logo">
+                <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
+                        alt="Logo Da Empresa"></div><span>DevGames</span>
+            </a>
+
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../html/catalogo.html">Jogos</a></li>
+                    <li><a href="../html/novidades.html">Novidades</a></li>
+                    <li><a href="../suporte.html">Suporte</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-actions">
+                <div id="login-button-container">
+                    <a href="./public/html/login.html" class="btn-login" id="desktop-login-link">Login</a>
+                </div>
+
+                <div id="profile-menu-container" class="hidden">
+                    <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário"
+                            id="profile-avatar">
+                    </button>
+
+                    <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
+                        <a href="./public/html/myAccount.html" role="menuitem">Minha Conta</a>
+                        <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <main class="account-page-content">
+        <div class="container">
+            
+            <section id="logged-out-content" class="auth-message-box">
+                <h1 class="page-title">Acompanhe Seus Jogos Favoritos!</h1>
+                <p>Para criar sua lista de jogos, monitorar preços e receber alertas de promoções exclusivas, você precisa fazer login ou criar uma conta.</p>
+                
+                <div class="auth-actions">
+                    <a href="login.html" class="btn-primary">Fazer Login</a>
+                    <a href="cadastro.html" class="btn-secondary">Criar Conta</a>
+                </div>
+            </section>
+
+            <section id="logged-in-content" class="tracker-section hidden">
+                <h1 class="page-title">🎮 Seu Rastreador de Promoções</h1>
+                <p class="tracker-info">Aqui estão os jogos que você está monitorando. Avisaremos se o preço cair abaixo do seu limite desejado!</p>
+
+                <div id="promo-list" class="promo-grid">
+                    
+                    <div class="promo-card">
+                        <img src="../assets/images/capasJogos/hades_2_capa.jpg" alt="Capa Hades II" class="promo-img">
+                        <div class="promo-details">
+                            <h4>Hades II</h4>
+                            <p class="current-price">Preço Atual: **R$ 88,99**</p>
+                            <p class="target-price">Meta de Preço: R$ 60,00</p>
+                            <span class="status alert">🚨 ALERTA: Ainda não em promoção!</span>
+                        </div>
+                        <button class="btn-remove">Remover</button>
+                    </div>
+
+                    <div class="promo-card">
+                        <img src="../assets/images/capasJogos/celeste_capa.jpg" alt="Capa Celeste" class="promo-img">
+                        <div class="promo-details">
+                            <h4>Celeste</h4>
+                            <p class="current-price">Preço Atual: **R$ 18,50**</p>
+                            <p class="target-price">Meta de Preço: R$ 20,00</p>
+                            <span class="status success">✅ PROMOÇÃO ATINGIDA!</span>
+                        </div>
+                        <button class="btn-remove">Remover</button>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Termos de Serviço</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+        </div>
+        <p>&copy; 2025 DevGames. Todos os direitos reservados.</p>
+        <div class="social-media">
+        </div>
+    </footer>
+
+    <script src="../js/auth.js"></script> 
+</body>
+
+</html>

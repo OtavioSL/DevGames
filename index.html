@@ -24,13 +24,48 @@
                     <li><a href="./public/html/catalogo.html">Jogos</a></li>
                     <li><a href="./public/html/novidades.html">Novidades</a></li>
                     <li><a href="../suporte.html">Suporte</a></li>
+<<<<<<< Updated upstream
                     <li><a href="#conta">Minha Conta</a></li>
+=======
+>>>>>>> Stashed changes
                 </ul>
             </nav>
             <div class="user-actions">
+<<<<<<< Updated upstream
                 <a href="./public/html/login.html" class="btn-login">Login</a>
             </div>
     </header>
+=======
+                <div id="login-button-container">
+                    <a href="./public/html/login.html" class="btn-login" id="desktop-login-link">Login</a>
+                </div>
+
+                <div id="profile-menu-container" class="hidden">
+                    <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
+                        <img src="./public/assets/images/avatar/avatar.jpg" alt="Avatar do Usuário" id="profile-avatar">
+                    </button>
+
+                    <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
+                        <a href="./public/html/myAccount.html" role="menuitem">Minha Conta</a>
+                        <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <nav id="mobile-menu" class="main-nav hidden-mobile">
+        <ul>
+            <li><a href="./public/html/catalogo.html">Jogos</a></li>
+            <li><a href="./public/html/novidades.html">Novidades</a></li>
+            <li><a href="./public/html/suporte.html">Suporte</a></li>
+            <li><a href="./public/html/myAccount.html">Minha Conta</a></li>
+
+            <li id="mobile-login-link"><a href="./public/html/login.html" class="btn-login">Login</a></li>
+        </ul>
+    </nav>
+    </header>
+>>>>>>> Stashed changes
     <section class="swiper mySwiper hero-carousel">
         <div class="swiper-wrapper">
 
@@ -94,8 +129,14 @@
                 <h2>Hollow Knight: Silksong</h2>
                 <p>A aclamada sequência do Metroidvania favorito dos fãs foi coroada com múltiplas indicações ao The Game Awards 2025, incluindo as cobiçadas categorias de Jogo do Ano e Melhor Jogo de Ação/Aventura.</p>
                 <div class="banner-actions">
+<<<<<<< Updated upstream
                     <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" target="_blank" class="btn-secondary">Saiba Mais</a>
                     <a href="#wishlist" class="btn-secondary">Adicionar à Lista de Desejos</a>
+=======
+                    <a href="./public/html/featuredNew.html" class="btn-secondary">Saiba Mais</a>
+                    <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" class="btn-secondary"
+                        target="_blank">Adicionar à Lista de Desejos</a>
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>
@@ -127,7 +168,9 @@
                 <p class="game-impact"> Morte, Luto, Memória</p>
                 <a href="https://store.steampowered.com/app/972660/Spiritfarer_Edio_Farewell/" class="btn-secondary">Comprar</a>
             </div>
-
+        </div>
+        <div class="container showcase-footer">
+            <a href="./public/html/catalogo.html" class="btn-primary">Ver lista completa de jogos</a>
         </div>
     </main>
 
@@ -144,6 +187,7 @@
         </div>
     </footer>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="./public/js/carousel.js"></script>
     <script src="./public/js/main.js"></script>
     <script src="./public/js/auth.js"></script>
 </body>

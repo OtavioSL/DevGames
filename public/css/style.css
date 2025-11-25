@@ -62,6 +62,90 @@ body {
     color: var(--accent-color);
 }
 
+<<<<<<< Updated upstream
+=======
+/* --- ESTILOS DO MENU DROPDOWN DE PERFIL --- */
+
+#profile-menu-container {
+    position: relative; /* FUNDAMENTAL para posicionar o menu interno */
+}
+
+.hidden {
+    display: none !important;
+}
+#profile-menu-container.hidden {
+    display: none !important;
+}
+
+.avatar-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: box-shadow 0.2s;
+}
+
+.avatar-trigger:hover {
+    box-shadow: 0 0 0 3px var(--accent-color); /* Efeito de destaque no hover */
+}
+
+#profile-avatar {
+    width: 40px; /* Tamanho do avatar */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* O MENU DROPDOWN */
+.profile-dropdown-content {
+    position: absolute;
+    top: 100%; /* Posiciona abaixo do avatar */
+    right: 0;
+    background-color: #333333; /* Fundo do menu (Pode usar secondary-color se quiser) */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1001; /* Garante que fique acima do resto do conteúdo */
+    border-radius: 4px;
+    padding: 5px 0;
+}
+
+.profile-dropdown-content.hidden {
+    display: none;
+}
+
+.dropdown-welcome {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-size: 0.9em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 5px;
+}
+
+.profile-dropdown-content a,
+.btn-dropdown-logout {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.profile-dropdown-content a:hover,
+.btn-dropdown-logout:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Destaque no hover */
+}
+
+>>>>>>> Stashed changes
 .logo {
     font-size: 1.5em;
     font-weight: bold;
@@ -158,7 +242,7 @@ body {
     width: 100vw;
     object-fit: cover;
     /* max-width: 1200px; */
-    height: calc(85vh - 70px);
+    height: calc(80vh - 70px);
     padding: 30px;
     padding-bottom: 0;
 }
@@ -409,10 +493,12 @@ body {
     VITRINE DE JOGOS
 */
 .game-showcase {
-    background-image: url(../assets/images/backgrounds/bgMedieval.jpg);
+    background-image: url(../assets/images/backgrounds/Vitrine.jpg);
     background-size: 95%;
     background-position: center;
-    background-color: #2b2c31;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay preto com 60% de opacidade */
     padding: 70px 0;
     text-align: center;
     /* Adiciona Sombra para o Efeito 3D de Nicho */
@@ -511,6 +597,19 @@ body {
     text-align: center;
     margin-top: auto;
     border-radius: 4px;
+}
+
+/* --- ESTILO PARA O FOOTER DA SEÇÃO SHOWCASE NA PÁGINA INICIAL --- */
+
+.showcase-footer {
+    text-align: center; /* Centraliza o conteúdo (o link/botão) */
+    margin-top: 50px; /* Adiciona espaçamento generoso acima */
+    margin-bottom: 50px; /* Adiciona espaçamento generoso abaixo */
+}
+
+.showcase-footer .btn-primary {
+    /* Define o botão como inline-block para que o text-align: center funcione */
+    display: inline-block; 
 }
 
 /*

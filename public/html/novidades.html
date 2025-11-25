@@ -19,19 +19,43 @@
                 <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
+
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+
             <nav class="main-nav">
                 <ul>
+<<<<<<< Updated upstream
                     <li><a href="catalogo.html">Jogos</a></li>
                     <li><a href="novidades.html">Novidades</a></li>
                     <li><a href="../suporte.html">Suporte</a></li>
                     <li><a href="../../index.html#conta">Minha Conta</a></li>
                     <li class="mobile-login-item"><a href="login.html" class="btn-login">Login</a></li>
+=======
+                    <li><a href="../html/catalogo.html">Jogos</a></li>
+                    <li><a href="../html/novidades.html">Novidades</a></li>
+                    <li><a href="./suporte.html">Suporte</a></li>
+>>>>>>> Stashed changes
                 </ul>
             </nav>
+
             <div class="user-actions">
-                <a href="login.html" class="btn-login">Login</a>
+                <div id="login-button-container">
+                    <a href="../html/login.html" class="btn-login" id="desktop-login-link">Login</a>
+                </div>
+
+                <div id="profile-menu-container" class="hidden">
+                    <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário"
+                            id="profile-avatar">
+                    </button>
+
+                    <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
+                        <a href="../html/myAccount.html" role="menuitem">Minha Conta</a>
+                        <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
+                    </div>
+                </div>
             </div>
-        </div>
     </header>
 
     <main class="news-page-content">
@@ -63,13 +87,20 @@
                 <div class="news-grid">
 
                     <article class="news-card">
-                        <img src="../assets/images/noticias/news_hollowknight.jpg" alt="Capa da Notícia Silksong">
+                        <img src="../assets/images/noticias/Dispatch.jpg" alt="Capa da Notícia Dispatch">
                         <div class="card-info">
+<<<<<<< Updated upstream
                             <h4>Hollow Knight: Sequência Silksong Finalmente Ganha Data?</h4>
                             <p class="card-excerpt">Rumores apontam para um lançamento surpresa ainda neste semestre,
                                 após anos de espera dos fãs...</p>
                             <p class="news-date">18 de Novembro, 2025</p>
                             <a href="#" class="read-more-link">Continuar Lendo</a>
+=======
+                            <h4>📰 Sucesso Surpreendente: "Dispatch" Reinventa o Gênero de Super-Heróis e Garante Indicação no TGA 2025</h4>
+                            <p class="card-excerpt">Em uma entrevista recente, Pierre Shorette, um dos escritores principais e diretores do AdHoc Studio, celebrou o reconhecimento inesperado...</p>
+                            <p class="news-date">25 de Novembro, 2025</p>
+                            <a href="./noticia1.html" class="read-more-link">Continuar Lendo</a>
+>>>>>>> Stashed changes
                         </div>
                     </article>
 

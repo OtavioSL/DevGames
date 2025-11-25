@@ -62,6 +62,87 @@ body {
     color: var(--accent-color);
 }
 
+/* --- ESTILOS DO MENU DROPDOWN DE PERFIL --- */
+
+#profile-menu-container {
+    position: relative; /* FUNDAMENTAL para posicionar o menu interno */
+}
+
+.hidden {
+    display: none !important;
+}
+#profile-menu-container.hidden {
+    display: none !important;
+}
+
+.avatar-trigger {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: box-shadow 0.2s;
+}
+
+.avatar-trigger:hover {
+    box-shadow: 0 0 0 3px var(--accent-color); /* Efeito de destaque no hover */
+}
+
+#profile-avatar {
+    width: 40px; /* Tamanho do avatar */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+/* O MENU DROPDOWN */
+.profile-dropdown-content {
+    position: absolute;
+    top: 100%; /* Posiciona abaixo do avatar */
+    right: 0;
+    background-color: #333333; /* Fundo do menu (Pode usar secondary-color se quiser) */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1001; /* Garante que fique acima do resto do conteúdo */
+    border-radius: 4px;
+    padding: 5px 0;
+}
+
+.profile-dropdown-content.hidden {
+    display: none;
+}
+
+.dropdown-welcome {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-color);
+    font-size: 0.9em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 5px;
+}
+
+.profile-dropdown-content a,
+.btn-dropdown-logout {
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    transition: background-color 0.2s;
+}
+
+.profile-dropdown-content a:hover,
+.btn-dropdown-logout:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Destaque no hover */
+}
+
 .logo {
     font-size: 1.5em;
     font-weight: bold;
@@ -124,6 +205,124 @@ body {
     border-radius: 4px;
 }
 
+/* --- ESTILOS DE DESKTOP (Garanta que o botão mobile está escondido) --- */
+/* Certifique-se de que a navegação principal (main-nav) e o logo estão centralizados em desktop, como antes */
+
+/* Estilos para o Botão Mobile (Por padrão, escondido em desktop) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color); /* Use a cor do seu texto */
+    font-size: 2em;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    order: 1; /* Posiciona no meio entre logo e user-actions em mobile */
+}
+
+/* Estilos do Menu Mobile */
+.main-nav.hidden-mobile {
+    display: none;
+}
+
+.main-nav.menu-open {
+    /* Estado aberto do menu */
+    display: block;
+    position: absolute;
+    top: 60px; /* Ajuste para logo abaixo do header */
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-color); /* Fundo do menu */
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.main-nav.menu-open ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    height: 300px;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.main-nav.menu-open li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+}
+
+.main-nav.menu-open li a:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- MEDIA QUERY (Revisão e Adição do Menu Mobile) --- */
+@media screen and (max-width: 768px) {
+    /* 1. HEADER (Cabeçalho) */
+    .main-header .container {
+        /* Garante que logo, menu-toggle e user-actions fiquem alinhados */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Oculta o menu de navegação principal em mobile (agora será controlado pelo JS) */
+    .main-nav {
+        display: none; 
+    }
+    
+    /* Mostra o botão de menu sanduíche */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* 2. MENU DROPDOWN (Certifica que ele está escondido, a menos que a classe menu-open seja aplicada pelo JS) */
+    #mobile-menu {
+        display: none;
+    }
+
+    #mobile-menu.menu-open {
+        display: block;
+        position: absolute;       
+        top: 60px;
+        left: auto;
+        right: 0;
+        width: auto;
+        min-width: 180px;
+        background-color: var(--secondary-color);
+        z-index: 999;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+/* Garante que os links dentro do menu mobile pareçam itens de lista */
+    #mobile-menu.menu-open li a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: background-color 0.2s;
+    }
+
+    /* Remove qualquer estilo de botão extra para o item de login dentro do menu mobile */
+#mobile-menu.menu-open li #mobile-login-link a.btn-login {
+    background: none;
+    padding: 15px 20px;
+}
+    
+    /* 3. Ajuste do Menu de Perfil Logado */
+    /* Empurra o logo um pouco para liberar espaço para o menu toggle e o user-actions */
+    .logo {
+        margin-right: 15px;
+    }
+}
+
 /* --- ESTILOS ESPECÍFICOS DO CATÁLOGO DE JOGOS (catalogo.css) --- */
 
 /* 1. SEÇÃO PRINCIPAL */
@@ -136,6 +335,7 @@ body {
 }
 
 .game-showcase h3 {
+    text-align: center;
     font-size: 2.5em;
     color: var(--accent-color); /* Mantém o destaque do título */
     margin-bottom: 40px;
@@ -146,45 +346,76 @@ body {
     /* Mantemos o estilo dark/elevado para a barra de filtros */
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
+    gap: 30px;
     background-color: #3b3c40; 
-    padding: 15px 30px;
+    background-image: url(../assets/images/backgrounds/banner.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 0;
     border-radius: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 40px; 
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.filter-group {
+.filter-group, .search-group {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    flex-shrink: 0;
 }
 
-.filter-group label {
-    font-weight: bold;
+.game-filters label {
     color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.9em;
 }
 
-.filter-group select {
+/* Estilo para os seletores e inputs */
+.game-filters select, .game-filters input[type="text"] {
     background-color: var(--primary-color);
     color: var(--text-color);
-    border: 1px solid #555;
-    padding: 8px 15px;
+    border: 1px solid var(--accent-color);
+    padding: 8px 10px;
     border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Campo de Busca (Input e Botão) */
+.search-bar {
+    display: flex;
+    align-items: stretch;
+}
+
+.search-bar input {
+    flex-grow: 1;
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.search-bar button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 15px;
     cursor: pointer;
-    transition: border-color 0.3s;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    transition: background-color 0.3s;
 }
 
-.filter-group select:focus {
-    border-color: var(--accent-color);
-    outline: none;
+.search-bar button:hover {
+    background-color: #f7a81a; /* Variação do accent-color*/
 }
 
-.filter-recommendation p {
-    color: var(--accent-color);
-    font-weight: 600;
-    margin: 0;
-    font-size: 0.95em;
+/*  Mensagem de Recomendação */
+.filter-recommendation {
+    text-align: right;
+    color: #888;
+    font-size: 0.9em;
+    padding-top: 10px;
 }
 
 /* 3. GRID DE JOGOS */
@@ -337,6 +568,40 @@ body {
     }
 }
 
+/* --- RESPONSIVIDADE PARA O CATÁLOGO (até 768px) --- */
+@media screen and (max-width: 768px) {
+    /* ... (outras regras como padding do .game-showcase) ... */
+    
+    .game-filters {
+        /* 🚨 ESSENCIAL: Empilha os grupos de filtro */
+        flex-direction: column; 
+        align-items: stretch; /* Faz os itens ocuparem a largura total */
+        gap: 20px;
+    }
+    
+    /* Faz o campo de busca e o botão ocuparem a largura total */
+    .search-group {
+        width: 100%;
+    }
+    
+    .filter-recommendation {
+        text-align: left; /* Alinha a mensagem à esquerda no mobile */
+        padding-top: 0;
+    }
+
+    /* Ajusta a lista de jogos para 3 colunas em tablets e 2 em celulares menores */
+    #gameList {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #gameList {
+        grid-template-columns: 1fr; 
+    }
+}
+
 /*
     RODAPÉ
 */
@@ -366,4 +631,34 @@ body {
 
 .social-media {
     margin-top: 15px;
+}
+
+/* 4. RESPONSIVIDADE PARA O CATÁLOGO */
+
+@media screen and (max-width: 768px) {
+    /* ... (outras regras) ... */
+    
+    .game-filters {
+        /* 🚨 ESSENCIAL: Empilha os grupos de filtro */
+        flex-direction: column; 
+        gap: 15px;
+        padding: 20px 0;
+    }
+    
+    /* Faz o campo de busca e o botão ocuparem a largura total antes de empilhar */
+    .search-bar {
+        width: 100%;
+        display: flex;
+    }
+    
+    .search-bar input {
+        flex-grow: 1; /* Ocupa o máximo de espaço */
+        padding: 10px;
+    }
+    
+    .search-bar button {
+        /* Tamanho fixo para o ícone */
+        padding: 10px 15px;
+        margin-left: 5px;
+    }
 }

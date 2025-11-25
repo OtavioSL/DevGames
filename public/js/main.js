@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 // 1. INICIALIZAÇÃO DO SWIPER CARROSSEL
 const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -16,132 +17,188 @@ const swiper = new Swiper(".mySwiper", {
         prevEl: ".swiper-button-prev",
     },
 });
-
-// FUNÇÃO PARA GERENCIAR ANIMAÇÕES DOS SLIDES
-function animateSlideContent(slideElement) {
-    // Remove animações antigas para resetar
-    const animatedElements = slideElement.querySelectorAll('.active-animation');
-    animatedElements.forEach(el => {
-        el.classList.remove('active-animation');
-        // Força reflow para resetar a animação
-        void el.offsetWidth; 
-    });
-
-    // Adiciona as classes para a animação começar no próximo frame
-    setTimeout(() => {
-        animatedElements.forEach(el => {
-            el.classList.add('active-animation');
-        });
-    }, 50); // Pequeno atraso para garantir o reset antes de adicionar
-}
-
-// Eventos do Swiper para disparar a animação
-swiper.on('slideChangeTransitionEnd', function () {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    animateSlideContent(activeSlide);
-});
-
-// Dispara a animação no carregamento da página para o primeiro slide
-document.addEventListener('DOMContentLoaded', () => {
-    const initialActiveSlide = swiper.slides[swiper.activeIndex];
-    animateSlideContent(initialActiveSlide);
-});
-
-
-// 2. FUNCIONALIDADE DE NAVEGAÇÃO MOBILE (Para o botão de menu)
-// Vamos simular que você adicionou um botão de menu (hamburguer) no seu HTML
-// Ex: <button class="menu-toggle">☰</button>
-
-const menuToggle = document.querySelector('.menu-toggle');
-const mainNav = document.querySelector('.main-nav');
-
-if (menuToggle && mainNav) {
-    menuToggle.addEventListener('click', () => {
-        // Alterna a classe 'active' para mostrar/esconder o menu
-        mainNav.classList.toggle('active');
-    });
-}
-
-// 3. EFEITO DE CLIQUE SIMPLES NO CARD DO JOGO
-// Adiciona um feedback visual quando o usuário clica para "comprar"
-document.addEventListener('DOMContentLoaded', () => {
-    const buyButtons = document.querySelectorAll('.game-card .btn-secondary');
-
-    buyButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            // Previne que o link vá para outra página imediatamente
-            event.preventDefault();
-
-            // Adiciona um feedback visual rápido
-            button.textContent = 'Adicionado ao Carrinho!';
-            button.style.backgroundColor = '#28a745'; // Verde de sucesso
-
-            // Opcional: Volta ao estado original após 2 segundos
-            setTimeout(() => {
-                button.textContent = 'Comprar';
-                button.style.backgroundColor = '#007bff'; // Azul original
-            }, 2000);
-        });
-    });
-});
-
-// =========================================================
-// 4. LÓGICA DE FILTRAGEM E BUSCA DO CATÁLOGO (catalogo.html)
-// =========================================================
+=======
+// O array 'jogos' é importado do gameList.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Verifica se estamos na página de catálogo
-    const gameGridElement = document.querySelector('.game-grid');
-    if (!gameGridElement) return; // Sai se não for a página do catálogo
 
-    // ELEMENTOS DO FILTRO
+    // --- 1. REFERÊNCIAS DE ELEMENTOS ---
+    // Menu Mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Catálogo/Filtros (catalogo.html)
     const genreSelect = document.getElementById('genre-select');
-    const searchInput = document.getElementById('game-search');
+    const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
+    const gameListContainer = document.getElementById('gameList'); // Container onde os cards são renderizados
+    const sortSelect = document.getElementById('sort-select'); // NOVO: Elemento para ordenação
 
-    // 1. FUNÇÃO PRINCIPAL DE FILTRAGEM (Filtra o array 'jogos' e renderiza)
-    function filterGames() {
-        // Obtém os valores de filtro
+    
+    // --- 2. FUNÇÕES DE RENDERIZAÇÃO E FILTRAGEM ---
+
+    /**
+     * @description Cria e insere os cards de jogo no container.
+     * @param {Array} games - Array de objetos de jogo a serem renderizados.
+     */
+    function renderGames(games) {
+        if (!gameListContainer) return; // Sai se não estiver na página de catálogo
+        
+        gameListContainer.innerHTML = ''; // Limpa o conteúdo anterior
+        
+        if (games.length === 0) {
+            gameListContainer.innerHTML = '<p class="no-results-message">Nenhum jogo encontrado com os filtros aplicados.</p>';
+            return;
+        }
+
+        games.forEach(jogo => {
+            const card = document.createElement('div');
+            card.className = 'game-card';
+            
+            // Lógica para formatar o preço (remove 'R$ ' e substitui vírgula por ponto para conversão)
+            const priceValue = parseFloat(jogo.infos.price.replace('R$ ', '').replace(',', '.'));
+            
+            card.innerHTML = `
+                <img src="${jogo.img.src}" alt="${jogo.img.alt}">
+                <h4>${jogo.infos.name}</h4>
+                <p class="game-price" data-price="${priceValue}">${jogo.infos.price}</p>
+                <p class="game-impact">${jogo.infos.theme}</p>
+                <a href="${jogo.infos.href}" class="btn-secondary" target="_blank">Comprar</a>
+            `;
+            gameListContainer.appendChild(card);
+        });
+    }
+
+    /**
+     * @description Aplica todos os filtros e a ordenação atuais.
+     */
+    function filterAndSortGames() {
+        if (!window.jogos) return; // Certifica-se que o array global está disponível
+        let currentGames = [...window.jogos]; // Cria uma cópia para filtrar e ordenar
+>>>>>>> Stashed changes
+
+        // --- A. FILTRAGEM ---
         const selectedGenre = genreSelect ? genreSelect.value : 'all';
         const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
-        
-        // Filtra o array 'jogos' (que está em gameList.js)
-        const filteredGames = jogos.filter(jogo => {
+
+        currentGames = currentGames.filter(jogo => {
             const cardGenres = jogo.infos.genre; // Array de gêneros
             const cardTitle = jogo.infos.name.toLowerCase(); 
 
-            // Critério 1: Gênero (Checa se o array do jogo INCLUI o gênero selecionado)
+            // Critério 1: Gênero
             const matchesGenre = selectedGenre === 'all' || cardGenres.includes(selectedGenre);
 
-            // Critério 2: Busca por Nome (Checa se o nome do jogo INCLUI o termo de busca)
+            // Critério 2: Busca por Nome
             const matchesSearch = cardTitle.includes(searchTerm);
             
-            // Retorna apenas se atender a AMBOS os critérios
             return matchesGenre && matchesSearch;
         });
+        
+        // --- B. ORDENAÇÃO (Será implementada na próxima etapa) ---
+        const sortValue = sortSelect ? sortSelect.value : 'recent';
+        
+        // TODO: Adicionar a lógica de ordenação aqui
 
-        // 2. RENDERIZA OS JOGOS FILTRADOS
-        renderGames(filteredGames);
+        // --- C. RENDERIZAÇÃO ---
+        renderGames(currentGames);
     }
     
-    // 3. INICIALIZAÇÃO
-    // RENDERIZA TODOS OS JOGOS NA PRIMEIRA VEZ
-    renderGames(jogos); 
+    // --- 3. LÓGICA DO MENU MOBILE ---
 
-    // 4. ADICIONA LISTENERS
-    if (genreSelect) {
-        genreSelect.addEventListener('change', filterGames);
+    function setupMobileMenu() {
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.toggle('menu-open');
+            });
+
+            const menuLinks = mobileMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('menu-open');
+                });
+            });
+        }
     }
-    if (searchButton) {
-        searchButton.addEventListener('click', filterGames);
-    }
-    if (searchInput) {
-        searchInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                filterGames();
-            }
-        });
+
+
+    // --- 4. INICIALIZAÇÃO E EVENT LISTENERS ---
+    
+    // 4.1. Configura o Menu Mobile
+    setupMobileMenu();
+
+    // 4.2. Configura os Listeners do Catálogo
+    if (gameListContainer) { // Só executa a lógica do catálogo se os elementos existirem
+        
+        // Inicializa a renderização de todos os jogos
+        renderGames(window.jogos); 
+
+        // Listeners para Filtros
+        if (genreSelect) {
+            genreSelect.addEventListener('change', filterAndSortGames);
+        }
+        if (sortSelect) {
+            sortSelect.addEventListener('change', filterAndSortGames); // NOVO: Listener para ordenação
+        }
+        if (searchButton) {
+            searchButton.addEventListener('click', filterAndSortGames);
+        }
+        if (searchInput) {
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterAndSortGames();
+                }
+            });
+        }
     }
 
 });
 
+<<<<<<< Updated upstream
+=======
+function filterGames() {
+    // 1. OBTÉM os valores de filtro
+    const selectedGenre = genreSelect ? genreSelect.value : 'all';
+    // 🚨 Obtém o valor do input de busca
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : ''; 
+    
+    // Filtra o array 'jogos' (que está em gameList.js)
+    const filteredGames = jogos.filter(jogo => {
+        const cardGenres = jogo.infos.genre;
+        const cardTitle = jogo.infos.name.toLowerCase(); 
+
+        // Critério 1: Gênero
+        const matchesGenre = selectedGenre === 'all' || cardGenres.includes(selectedGenre);
+
+        // Critério 2: Busca por Nome
+        const matchesSearch = cardTitle.includes(searchTerm);
+        
+        // Retorna apenas se atender a AMBOS os critérios
+        return matchesGenre && matchesSearch;
+    });
+
+    // 2. RENDERIZA OS JOGOS FILTRADOS
+    renderGames(filteredGames);
+}
+
+// 5. INICIALIZAÇÃO DO SWIPER (FORA DO DOMContentLoaded, pois já é um objeto global)
+// A função 'animateSlideContent' e os listeners do swiper devem vir aqui,
+// se o swiper estiver sendo usado em 'index.html' e você estiver reutilizando main.js.
+
+// (SE O CÓDIGO DO SWIPER ESTAVA AQUI, DEIXE-O AQUI)
+/*
+const swiper = new Swiper(".mySwiper", { 
+    // ... suas configurações de swiper
+});
+
+function animateSlideContent(slideElement) { //... }
+
+swiper.on('slideChangeTransitionEnd', function () { //... });
+*/
+// FIM DO SWIPER
+
+// --------------------------------------------------------------------------------
+
+// Funções 'animateSlideContent' e 'swiper' não estavam completas no snippet,
+// mas o bloco de código acima garante que elas podem ser coladas aqui, no final do arquivo, se necessário.
+>>>>>>> Stashed changes

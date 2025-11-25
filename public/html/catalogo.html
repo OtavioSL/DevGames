@@ -13,25 +13,47 @@
 
 <body>
 
-    <header class="main-header">
+     <header class="main-header">
         <div class="container">
             <a href="../../index.html" class="logo">
                 <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
+
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+
             <nav class="main-nav">
                 <ul>
-                    <li><a href="catalogo.html">Jogos</a></li>
+                    <li><a href="../html/catalogo.html">Jogos</a></li>
                     <li><a href="../html/novidades.html">Novidades</a></li>
+<<<<<<< Updated upstream
                     <li><a href="../suporte.html">Suporte</a></li>
                     <li><a href="../../index.html#conta">Minha Conta</a></li>
                     <li class="mobile-login-item"><a href="login.html" class="btn-login">Login</a></li>
+=======
+                    <li><a href="../html/suporte.html">Suporte</a></li>
+>>>>>>> Stashed changes
                 </ul>
             </nav>
+
             <div class="user-actions">
-                <button class="menu-toggle">☰</button>
+                <div id="login-button-container">
+                    <a href="../html/login.html" class="btn-login" id="desktop-login-link">Login</a>
+                </div>
+
+                <div id="profile-menu-container" class="hidden">
+                    <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário"
+                            id="profile-avatar">
+                    </button>
+
+                    <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
+                        <a href="../html/myAccount.html" role="menuitem">Minha Conta</a>
+                        <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
+                    </div>
+                </div>
             </div>
-        </div>
     </header>
 
     <main>
@@ -40,18 +62,22 @@
                 <h3>Catálogo Completo</h3>
 
                 <div class="game-filters">
-                    <div class="filter-search-group">
-                        <input type="text" id="game-search" placeholder="Buscar por nome do jogo...">
-                        <button id="search-button" class="btn-primary btn-search">Buscar</button>
+                    
+                    <div class="search-group">
+                        <label for="search-input">Buscar Jogo:</label> 
+                        <div class="search-bar">
+                            <input type="text" id="search-input" placeholder="Digite o nome do jogo...">
+                            <button id="search-button" class="btn-search">🔍</button> 
+                        </div>
                     </div>
+
                     <div class="filter-group">
                         <label for="genre-select">Gênero:</label>
                         <select id="genre-select">
                             <option value="all">Todos</option>
                             <option value="rpg">RPG</option>
-                            <option value="acao">Ação</option>
                             <option value="estrategia">Estratégia</option>
-                            <option value="simulacao">Simulação</option>
+                            <option value="acao">Ação</option>
                             <option value="indie">Indie</option>
                         </select>
                     </div>

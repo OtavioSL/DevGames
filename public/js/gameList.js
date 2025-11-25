@@ -36,7 +36,7 @@ let jogos = [
             price: "R$ 37,99",
             genre: ["rpg", "aventura"],
             theme: "Trauma, Luto, Culpa e Saúde Mental.",
-            href: "https://store.steampowered.com/app/504230/Celeste/"
+            href: "https://store.steampowered.com/app/504230/OMORI/"
         }
     },
     {
@@ -101,13 +101,25 @@ let jogos = [
             href: "https://store.steampowered.com/app/367520/Hollow_Knight/"
         }
     },  {
+         img: {
+            src: "../assets/images/capasJogos/CapaSilksong.jpg",
+            alt: "capa do jogo Silksong"
+        },
+        infos: {
+             name: "Hollow Knight: Silksong",
+            price: "R$ 59,99",
+            genre: ["Ação", "Aventura"],
+             theme: "Identidade, Destino, Responsabilidade, Agilidade",
+             href: "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"
+         }
+     },  {
         img: {
             src: "../assets/images/capasJogos/this War of Mine.jpg",
             alt: "texto alternativo da imagem"
         },
         infos: {
             name: "This War of Mine",
-            price: " R$     59,99",
+            price: " R$ 59,99",
             genre: ["Aventura", "Simulação"],
             theme: "Sobrevivência, Escolhas Morais em Guerra, Desespero",
             href: "https://store.steampowered.com/app/282070/This_War_of_Mine/"
@@ -170,7 +182,7 @@ let jogos = [
             price: "R$ 99,00",
             genre: ["Ação", "Aventura"],
             theme: "  Psicose, Esquizofrenia, Saúde Mental, Mitologia Nórdica",
-            href: "ttps://store.steampowered.com/app/414340/Hellblade_Senuas_Sacrifice/"
+            href: "https://store.steampowered.com/app/414340/Hellblade_Senuas_Sacrifice/"
         }
     },  {
         img: {
@@ -297,7 +309,7 @@ let jogos = [
 
     ]
     // },  {
-    //     img: {
+    //    img: {
     //         src: "url da imagem",
     //         alt: "texto alternativo da imagem"
     //     },
