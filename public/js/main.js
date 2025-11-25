@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // 1. INICIALIZAÇÃO DO SWIPER CARROSSEL
 const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -18,6 +19,8 @@ const swiper = new Swiper(".mySwiper", {
     },
 });
 =======
+=======
+>>>>>>> Stashed changes
 // O array 'jogos' é importado do gameList.js
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -75,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function filterAndSortGames() {
         if (!window.jogos) return; // Certifica-se que o array global está disponível
         let currentGames = [...window.jogos]; // Cria uma cópia para filtrar e ordenar
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
         // --- A. FILTRAGEM ---
@@ -155,7 +161,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 function filterGames() {
     // 1. OBTÉM os valores de filtro
     const selectedGenre = genreSelect ? genreSelect.value : 'all';
@@ -200,5 +209,9 @@ swiper.on('slideChangeTransitionEnd', function () { //... });
 // --------------------------------------------------------------------------------
 
 // Funções 'animateSlideContent' e 'swiper' não estavam completas no snippet,
+<<<<<<< Updated upstream
+// mas o bloco de código acima garante que elas podem ser coladas aqui, no final do arquivo, se necessário.
+>>>>>>> Stashed changes
+=======
 // mas o bloco de código acima garante que elas podem ser coladas aqui, no final do arquivo, se necessário.
 >>>>>>> Stashed changes
