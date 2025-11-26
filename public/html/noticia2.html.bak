@@ -11,15 +11,20 @@
 </head>
 
 <body>
+<<<<<<< HEAD
      <header class="main-header">
+=======
     <header class="main-header">
+>>>>>>> Corrigir
         <div class="container">
             <a href="../../index.html" class="logo">
                 <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
+<<<<<<< HEAD
 
             <button id="menu-toggle" class="menu-toggle">â˜°</button>
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="../html/catalogo.html">Jogos</a></li>
@@ -46,6 +51,7 @@
                     </div>
                 </div>
             </div>
+=======
             <nav class="main-nav">
                 <ul>
                     <li><a href="catalogo.html">Jogos</a></li>
@@ -57,6 +63,7 @@
                 <a href="login.html" class="btn-login">Login</a>
             </div>
         </div>
+>>>>>>> Corrigir
     </header>
 
     <main class="article-container">
@@ -91,12 +98,12 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo provident quidem eveniet perferendis veniam tenetur recusandae, sint rerum qui quae a mollitia sequi ipsam labore quis, cupiditate repudiandae nobis beatae.</p>
                 <!-- Lista caso precise -->
                 <!-- <ul>
-
-
-
-
-
-
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul> -->
 
                 <!-- <h3>Narrativa e DireÃ§Ã£o de Arte</h3> -->

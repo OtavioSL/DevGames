@@ -5,7 +5,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. REFERÊNCIAS DE ELEMENTOS ---
     // Menu Mobile
     const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
+    let mobileMenu = document.getElementById('mobile-menu');
+
+    // Se não existir um elemento com id 'mobile-menu' (algumas páginas não o têm), clonamos a nav desktop
+    if (!mobileMenu) {
+        const desktopNav = document.querySelector('.main-nav');
+        if (desktopNav) {
+            try {
+                mobileMenu = desktopNav.cloneNode(true);
+                mobileMenu.id = 'mobile-menu';
+                mobileMenu.classList.add('main-nav');
+                // Garantir que não fique visível em desktop até que a classe menu-open seja aplicada
+                mobileMenu.classList.remove('menu-open');
+                document.body.insertBefore(mobileMenu, document.body.firstChild);
+            } catch (err) {
+                // Falha ao clonar não é crítica; seguimos sem menu mobile
+                console.warn('Não foi possível clonar a nav para o mobile menu:', err);
+            }
+        }
+    }
 
     // Catálogo/Filtros (catalogo.html)
     const genreSelect = document.getElementById('genre-select');

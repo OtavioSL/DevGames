@@ -1,6 +1,7 @@
-﻿document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const USER_DATA_KEY = 'devgames_active_user';
+    const ACCOUNT_PAGE_PATH = 'myAccount.html'; // Nome do seu arquivo de conta
 
     // --- 1. REFERÊNCIAS DE ELEMENTOS (IDs de todas as páginas) ---
     const loginContainer = document.getElementById('login-button-container');
@@ -16,11 +17,6 @@
     const loginMessage = document.getElementById('login-message');
     const loginButton = document.getElementById('login-button');
 
-    // determina avatar padrão conforme a localização da página (index na raiz vs páginas em public/html)
-    const defaultAvatar = window.location.pathname.includes('/public/')
-        ? '../assets/images/avatar/avatar.jpg'    // páginas dentro de public/html
-        : './public/assets/images/avatar/avatar.jpg'; // index na raiz
-
     // --- 2. FUNÇÕES PRINCIPAIS DE AUTENTICAÇÃO ---
     function checkLoginStatus() {
         const userString = localStorage.getItem(USER_DATA_KEY);
@@ -28,7 +24,6 @@
     }
 
     function renderHeader(isLoggedIn) {
-        // se a página não tiver containers, não tenta manipular DOM
         if (!loginContainer || !profileContainer) return;
         if (isLoggedIn) {
             loginContainer.classList.add('hidden');
@@ -46,17 +41,7 @@
     function handleLogout() {
         localStorage.setItem('isLoggedIn', 'false');
         localStorage.removeItem(USER_DATA_KEY);
-
-        // Redireciona para a raiz (index.html). Tenta origem se disponível.
-        try {
-            if (window.location.origin && window.location.origin !== 'null') {
-                window.location.href = window.location.origin + '/index.html';
-            } else {
-                window.location.href = '../../index.html';
-            }
-        } catch (e) {
-            window.location.href = '../../index.html';
-        }
+        window.location.href = '../../index.html';
     }
 
     function setupProfileDropdown() {
@@ -68,11 +53,10 @@
                 avatarTrigger.setAttribute('aria-expanded', (!isExpanded).toString());
             });
 
-            // Protege caso não exista profileContainer em algumas páginas
             document.addEventListener('click', (e) => {
-                if (!profileContainer || !profileContainer.contains(e.target)) {
-                    if (dropdownContent) dropdownContent.classList.add('hidden');
-                    if (avatarTrigger) avatarTrigger.setAttribute('aria-expanded', 'false');
+                if (!profileContainer.contains(e.target)) {
+                    dropdownContent.classList.add('hidden');
+                    avatarTrigger.setAttribute('aria-expanded', 'false');
                 }
             });
         }
@@ -89,12 +73,12 @@
             if (loginAction) loginAction.classList.add('hidden');
             if (profileMenuContainer) profileMenuContainer.classList.remove('hidden');
             if (dropdownUserName) dropdownUserName.textContent = user.name.split(' ')[0];
-            if (profileAvatar) profileAvatar.src = user.avatarUrl || defaultAvatar;
-            if (logoutButton) logoutButton.onclick = handleLogout; // evita múltiplos listeners
+            if (profileAvatar) profileAvatar.src = user.avatarUrl || '../assets/images/avatar/avatar.jpg';
+            if (logoutButton) logoutButton.addEventListener('click', handleLogout);
         } else {
             if (loginAction) loginAction.classList.remove('hidden');
             if (profileMenuContainer) profileMenuContainer.classList.add('hidden');
-            if (profileAvatar) profileAvatar.src = defaultAvatar;
+            if (profileAvatar) profileAvatar.src = '../assets/images/avatar/avatar.jpg';
         }
     }
 
@@ -191,3 +175,4 @@
     }
 
 });
+

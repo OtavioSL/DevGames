@@ -153,6 +153,10 @@ a:visited {
     background-color: #164057; /* Um pouco mais escuro */
 }
 
+strong {
+    color: var(--accent-color);
+}
+
 
 /* 7. Responsividade */
 @media (max-width: 768px) {
