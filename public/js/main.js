@@ -20,54 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// 1. INICIALIZAÇÃO DO SWIPER CARROSSEL
-const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    autoplay: {
-        delay: 5000, 
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-    },
-});
 
-// FUNÇÃO PARA GERENCIAR ANIMAÇÕES DOS SLIDES
-function animateSlideContent(slideElement) {
-    // Remove animações antigas para resetar
-    const animatedElements = slideElement.querySelectorAll('.active-animation');
-    animatedElements.forEach(el => {
-        el.classList.remove('active-animation');
-        // Força reflow para resetar a animação
-        void el.offsetWidth; 
-    });
-
-    // Adiciona as classes para a animação começar no próximo frame
-    setTimeout(() => {
-        animatedElements.forEach(el => {
-            el.classList.add('active-animation');
-        });
-    }, 50); // Pequeno atraso para garantir o reset antes de adicionar
-}
-
-// Eventos do Swiper para disparar a animação
-swiper.on('slideChangeTransitionEnd', function () {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    animateSlideContent(activeSlide);
-});
-
-// Dispara a animação no carregamento da página para o primeiro slide
-document.addEventListener('DOMContentLoaded', () => {
-    const initialActiveSlide = swiper.slides[swiper.activeIndex];
-    animateSlideContent(initialActiveSlide);
-});
 
 
 // 2. FUNCIONALIDADE DE NAVEGAÇÃO MOBILE (Para o botão de menu)
