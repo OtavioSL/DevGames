@@ -45,5 +45,16 @@
     </footer>
     
     <script src="../js/auth.js"></script>
+    <script>
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+        e.preventDefault(); // Impede o envio padrão do formulário (que daria erro sem um backend)
+        
+        // **PASSO ESSENCIAL**: Define a flag de autenticação no armazenamento local
+        localStorage.setItem('isLoggedIn', 'true');
+        
+        // Redireciona o usuário para a página Minha Conta
+        window.location.href = 'myAccount.html'; 
+    });
+</script>
 </body>
 </html>

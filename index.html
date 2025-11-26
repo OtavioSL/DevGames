@@ -19,18 +19,54 @@
                 <div class="logoImg"><img src="./public/assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
+
+            <button id="menu-toggle" class="menu-toggle">☰</button>
+
             <nav class="main-nav">
                 <ul>
                     <li><a href="./public/html/catalogo.html">Jogos</a></li>
                     <li><a href="./public/html/novidades.html">Novidades</a></li>
                     <li><a href="../suporte.html">Suporte</a></li>
+<<<<<<< HEAD
                     <li><a href="#conta">Minha Conta</a></li>
 
+=======
+                    <li><a href="./public/html/myAccount.html">Minha Conta</a></li>
+>>>>>>> Corrigir
                 </ul>
             </nav>
+
             <div class="user-actions">
-                <a href="./public/html/login.html" class="btn-login">Login</a>
+                <div id="login-button-container">
+                    <a href="./public/html/login.html" class="btn-login" id="desktop-login-link">Login</a>
+                </div>
+
+                <div id="profile-menu-container" class="hidden">
+                    <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
+                        <img src="./public/assets/images/placeholder_avatar.png" alt="Avatar do Usuário"
+                            id="profile-avatar">
+                    </button>
+
+                    <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
+                        <a href="./public/html/myAccount.html" role="menuitem">Minha Conta</a>
+                        <a href="./public/html/historico.html" role="menuitem">Histórico de Compras</a>
+                        <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
+                    </div>
+                </div>
             </div>
+    </header>
+
+    <nav id="mobile-menu" class="main-nav hidden-mobile">
+        <ul>
+            <li><a href="./public/html/catalogo.html">Jogos</a></li>
+            <li><a href="./public/html/novidades.html">Novidades</a></li>
+            <li><a href="../suporte.html">Suporte</a></li>
+            <li><a href="./public/html/myAccount.html">Minha Conta</a></li>
+
+            <li id="mobile-login-link"><a href="./public/html/login.html" class="btn-login">Login</a></li>
+        </ul>
+    </nav>
     </header>
     <section class="swiper mySwiper hero-carousel">
         <div class="swiper-wrapper">
@@ -93,22 +129,10 @@
             <div class="banner-content">
                 <span class="tag-lancamento">Indies no Topo</span>
                 <h2>Hollow Knight: Silksong</h2>
-                <p>A aclamada sequência do Metroidvania favorito dos fãs foi coroada com múltiplas indicações ao The Game Awards 2025, incluindo as cobiçadas categorias de Jogo do Ano e Melhor Jogo de Ação/Aventura.</p>
+                <p>A aclamada sequência do Metroidvania favorito dos fãs foi coroada com múltiplas indicações ao The
+                    Game Awards 2025, incluindo as cobiçadas categorias de Jogo do Ano e Melhor Jogo de Ação/Aventura.
+                </p>
                 <div class="banner-actions">
-                    <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" target="_blank" class="btn-secondary">Saiba Mais</a>
-                    <a href="#wishlist" class="btn-secondary">Adicionar à Lista de Desejos</a>
-                    <a href="./public/html/featuredNew.html" class="btn-secondary">Saiba Mais</a>
-                    <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" class="btn-secondary"
-                        target="_blank">Adicionar à Lista de Desejos</a>
-
-                    <a href="./public/html/featuredNew.html" class="btn-secondary">Saiba Mais</a>
-                    <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" class="btn-secondary"
-                        target="_blank">Adicionar à Lista de Desejos</a>
-
-                    <a href="./public/html/featuredNew.html" class="btn-secondary">Saiba Mais</a>
-                    <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" class="btn-secondary"
-                        target="_blank">Adicionar à Lista de Desejos</a>
-
                     <a href="./public/html/featuredNew.html" class="btn-secondary">Saiba Mais</a>
                     <a href="https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/" class="btn-secondary"
                         target="_blank">Adicionar à Lista de Desejos</a>
@@ -125,7 +149,7 @@
                 <img src="./public/assets/images/capasJogos/celeste.png" alt="Capa do Jogo Celeste">
                 <h4>Celeste</h4>
                 <p class="game-price">R$ 59,99</p>
-                <p class="game-impact">🌟  Ansiedade e Autoaceitação.</p>
+                <p class="game-impact">🌟 Ansiedade e Autoaceitação.</p>
                 <a href="https://store.steampowered.com/app/504230/Celeste/" class="btn-secondary">Comprar</a>
             </div>
 
@@ -142,7 +166,8 @@
                 <h4>Spiritfarer®: Edição Farewell</h4>
                 <p class="game-price">R$ 88,99</p>
                 <p class="game-impact"> Morte, Luto, Memória</p>
-                <a href="https://store.steampowered.com/app/972660/Spiritfarer_Edio_Farewell/" class="btn-secondary">Comprar</a>
+                <a href="https://store.steampowered.com/app/972660/Spiritfarer_Edio_Farewell/"
+                    class="btn-secondary">Comprar</a>
             </div>
         </div>
         <div class="container showcase-footer">

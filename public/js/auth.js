@@ -1,14 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
-    // ---------------------------------
-    // LÓGICA DE CADASTRO (REGISTER)
-    // ---------------------------------
-    const registerForm = document.getElementById('register-form');
-    const registerMessage = document.getElementById('register-message');
+=======
 
+    const USER_DATA_KEY = 'devgames_active_user';
+    const ACCOUNT_PAGE_PATH = 'myAccount.html'; // Nome do seu arquivo de conta
+    
+>>>>>>> Corrigir
+    // ---------------------------------
+    // FUNÇÕES DE AUTENTICAÇÃO
+    // ---------------------------------
+
+<<<<<<< HEAD
 =======
 
     // --- 1. REFERÊNCIAS DE ELEMENTOS (IDs de todas as páginas) ---
@@ -174,25 +180,94 @@ document.addEventListener('DOMContentLoaded', () => {
     if (registerForm) {
         registerForm.addEventListener('submit', (e) => {
             e.preventDefault();
+=======
+    // Verifica o status de login e retorna os dados do usuário se logado
+    const checkLoginStatus = () => {
+        const userString = localStorage.getItem(USER_DATA_KEY);
+        // Retorna o objeto do usuário (nome, email, etc.) ou null
+        return userString ? JSON.parse(userString) : null; 
+    };
+>>>>>>> Corrigir
 
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
+    // Função para limpar o storage e deslogar
+    const handleLogout = () => {
+        localStorage.removeItem(USER_DATA_KEY);
+        // Redireciona para a página principal. Ajuste o caminho se necessário (ex: './index.html')
+        window.location.href = '../../index.html'; 
+    };
+    
+    // ---------------------------------
+    // LÓGICA DO MENU DROPDOWN
+    // ---------------------------------
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
             // 1. Busca usuários existentes (simula a tabela do BD)
             let users = JSON.parse(localStorage.getItem('devgames_users')) || [];
+=======
+    // Função para alternar a visibilidade do dropdown
+    const toggleDropdown = () => {
+        const dropdown = document.getElementById('profile-dropdown');
+        if (dropdown) {
+            dropdown.classList.toggle('hidden');
+        }
+    };
+    
+    // Atualiza o header (Mostra/Esconde Login ou Avatar/Menu)
+    const updateHeader = () => {
+        const user = checkLoginStatus();
+        const loginAction = document.getElementById('login-action');
+        const profileMenuContainer = document.getElementById('profile-menu-container');
+        const dropdownUserName = document.getElementById('dropdown-user-name');
+        const logoutButton = document.getElementById('logout-button');
+        const profileAvatar = document.getElementById('profile-avatar');
+        const avatarButton = document.getElementById('profile-avatar-button');
+>>>>>>> Corrigir
 
-            // 2. Verifica se o e-mail já está cadastrado
-            if (users.find(user => user.email === email)) {
-                registerMessage.textContent = 'Este e-mail já está cadastrado.';
-                registerMessage.classList.remove('success-message');
-                registerMessage.classList.add('error-message');
-                return;
+        // Garante que os elementos do cabeçalho existam
+        if (loginAction && profileMenuContainer && avatarButton) {
+            if (user) {
+                // LOGADO: Mostra Avatar/Menu, esconde Login
+                loginAction.classList.add('hidden');
+                profileMenuContainer.classList.remove('hidden');
+                
+                // Define o nome (exibe apenas o primeiro nome)
+                dropdownUserName.textContent = user.name.split(' ')[0]; 
+                
+                // Define o avatar (mock de imagem ou default)
+                // Se o usuário não tiver uma URL de avatar salva no mock, usa a imagem genérica
+                profileAvatar.src = user.avatarUrl || '../assets/images/icons/default-avatar.png'; 
+
+                // 1. Configura o botão Sair
+                if (logoutButton) {
+                    logoutButton.addEventListener('click', handleLogout);
+                }
+                
+                // 2. Configura o clique no Avatar para abrir o Dropdown
+                avatarButton.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Impede que o clique feche o menu imediatamente
+                    toggleDropdown();
+                });
+                
+                // 3. Configura o clique global para fechar o menu
+                document.addEventListener('click', (event) => {
+                    const dropdown = document.getElementById('profile-dropdown');
+                    
+                    // Se o clique não foi no container do menu e o menu está aberto, feche
+                    if (dropdown && !profileMenuContainer.contains(event.target) && !dropdown.classList.contains('hidden')) {
+                        dropdown.classList.add('hidden');
+                    }
+                });
+
+            } else {
+                // DESLOGADO: Mostra Login, esconde Avatar/Menu
+                loginAction.classList.remove('hidden');
+                profileMenuContainer.classList.add('hidden');
             }
+<<<<<<< HEAD
 
             // 3. Simula o Hash da senha (armazenamos em texto puro apenas para a demo)
             const newUser = { name, email, password };
@@ -294,19 +369,34 @@ document.addEventListener('DOMContentLoaded', () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+=======
+        }
+    };
+    
+>>>>>>> Corrigir
     // ---------------------------------
-    // LÓGICA DE LOGIN
+    // LÓGICA DE LOGIN (SALVA DADOS)
     // ---------------------------------
+    
     const loginForm = document.getElementById('login-form');
-    const loginMessage = document.getElementById('login-message');
-
+    
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            
+            // Simulação de login bem-sucedido:
+            const emailInput = document.getElementById('login-email').value;
+            // Cria um nome simples a partir do e-mail
+            const mockName = emailInput ? emailInput.split('@')[0].toUpperCase() : "Usuário"; 
 
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
+            // Dados do usuário (mock)
+            const mockUser = { 
+                name: mockName, 
+                email: emailInput,
+                avatarUrl: '', // URL da foto de perfil (vazio para usar a default)
+            };
 
+<<<<<<< HEAD
             // 1. Busca usuários (simula a tabela do BD)
             let users = JSON.parse(localStorage.getItem('devgames_users')) || [];
 
@@ -411,6 +501,13 @@ document.addEventListener('DOMContentLoaded', () => {
 =======
 >>>>>>> Stashed changes
             }
+=======
+            // PASSO ESSENCIAL: SALVA OS DADOS NO LOCAL STORAGE
+            localStorage.setItem(USER_DATA_KEY, JSON.stringify(mockUser));
+            
+            // Redireciona para a página Minha Conta
+            window.location.href = ACCOUNT_PAGE_PATH; 
+>>>>>>> Corrigir
         });
     }
 
@@ -419,24 +516,20 @@ document.addEventListener('DOMContentLoaded', () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     // ---------------------------------
-    // LÓGICA DE VERIFICAÇÃO DE SESSÃO
+    // RENDERIZAÇÃO DA PÁGINA MINHA CONTA (Tracker)
     // ---------------------------------
-    const isLoggedIn = localStorage.getItem('devgames_logged_in') === 'true';
-    const loginButton = document.querySelector('.main-header .btn-login');
+    
+    const renderAccountPage = () => {
+        const user = checkLoginStatus();
+        const loggedInContent = document.getElementById('logged-in-content');
+        const loggedOutContent = document.getElementById('logged-out-content');
 
-    if (loginButton) {
-        if (isLoggedIn) {
-            // Se estiver logado, muda o botão para "Sair" e adiciona link
-            const username = localStorage.getItem('devgames_username') || 'Usuário';
-            loginButton.textContent = `Sair (${username})`;
-            loginButton.onclick = (e) => {
-                e.preventDefault();
-                localStorage.removeItem('devgames_logged_in');
-                localStorage.removeItem('devgames_username');
-                alert('Você saiu da sua conta.');
-                window.location.reload(); // Recarrega a página para atualizar o botão
-            };
+        if (user) {
+            // Usuário Logado: Mostra o Rastreador
+            if (loggedInContent) loggedInContent.classList.remove('hidden');
+            if (loggedOutContent) loggedOutContent.classList.add('hidden');
         } else {
+<<<<<<< HEAD
             // Se não estiver logado, o botão leva para a página de login
             loginButton.onclick = () => {
                 window.location.href = 'login.html';
@@ -473,6 +566,24 @@ document.addEventListener('DOMContentLoaded', () => {
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+            // Usuário Deslogado: Mostra a Mensagem de Login
+            if (loggedInContent) loggedInContent.classList.add('hidden');
+            if (loggedOutContent) loggedOutContent.classList.remove('hidden');
+>>>>>>> Corrigir
         }
+    };
+
+    // ---------------------------------
+    // INICIALIZAÇÃO
+    // ---------------------------------
+    
+    // 1. Atualiza o header em TODAS as páginas
+    updateHeader();
+
+    // 2. Chama a renderização apenas na página Minha Conta
+    if (document.querySelector('.account-page-content')) {
+        renderAccountPage();
     }
 });
+
