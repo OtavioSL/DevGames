@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // ---------------------------------
     // LÓGICA DE CADASTRO (REGISTER)
     // ---------------------------------
@@ -28,6 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. FUNÇÕES PRINCIPAIS DE AUTENTICAÇÃO ---
 
+=======
+
+    // --- 1. REFERÊNCIAS DE ELEMENTOS (IDs de todas as páginas) ---
+    // Header
+    const loginContainer = document.getElementById('login-button-container');
+    const profileContainer = document.getElementById('profile-menu-container');
+    const logoutButton = document.getElementById('btn-logout');
+    const avatarTrigger = document.querySelector('.avatar-trigger');
+    const dropdownContent = document.getElementById('profile-dropdown-content');
+    // 🚨 NOVO: Referência para o span que mostrará a saudação
+    const welcomeSpan = document.querySelector('.dropdown-welcome'); 
+
+    // Formulários
+    const registerForm = document.getElementById('register-form');
+    const loginForm = document.getElementById('login-form');
+    const registerMessage = document.getElementById('register-message');
+    const loginMessage = document.getElementById('login-message');
+
+
+    // --- 2. FUNÇÕES PRINCIPAIS DE AUTENTICAÇÃO ---
+
+>>>>>>> Stashed changes
 =======
 
     // --- 1. REFERÊNCIAS DE ELEMENTOS (IDs de todas as páginas) ---
@@ -116,6 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3.1. CADASTRO
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -127,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('register-email').value;
             const password = document.getElementById('register-password').value;
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
             // 1. Busca usuários existentes (simula a tabela do BD)
@@ -194,10 +221,30 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 window.location.href = 'login.html'; 
 >>>>>>> Stashed changes
+=======
+            let users = JSON.parse(localStorage.getItem('devgames_users')) || [];
+
+            if (users.find(user => user.email === email)) {
+                registerMessage.textContent = 'Este e-mail já está cadastrado.';
+                registerMessage.className = 'error-message';
+                return;
+            }
+
+            const newUser = { name, email, password };
+            users.push(newUser);
+            localStorage.setItem('devgames_users', JSON.stringify(users));
+
+            registerMessage.textContent = 'Cadastro realizado com sucesso! Redirecionando para o login...';
+            registerMessage.className = 'success-message';
+            
+            setTimeout(() => {
+                window.location.href = 'login.html'; 
+>>>>>>> Stashed changes
             }, 2000);
         });
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     // ---------------------------------
@@ -263,6 +310,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const user = users.find(u => u.email === email && u.password === password);
 
 >>>>>>> Stashed changes
+=======
+    // 3.2. LOGIN
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            const users = JSON.parse(localStorage.getItem('devgames_users')) || [];
+            
+            const user = users.find(u => u.email === email && u.password === password);
+
+>>>>>>> Stashed changes
             if (user) {
                 // Login bem-sucedido
                 localStorage.setItem('isLoggedIn', 'true');
@@ -281,6 +341,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 loginMessage.textContent = 'E-mail ou senha inválidos.';
                 loginMessage.className = 'error-message';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -288,6 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
     // ---------------------------------
@@ -316,6 +380,8 @@ document.addEventListener('DOMContentLoaded', () => {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     // 3.3. LOGOUT
     if (logoutButton) {
         logoutButton.addEventListener('click', handleLogout);
@@ -332,6 +398,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!isLoggedIn) {
              window.location.href = 'login.html';
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
