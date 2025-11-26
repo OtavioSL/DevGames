@@ -36,7 +36,7 @@ let jogos = [
             price: "R$ 37,99",
             genre: ["rpg", "aventura"],
             theme: "Trauma, Luto, Culpa e Saúde Mental.",
-            href: "https://store.steampowered.com/app/504230/OMORI/"
+            href: "https://store.steampowered.com/app/1150690/OMORI/"
         }
     },
     {
