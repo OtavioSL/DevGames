@@ -62,23 +62,16 @@ body {
     color: var(--accent-color);
 }
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Corrigir
+
 /* --- ESTILOS DO MENU DROPDOWN DE PERFIL --- */
 
 #profile-menu-container {
     position: relative; /* FUNDAMENTAL para posicionar o menu interno */
 }
 
-<<<<<<< HEAD
 .hidden {
     display: none !important;
 }
-=======
->>>>>>> Corrigir
 #profile-menu-container.hidden {
     display: none !important;
 }
@@ -151,10 +144,6 @@ body {
     background-color: rgba(255, 255, 255, 0.1); /* Destaque no hover */
 }
 
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> Corrigir
 .logo {
     font-size: 1.5em;
     font-weight: bold;
