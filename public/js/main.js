@@ -1,6 +1,7 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 // 1. INICIALIZAÇÃO DO SWIPER CARROSSEL
 const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
@@ -20,6 +21,8 @@ const swiper = new Swiper(".mySwiper", {
     },
 });
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -83,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentGames = [...window.jogos]; // Cria uma cópia para filtrar e ordenar
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -169,7 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -220,6 +229,10 @@ swiper.on('slideChangeTransitionEnd', function () { //... });
 // Funções 'animateSlideContent' e 'swiper' não estavam completas no snippet,
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+// mas o bloco de código acima garante que elas podem ser coladas aqui, no final do arquivo, se necessário.
+>>>>>>> Stashed changes
+=======
 // mas o bloco de código acima garante que elas podem ser coladas aqui, no final do arquivo, se necessário.
 >>>>>>> Stashed changes
 =======
