@@ -36,6 +36,7 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s;
     margin-bottom: 40px;
+    min-height: 280px; /* Garante altura mínima para a imagem preencher */
 }
 
 .featured-news:hover {
@@ -44,8 +45,15 @@ body {
 
 .featured-img {
     width: 65%; /* Imagem em destaque maior */
-    height: auto;
+    height: 100%; /* Preenche toda a altura do card */
     object-fit: cover;
+    display: block;
+    object-position: center; /* centraliza o corte da imagem */
+    transition: transform 0.4s ease; /* suaviza o zoom ao passar o mouse */
+}
+
+.featured-news:hover .featured-img {
+    transform: scale(1.03);
 }
 
 .featured-content {
@@ -109,17 +117,28 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
     width: 100%;
     margin: 0 auto;
+    transition: transform 0.25s ease, box-shadow 0.25s ease; /* transição para hover */
 }
 
 .news-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform 0.4s ease; /* zoom suave da imagem */
+}
+
+.news-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.45);
+}
+
+.news-card:hover img {
+    transform: scale(1.04);
 }
 
 .card-info {
@@ -168,6 +187,7 @@ body {
 @media (max-width: 900px) {
     .featured-news {
         flex-direction: column;
+        min-height: auto; /* Permite que o conteúdo defina altura em telas pequenas */
     }
     .featured-img, .featured-content {
         width: 100%;
