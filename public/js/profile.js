@@ -79,7 +79,7 @@
             <strong>${rev.game}</strong>
             ${genreHtml}
           </div>
-          <span class="review-rating">Nota: ${rev.rating}/5</span>
+          <span class="review-rating">Nota: ${rev.rating}/10</span>
         </div>
         <p class="review-text">${rev.text}</p>
         <div class="review-actions">
