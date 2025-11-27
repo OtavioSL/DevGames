@@ -623,7 +623,7 @@ body {
 @media(max-width:756px) {
 
     .slide-text.active-animation.from-right {
-        transform: translateX(0px);
+        transform: translateX(-50px);
         /* Começa 50px à direita */
     }
 
@@ -772,6 +772,7 @@ body {
 .banner-actions {
     display: flex;
     gap: 15px;
+    margin-right: 35px;
     /* Espaço entre os botões */
 }
 
@@ -1034,7 +1035,7 @@ p {
         /* centraliza horizontal */
         justify-content: center;
         /* centraliza vertical */
-        height: calc(100vh - var(--header-height));
+        height: calc(100vh - var(--header-height))!important;
         /* ocupa a tela do mobile abaixo do header */
         padding: 10px;
         padding-left: 0;

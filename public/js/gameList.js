@@ -58,7 +58,7 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Gris ",
+            name: "Gris",
             price: "R$ 49,99",
             genre: ["adventure"],
             theme: "Luto, Estágios da Dor, Resiliência",
@@ -82,7 +82,7 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Undertale ",
+            name: "Undertale",
             price: "R$ 19,99",
             genre: ["rpg"],
             theme: "Consequências das Ações, Moralidade, Amizade",
@@ -119,7 +119,7 @@ let jogos = [
         },
         infos: {
             name: "This War of Mine",
-            price: " R$ 59,99",
+            price: "R$ 59,99",
             genre: ["adventure", "simulation"],
             theme: "Sobrevivência, Escolhas Morais em Guerra, Desespero",
             href: "https://store.steampowered.com/app/282070/This_War_of_Mine/"
@@ -142,7 +142,7 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Inside ",
+            name: "Inside",
             price: "R$ 74,00",
             genre: ["action", "adventure"],
             theme: " Controle, Conformidade, Totalitarismo",
@@ -166,7 +166,7 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "To the Moon ",
+            name: "To the Moon",
             price: "R$ 27,99",
             genre: ["adventure", "rpg"],
             theme: " Memória, Arrependimento, Amor Incondicional",
@@ -178,10 +178,10 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Hellblade: Senua's Sacrifice ",
+            name: "Hellblade: Senua's Sacrifice",
             price: "R$ 99,00",
             genre: ["action", "adventure"],
-            theme: "  Psicose, Esquizofrenia, Saúde Mental, Mitologia Nórdica",
+            theme: "Psicose, Esquizofrenia, Saúde Mental, Mitologia Nórdica",
             href: "https://store.steampowered.com/app/414340/Hellblade_Senuas_Sacrifice/"
         }
     },  {
@@ -190,7 +190,7 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "What Remains of Edith Finch ",
+            name: "What Remains of Edith Finch",
             price: "R$ 55,99",
             genre: ["adventure"],
             theme: "Destino, Maldição Familiar, Narrativas de Morte",
@@ -205,7 +205,7 @@ let jogos = [
             name: "The Vanishing of Ethan Carter",
             price: "R$ 59,99",
             genre: ["adventure"],
-            theme: " Luto, Fantasia, Culpa, Realidade Distorcida",
+            theme: "Luto, Fantasia, Culpa, Realidade Distorcida",
             href: "https://store.steampowered.com/app/258520/The_Vanishing_of_Ethan_Carter/"
         }
     },  {
@@ -214,10 +214,10 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Life is Strange ",
+            name: "Life is Strange",
             price: "R$ 199,00",
             genre: ["Ação", "Aventura"],
-            theme: " Tempo, Consequências de Escolhas, Amizade, Sacrifício",
+            theme: "Tempo, Consequências de Escolhas, Amizade, Sacrifício",
             href: "https://store.steampowered.com/app/1265920/Life_is_Strange_Remastered/"
         }
     },  {
@@ -226,10 +226,10 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Firewatch  ",
+            name: "Firewatch",
             price: "R$ 59,99",
             genre: ["Aventura"],
-            theme: "  Solidão, Fuga, Culpa, Relacionamentos Difíceis",
+            theme: "Solidão, Fuga, Culpa, Relacionamentos Difíceis",
             href: "https://store.steampowered.com/app/383870/Firewatch/"
         }
     },  {
@@ -238,10 +238,10 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Oxenfree  ",
+            name: "Oxenfree",
             price: "R$ 32,99",
             genre: ["Aventura"],
-            theme: " Comunicação, Trauma, Paranormal, Amadurecimento",
+            theme: "Comunicação, Trauma, Paranormal, Amadurecimento",
             href: "https://store.steampowered.com/app/388880/Oxenfree/"
         }
     },  {
@@ -250,10 +250,10 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Braid     ",
+            name: "Braid",
             price: "R$ 27,99",
             genre: ["casual", "strategy"],
-            theme: " Arrependimento, Tempo, Obsessão, Autoengano",
+            theme: "Arrependimento, Tempo, Obsessão, Autoengano",
             href: "https://store.steampowered.com/app/26800/Braid/"
         }
     },  {
@@ -262,7 +262,7 @@ let jogos = [
             alt: "texto alternativo da imagem"
         },
         infos: {
-            name: "Florence ",
+            name: "Florence",
             price: "R$ 18,99",
             genre: ["adventure", "casual"],
             theme: "Relacionamentos, Rotina, Amadurecimento, Desilusão",
