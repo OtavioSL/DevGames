@@ -19,16 +19,6 @@
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
 
-            <button id="menu-toggle" class="menu-toggle">☰</button>
-
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="../html/catalogo.html">Jogos</a></li>
-                    <li><a href="../html/novidades.html">Novidades</a></li>
-                    <li><a href="../html/suporte.html">Suporte</a></li>
-                </ul>
-            </nav>
-
             <div class="user-actions">
                 <div id="login-button-container">
                     <a href="../html/login.html" class="btn-login" id="desktop-login-link">Login</a>
@@ -45,19 +35,28 @@
                         <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
                     </div>
                 </div>
+
+                <!-- Botão hamburger responsivo (ao lado do menu de usuário) -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu"
+                    aria-expanded="false">☰</button>
             </div>
+
+            <!-- Menu mobile hamburger -->
+            <nav id="mobile-menu" class="main-nav hidden-mobile">
+                <ul>
+                    <li><a href="../html/catalogo.html">Jogos</a></li>
+                    <li><a href="../html/novidades.html">Novidades</a></li>
+                    <li><a href="../html/suporte.html">Suporte</a></li>
+                    <li><a href="../html/myAccount.html">Minha Conta</a></li>
+                    <li id="mobile-login-container" class="hidden"><a href="../html/login.html"
+                            class="btn-mobile-login">Login</a></li>
+                    <li id="mobile-logout-container" class="hidden"><button id="mobile-logout-btn"
+                            class="btn-mobile-logout">Sair</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav id="mobile-menu" class="main-nav hidden-mobile">
-        <ul>
-            <li><a href="../html/catalogo.html">Jogos</a></li>
-            <li><a href="../html/novidades.html">Novidades</a></li>
-            <li><a href="../html/suporte.html">Suporte</a></li>
-            <li><a href="../html/myAccount.html">Minha Conta</a></li>
-            <li id="mobile-login-container" class="hidden"><a href="../html/login.html" class="btn-mobile-login">Login</a></li>
-            <li id="mobile-logout-container" class="hidden"><button id="mobile-logout-btn" class="btn-mobile-logout">Sair</button></li>
-        </ul>
-    </nav>
 
     <main class="article-container">
         <article class="news-article">
@@ -108,15 +107,22 @@
                     <p>A jogabilidade de Dispatch é primariamente focada na narrativa interativa de escolhas e
                         consequências, ao estilo de aventura point and click (com menos exploração livre) e Visual Novel
                         cinemática, mas é complementada por um envolvente sistema de gerenciamento.</p>
-                        
+
 
                     <h2>O Elemento de Estratégia e Gerenciamento</h2>
 
-                    <p>O Trabalho de Despachante: A parte única do gameplay reside no gerenciamento da equipe Z de ex-vilões. Durante "turnos" de trabalho, você se senta no computador da Superhero Dispatch Network (SDN).</p>
+                    <p>O Trabalho de Despachante: A parte única do gameplay reside no gerenciamento da equipe Z de
+                        ex-vilões. Durante "turnos" de trabalho, você se senta no computador da Superhero Dispatch
+                        Network (SDN).</p>
 
-                    <p>Despacho Estratégico: Você recebe chamados de emergência na cidade e deve estrategicamente decidir qual herói (ou heróis) enviar para cada ocorrência. O sucesso da missão depende de você cruzar a descrição do chamado (que pode ser ambígua ou sarcástica) com as estatísticas e habilidades (Combate, Vigor, Mobilidade, Inteligência e Carisma) dos membros da Equipe Z.</p>
+                    <p>Despacho Estratégico: Você recebe chamados de emergência na cidade e deve estrategicamente
+                        decidir qual herói (ou heróis) enviar para cada ocorrência. O sucesso da missão depende de você
+                        cruzar a descrição do chamado (que pode ser ambígua ou sarcástica) com as estatísticas e
+                        habilidades (Combate, Vigor, Mobilidade, Inteligência e Carisma) dos membros da Equipe Z.</p>
 
-                    <p>Gestão de Heróis: Os heróis possuem traços de personalidade, falhas e cooldowns (tempo de descanso). Você pode melhorar as habilidades deles com um sistema leve de RPG, e deve gerenciar seus humores e conflitos de escritório, já que o drama pessoal afeta sua eficácia em campo.</p>
+                    <p>Gestão de Heróis: Os heróis possuem traços de personalidade, falhas e cooldowns (tempo de
+                        descanso). Você pode melhorar as habilidades deles com um sistema leve de RPG, e deve gerenciar
+                        seus humores e conflitos de escritório, já que o drama pessoal afeta sua eficácia em campo.</p>
                     <!-- Lista caso precise -->
                     <!-- <ul>
 

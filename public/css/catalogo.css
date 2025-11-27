@@ -645,10 +645,6 @@ main { flex: 1 0 auto; }
     margin: 20px 0;
 }
 
-/* Cabeçalho do card: título + coração */
-.game-header-row{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
-.game-header-row h4{ margin:8px 0; }
-
 /* Coração inline (entre nome e preço) */
 .fav-heart{
     border:none;
@@ -746,6 +742,9 @@ main { flex: 1 0 auto; }
 /* --- RESPONSIVIDADE PARA O CATÁLOGO (até 768px) --- */
 @media screen and (max-width: 768px) {
     /* ... (outras regras como padding do .game-showcase) ... */
+    .game-showcase {
+        padding-top: calc(var(--header-height, 60px) + -20px);
+    }
     
     .game-filters {
         /* 🚨 ESSENCIAL: Empilha os grupos de filtro */
@@ -762,6 +761,7 @@ main { flex: 1 0 auto; }
     .filter-recommendation {
         text-align: left; /* Alinha a mensagem à esquerda no mobile */
         padding-top: 0;
+        padding-bottom: 10px;
     }
 
     /* Ajusta a lista de jogos para 3 colunas em tablets e 2 em celulares menores */

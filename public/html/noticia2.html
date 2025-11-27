@@ -18,17 +18,6 @@
                 <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
-
-            <button id="menu-toggle" class="menu-toggle">☰</button>
-
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="../html/catalogo.html">Jogos</a></li>
-                    <li><a href="../html/novidades.html">Novidades</a></li>
-                    <li><a href="../html/suporte.html">Suporte</a></li>
-                </ul>
-            </nav>
-
             <div class="user-actions">
                 <div id="login-button-container">
                     <a href="../html/login.html" class="btn-login" id="desktop-login-link">Login</a>
@@ -36,7 +25,7 @@
 
                 <div id="profile-menu-container" class="hidden">
                     <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
-                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do UsuÃ¡rio" id="profile-avatar">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário" id="profile-avatar">
                     </button>
 
                     <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
@@ -45,7 +34,26 @@
                         <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
                     </div>
                 </div>
+
+                <!-- Botão hamburger responsivo (ao lado do menu de usuário) -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu"
+                    aria-expanded="false">☰</button>
             </div>
+
+            <!-- Menu mobile hamburger -->
+            <nav id="mobile-menu" class="main-nav hidden-mobile">
+                <ul>
+                    <li><a href="../html/catalogo.html">Jogos</a></li>
+                    <li><a href="../html/novidades.html">Novidades</a></li>
+                    <li><a href="../html/suporte.html">Suporte</a></li>
+                    <li><a href="../html/myAccount.html">Minha Conta</a></li>
+                    <li id="mobile-login-container" class="hidden"><a href="../html/login.html"
+                            class="btn-mobile-login">Login</a></li>
+                    <li id="mobile-logout-container" class="hidden"><button id="mobile-logout-btn"
+                            class="btn-mobile-logout">Sair</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <nav id="mobile-menu" class="main-nav hidden-mobile">
@@ -54,8 +62,10 @@
             <li><a href="../html/novidades.html">Novidades</a></li>
             <li><a href="../html/suporte.html">Suporte</a></li>
             <li><a href="../html/myAccount.html">Minha Conta</a></li>
-            <li id="mobile-login-container" class="hidden"><a href="../html/login.html" class="btn-mobile-login">Login</a></li>
-            <li id="mobile-logout-container" class="hidden"><button id="mobile-logout-btn" class="btn-mobile-logout">Sair</button></li>
+            <li id="mobile-login-container" class="hidden"><a href="../html/login.html"
+                    class="btn-mobile-login">Login</a></li>
+            <li id="mobile-logout-container" class="hidden"><button id="mobile-logout-btn"
+                    class="btn-mobile-logout">Sair</button></li>
         </ul>
     </nav>
 
