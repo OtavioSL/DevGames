@@ -1,17 +1,17 @@
-﻿ <!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AAA | DevGames</title>
-    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/featuredNew.css">
+    <link rel="stylesheet" href="../css/mobile-fixes.css">
     <link rel="shortcut icon" href="../assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-     <header class="main-header">
     <header class="main-header">
         <div class="container">
             <a href="../../index.html" class="logo">
@@ -19,7 +19,7 @@
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
 
-            <button id="menu-toggle" class="menu-toggle">â˜°</button>
+            <button id="menu-toggle" class="menu-toggle">☰</button>
 
             <nav class="main-nav">
                 <ul>
@@ -36,60 +36,84 @@
 
                 <div id="profile-menu-container" class="hidden">
                     <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
-                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do UsuÃ¡rio"
-                            id="profile-avatar">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do UsuÃ¡rio" id="profile-avatar">
                     </button>
 
                     <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
-                        <span class="dropdown-welcome">OlÃ¡, [Nome do UsuÃ¡rio]!</span>
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
                         <a href="../html/myAccount.html" role="menuitem">Minha Conta</a>
                         <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
                     </div>
                 </div>
             </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="catalogo.html">Jogos</a></li>
-                    <li><a href="novidades.html">Novidades</a></li> <li><a href="../suporte.html">Suporte</a></li>
-                    <li><a href="../../index.html#conta">Minha Conta</a></li>
-                </ul>
-            </nav>
-            <div class="user-actions">
-                <a href="login.html" class="btn-login">Login</a>
-            </div>
-        </div>
     </header>
+
+    <nav id="mobile-menu" class="main-nav hidden-mobile">
+        <ul>
+            <li><a href="../html/catalogo.html">Jogos</a></li>
+            <li><a href="../html/novidades.html">Novidades</a></li>
+            <li><a href="../html/suporte.html">Suporte</a></li>
+        </ul>
+    </nav>
 
     <main class="article-container">
         <article class="news-article">
-            
+
             <div class="article-meta">
                 <span class="news-tag featured-tag">ESPECIAL TGA</span>
-                <h1>Hades II, Silksong e Clair Obscur Lideram: TGA 2025 Confirma a ForÃ§a dos Jogos Indie</h1>
-                <p class="author-date">Por Ana Blogueira â€¢ 19 de Novembro, 2025 â€¢ Tempo de Leitura: 6 min</p>
+                <h1>🏰 "Blue Prince": O Roguelike de Puzzle Que Combina Lógica e Mistério em Uma Mansão Mutável</h1>
+                <p class="author-date">Por Redação DevGames | 27 de Novembro, 2025 | Tempo de Leitura: 6 min</p>
                 <hr>
             </div>
-            
+
             <figure class="article-figure">
-                <img src="" alt="Inserir imagem">
-                <figcaption>Insira uma curta descriÃ§Ã£o</figcaption>
+                <img src="../assets/images/noticias/Blue Prince.jpg" alt="Capa de Blue Prince">
+                <figcaption>Com elementos clássicos de puzzle, o título consegue trazer uma ótima síntese dos dois
+                    gêneros</figcaption>
             </figure>
 
             <div class="article-content">
-                <p class="lead"></p>
+                <p class="lead">O recém-lançado Blue Prince, distribuído pela Raw Fury, está sendo aclamado como uma das
+                    experiências mais refrescantes de 2025 ao fundir, de forma fluida e instigante, o gênero roguelike
+                    com puzzles complexos. No jogo, o jogador herda uma imensa mansão misteriosa e precisa desbravar a
+                    "Sala 46" seguindo um conjunto de regras rígidas e um limite diário de passos.
+                    <br>
+                    A cada "dia", a mansão se reconfigura: cada porta aberta oferece três opções de novos cômodos com
+                    bônus, custos e configurações distintas. A jogabilidade principal exige uma intensa estratégia de
+                    decisões e gestão de recursos (como chaves e gemas), forçando os jogadores a anotar informações
+                    cruciais para o progresso, já que o conhecimento é o único elemento persistente entre as runs.
+                    <br>
+                    Além dos desafios de lógica, a narrativa envolvente se aprofunda através de cartas, relatórios e
+                    diários espalhados, impelindo o jogador a desvendar a história por trás da mansão e seus
+                    personagens. O jogo tem sido comparado a títulos como Outer Wilds, onde o foco é a descoberta e o
+                    aprendizado das mecânicas.
+                    <br>
+                    Apesar do sucesso, o título enfrenta uma barreira: a ausência de localização em português. Como a
+                    compreensão da complexa narrativa e das dicas de puzzle é vital para a experiência, a equipe do
+                    Omelete lamentou: "Para quem não tem o domínio da língua, é difícil recomendar Blue Prince, pois a
+                    quantidade de consultas ao tradutor deixariam o jogo totalmente truncado e muito mais lento.
+                    Torcemos para que os desenvolvedores tragam mais opções de idiomas no futuro, pois é com certeza um
+                    puzzle que vale a pena."
+                </p>
 
-                <h2>titulo 1</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quos voluptatum sequi numquam ratione cum neque, quasi magnam! Quod quasi voluptas facilis laborum maxime delectus qui enim magni a labore.</p>
+                <h2></h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quos voluptatum sequi numquam ratione
+                    cum neque, quasi magnam! Quod quasi voluptas facilis laborum maxime delectus qui enim magni a
+                    labore.</p>
 
                 <blockquote>
-                    <p>"citaÃ§Ã£o"</p>
-                    <cite>â€” autor</cite>
+                    <p>"Quero que todos os meus projetos sejam capazes de se sustentar por si próprios e serem coisas
+                        únicas. É esse o tipo de sequelas de que gosto. Gosto de Myst seguido de Riven, não de Myst 2.
+                        Por isso, não haverá uma sequela direta de Blue Prince. Pode haver um jogo ambientado nesse
+                        universo, mas nem sequer posso dizer que provavelmente será do mesmo género."</p>
+                    <cite>Tonda Ros - Criador de Blue Prince</cite>
                 </blockquote>
 
-                <h2>titulo 2</h2>
-                
-                <h3>Sub-titulo 1</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo provident quidem eveniet perferendis veniam tenetur recusandae, sint rerum qui quae a mollitia sequi ipsam labore quis, cupiditate repudiandae nobis beatae.</p>
+                <h2>A nescessidade Frequente de Inovação</h2>
+
+                <p>O criador de Blue Prince, Tonda Ros (da Dogubomb), frequentemente enfatiza a necessidade de inovação
+                    na indústria e a singularidade de seus projetos. Uma de suas citações mais recentes e impactantes
+                    reflete sua visão sobre sequências e a pressão de localização.</p>
                 <!-- Lista caso precise -->
                 <!-- <ul>
 
@@ -101,34 +125,31 @@
                 </ul> -->
 
                 <!-- <h3>Narrativa e DireÃ§Ã£o de Arte</h3> -->
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, sed! Dicta reiciendis dolorem error sint suscipit dolorum amet vel, accusamus ipsam quas tenetur architecto molestias voluptate ipsa officia excepturi! Modi.</p>
-
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione ipsam rem sequi ullam quas corrupti debitis at eaque labore numquam ut accusamus, molestiae, officia quisquam beatae dolorum quos deleniti delectus!</p>
             </div>
-            
+
         </article>
-        
+
         <div class="back-to-news">
-            <a href="novidades.html" class="btn-primary">â† Voltar para Novidades</a>
+            <a href="novidades.html" class="btn-primary"> ← Voltar para Novidades</a>
         </div>
-        
+
     </main>
 
     <footer class="main-footer">
         <div class="footer-links">
             <ul>
-                <li><a href="#">Sobre NÃ³s</a></li>
-                <li><a href="#">Termos de ServiÃ§o</a></li>
-                <li><a href="#">PolÃ­tica de Privacidade</a></li>
+                <li><a href="../html/suporte.html/#historia">Sobre Nós</a></li>
+                <li><a href="../html/suporte.html/#termos">Termos de Serviço</a></li>
+                <li><a href="../html/suporte.html/#privacidade">Política de Privacidade</a></li>
             </ul>
         </div>
         <p>&copy; 2025 DevGames. Todos os direitos reservados.</p>
         <div class="social-media">
         </div>
     </footer>
-    
-    <script src="../js/auth.js"></script>
 
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

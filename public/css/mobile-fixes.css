@@ -1,0 +1,76 @@
+/* mobile-fixes.css
+   Regras de override para garantir que o menu mobile e o botão hamburger
+   fiquem acima do conteúdo principal e sejam clicáveis
+*/
+
+/* Quando o menu mobile estiver aberto, evita o scroll do fundo (garantia extra) */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100% !important;
+}
+
+/* Drawer mobile: mais estreito e altura dinâmica abaixo do header */
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: block !important; /* Mantém criado mas fora da tela até abrir */
+    position: fixed !important;
+    top: var(--header-height) !important;
+    left: 0 !important;
+    width: 240px !important; /* estreito */
+    max-width: 80vw !important;
+    height: auto !important; /* background só até o fim dos itens */
+    max-height: calc(100vh - var(--header-height)) !important;
+    overflow-y: auto !important;
+    background-color: rgba(31, 31, 31, 0.98) !important;
+    box-shadow: 6px 0 16px rgba(0,0,0,0.35) !important;
+    border-right: 1px solid rgba(255,255,255,0.08) !important;
+    z-index: 11000 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.22s ease !important;
+    pointer-events: auto !important; /* Garante que os links sejam clicáveis */
+  }
+  #mobile-menu.menu-open { transform: translateX(0) !important; }
+
+  /* Itens do dropdown de perfil dentro do drawer */
+  #mobile-menu .profile-dropdown-content {
+    position: static !important;
+    right: auto !important;
+    min-width: 100% !important;
+    width: 100% !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  #mobile-menu .profile-dropdown-content .dropdown-welcome {
+    padding: 12px 18px !important;
+    color: var(--text-color) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  #mobile-menu .profile-dropdown-content a,
+  #mobile-menu .profile-dropdown-content .btn-dropdown-logout {
+    color: var(--text-color) !important;
+    padding: 12px 18px !important;
+    text-decoration: none !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: left !important;
+    background: none !important;
+    border: none !important;
+    border-top: 1px solid rgba(255,255,255,0.04) !important;
+  }
+}
+
+/* Estado fechado padrão controlado por media queries */
+@media (min-width: 769px) {
+  #mobile-menu { display: none !important; }
+}
+
+/* Faz o botão hamburger ficar sempre acima para ser clicável */
+.menu-toggle {
+  z-index: 11001 !important;
+}
+
+/* Dropdown de perfil precisa ficar ainda acima, se houver sobreposição */
+.profile-dropdown-content {
+  z-index: 11100 !important;
+}

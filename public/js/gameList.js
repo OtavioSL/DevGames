@@ -8,7 +8,7 @@ let jogos = [
         infos: {
             name: "Disco Elysium - The Final Cut",
             price: "R$ 75,49",
-            genre: ["rpg", "aventura"],
+            genre: ["rpg", "adventure"],
             theme: "Identidade, Política, Existencialismo, Amnésia",
             href: "https://store.steampowered.com/app/632470/Disco_Elysium__The_Final_Cut/"
         }
@@ -21,7 +21,7 @@ let jogos = [
         infos: {
             name: "Celeste",
             price: "R$ 59,99",
-            genre: ["plataforma", "ação", "aventura"],
+            genre: ["platformer", "action", "adventure"],
             theme: " Ansiedade e Autoaceitação.",
             href: "https://store.steampowered.com/app/504230/Celeste/"
         }
@@ -34,7 +34,7 @@ let jogos = [
         infos: {
             name: "OMORI",
             price: "R$ 37,99",
-            genre: ["rpg", "aventura"],
+            genre: ["rpg", "adventure"],
             theme: "Trauma, Luto, Culpa e Saúde Mental.",
             href: "https://store.steampowered.com/app/1150690/OMORI/"
         }
@@ -47,7 +47,7 @@ let jogos = [
         infos: {
             name: "Clair Obscur Expedition 33",
             price: "R$ 239,00",
-            genre: ["rpg", "ação","aventura"],
+            genre: ["rpg", "action", "adventure"],
             theme: "Luto, Mortalidade e a Busca por Propósito.",
             href: "https://store.steampowered.com/app/1903340/Clair_Obscur_Expedition_33/"
         }
@@ -60,7 +60,7 @@ let jogos = [
         infos: {
             name: "Gris ",
             price: "R$ 49,99",
-            genre: [" Aventura"],
+            genre: ["adventure"],
             theme: "Luto, Estágios da Dor, Resiliência",
             href: "https://store.steampowered.com/app/683320/GRIS/"
         }
@@ -72,7 +72,7 @@ let jogos = [
         infos: {
             name: "Outer Wilds",
             price: "R$ 67,99",
-            genre: ["Ação", "Aventura"],
+            genre: ["action", "adventure"],
             theme: "Medo do Fim, Ciclo Vicioso, Curiosidade, Legado",
             href: "https://store.steampowered.com/app/753640/Outer_Wilds/"
         }
@@ -84,7 +84,7 @@ let jogos = [
         infos: {
             name: "Undertale ",
             price: "R$ 19,99",
-            genre: ["RPG"],
+            genre: ["rpg"],
             theme: "Consequências das Ações, Moralidade, Amizade",
             href: "https://store.steampowered.com/app/391540/Undertale/"
         }
@@ -96,7 +96,7 @@ let jogos = [
         infos: {
             name: "Hollow Knight",
             price: "R$ 46,99",
-            genre: ["Ação", " Aventura"],
+            genre: ["action", "adventure"],
             theme: "Perda, Sacrifício, Futilidade, Solidão",
             href: "https://store.steampowered.com/app/367520/Hollow_Knight/"
         }
@@ -108,7 +108,7 @@ let jogos = [
         infos: {
              name: "Hollow Knight: Silksong",
             price: "R$ 59,99",
-            genre: ["Ação", "Aventura"],
+            genre: ["action", "adventure"],
              theme: "Identidade, Destino, Responsabilidade, Agilidade",
              href: "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"
          }
@@ -120,7 +120,7 @@ let jogos = [
         infos: {
             name: "This War of Mine",
             price: " R$ 59,99",
-            genre: ["Aventura", "Simulação"],
+            genre: ["adventure", "simulation"],
             theme: "Sobrevivência, Escolhas Morais em Guerra, Desespero",
             href: "https://store.steampowered.com/app/282070/This_War_of_Mine/"
         }
@@ -132,7 +132,7 @@ let jogos = [
         infos: {
             name: "Limbo",
             price: "R$ 37,00",
-            genre: ["Ação", "Aventura"],
+            genre: ["action", "adventure"],
             theme: " Medo, Incerteza, Limites da Realidade",
             href: "https://store.steampowered.com/app/48000/LIMBO/"
         }
@@ -144,7 +144,7 @@ let jogos = [
         infos: {
             name: "Inside ",
             price: "R$ 74,00",
-            genre: ["Ação", "Aventura"],
+            genre: ["action", "adventure"],
             theme: " Controle, Conformidade, Totalitarismo",
             href: "https://store.steampowered.com/app/304430/INSIDE/"
         }
@@ -156,7 +156,7 @@ let jogos = [
         infos: {
             name: "Night in the Woods",
             price: "R$ 59,99",
-            genre: [" Aventura"],
+            genre: ["adventure"],
             theme: "Crise Existencial, Estagnação, Doenças Mentais",
             href: "https://store.steampowered.com/app/481510/Night_in_the_Woods/"
         }
@@ -168,7 +168,7 @@ let jogos = [
         infos: {
             name: "To the Moon ",
             price: "R$ 27,99",
-            genre: ["Aventura", "RPG"],
+            genre: ["adventure", "rpg"],
             theme: " Memória, Arrependimento, Amor Incondicional",
             href: "https://store.steampowered.com/app/206440/To_the_Moon/"
         }
@@ -180,7 +180,7 @@ let jogos = [
         infos: {
             name: "Hellblade: Senua's Sacrifice ",
             price: "R$ 99,00",
-            genre: ["Ação", "Aventura"],
+            genre: ["action", "adventure"],
             theme: "  Psicose, Esquizofrenia, Saúde Mental, Mitologia Nórdica",
             href: "https://store.steampowered.com/app/414340/Hellblade_Senuas_Sacrifice/"
         }
@@ -192,7 +192,7 @@ let jogos = [
         infos: {
             name: "What Remains of Edith Finch ",
             price: "R$ 55,99",
-            genre: ["Aventura"],
+            genre: ["adventure"],
             theme: "Destino, Maldição Familiar, Narrativas de Morte",
             href: "https://store.steampowered.com/app/501300/What_Remains_of_Edith_Finch/"
         }
@@ -204,7 +204,7 @@ let jogos = [
         infos: {
             name: "The Vanishing of Ethan Carter",
             price: "R$ 59,99",
-            genre: ["Aventura"],
+            genre: ["adventure"],
             theme: " Luto, Fantasia, Culpa, Realidade Distorcida",
             href: "https://store.steampowered.com/app/258520/The_Vanishing_of_Ethan_Carter/"
         }
@@ -252,7 +252,7 @@ let jogos = [
         infos: {
             name: "Braid     ",
             price: "R$ 27,99",
-            genre: ["Casual", "Estratégia"],
+            genre: ["casual", "strategy"],
             theme: " Arrependimento, Tempo, Obsessão, Autoengano",
             href: "https://store.steampowered.com/app/26800/Braid/"
         }
@@ -264,7 +264,7 @@ let jogos = [
         infos: {
             name: "Florence ",
             price: "R$ 18,99",
-            genre: ["Aventura", "Casual"],
+            genre: ["adventure", "casual"],
             theme: "Relacionamentos, Rotina, Amadurecimento, Desilusão",
             href: "https://store.steampowered.com/app/1102130/Florence/"
         }
@@ -277,7 +277,7 @@ let jogos = [
         infos: {
             name: "Hades II",
             price: "R$ 88,99",
-            genre: ["Ação", " RPG"],
+            genre: ["action", "rpg"],
             theme: "Luto Familiar, Resiliência Feminina, Desafio Cíclico e Aceitação da Perda.",
             href: "https://store.steampowered.com/app/1145350/Hades_II/"
         }
@@ -289,7 +289,7 @@ let jogos = [
         infos: {
             name: "SOMA",
             price: "R$ 88,99",
-            genre: ["Ação", " Aventura"],
+            genre: ["action", "adventure"],
             theme: "Consciência, Identidade, Existencialismo, O que significa ser humano",
             href: "https://store.steampowered.com/app/282140/SOMA/"
         }
@@ -301,13 +301,17 @@ let jogos = [
         infos: {
             name: "Kentucky Route Zero",
             price: "R$ 45,99",
-            genre: ["Ação", " RPG"],
+            genre: ["action", "rpg"],
             theme: "Dívida, Comunidade, Fracasso Americano, Desespero Quotidiano.",
             href: "https://store.steampowered.com/app/1145350/Hades_II/"
         }
     }
 
-    ]
+    ];
+
+    // Tornar a lista global para que outros scripts a consumam
+    if (!window.jogos) window.jogos = jogos;
+
     // },  {
     //    img: {
     //         src: "url da imagem",

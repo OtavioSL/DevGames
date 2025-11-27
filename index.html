@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevGames</title>
     <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./public/css/mobile-fixes.css">
     <link rel="stylesheet" href="./public/css/fonts.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="shortcut icon" href="./public/assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
@@ -20,13 +21,11 @@
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
 
-            <button id="menu-toggle" class="menu-toggle">☰</button>
-
             <nav class="main-nav">
                 <ul>
                     <li><a href="./public/html/catalogo.html">Jogos</a></li>
                     <li><a href="./public/html/novidades.html">Novidades</a></li>
-                    <li><a href="../suporte.html">Suporte</a></li>
+                    <li><a href="./public/html/suporte.html">Suporte</a></li>
                 </ul>
             </nav>
 
@@ -44,10 +43,12 @@
                     <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
                         <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
                         <a href="./public/html/myAccount.html" role="menuitem">Minha Conta</a>
-                        <a href="./public/html/historico.html" role="menuitem">Histórico de Compras</a>
                         <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
                     </div>
                 </div>
+
+                <!-- Botão hamburger alinhado à direita -->
+                <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false">☰</button>
             </div>
     </header>
 
@@ -55,7 +56,7 @@
         <ul>
             <li><a href="./public/html/catalogo.html">Jogos</a></li>
             <li><a href="./public/html/novidades.html">Novidades</a></li>
-            <li><a href="../suporte.html">Suporte</a></li>
+            <li><a href="./public/html/suporte.html">Suporte</a></li>
             <li><a href="./public/html/myAccount.html">Minha Conta</a></li>
             
         </ul>
@@ -64,7 +65,7 @@
     <section class="swiper mySwiper hero-carousel">
         <div class="swiper-wrapper">
 
-            <div class="swiper-slide slide-1">
+            <div class="swiper-slide slide-2">
                 <div class="slide-content-wrapper">
                     <div class="slide-text active-animation from-left">
                         <h2>Candidato a Game of the Year 2025</h2>
@@ -171,9 +172,9 @@
     <footer class="main-footer">
         <div class="footer-links">
             <ul>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Termos de Serviço</a></li>
-                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="./public/html/suporte.html/#historia">Sobre Nós</a></li>
+                <li><a href="./public/html/suporte.html/#termos">Termos de Serviço</a></li>
+                <li><a href="./public/html/suporte.html/#privacidade">Política de Privacidade</a></li>
             </ul>
         </div>
         <p>&copy; 2025 DevGames. Todos os direitos reservados.</p>
@@ -184,6 +185,7 @@
     <script src="./public/js/carousel.js"></script>
     <script src="./public/js/main.js"></script>
     <script src="./public/js/auth.js"></script>
+    <script src="./public/js/homeFavorites.js"></script>
 </body>
 
 </html>

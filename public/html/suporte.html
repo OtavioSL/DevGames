@@ -1,71 +1,229 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevGames | Premium Experience</title>
-    
-    <link rel="stylesheet" href="global.css">
+    <title>Suporte — DevGames</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/suporte.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/mobile-fixes.css">
+    <link rel="shortcut icon" href="../assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
 </head>
-<body data-theme="dark">
 
-    <header class="c-navbar js-component" data-component-name="Navbar">
-        <div class="c-navbar__logo">DevGames <span class="u-text--accent">PRO</span></div>
-        <nav class="c-navbar__nav">
-            <a href="#" class="c-nav-link" data-route="games">Jogos</a>
-            <a href="#" class="c-nav-link" data-route="news">Novidades</a>
-            <a href="support.html" class="c-nav-link c-nav-link--active" data-route="support">Suporte</a>
-            <a href="#" class="c-nav-link" data-route="account">Minha Conta</a>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="../../index.html" class="logo">
+                <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
+                        alt="Logo Da Empresa"></div><span>DevGames</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../html/catalogo.html">Jogos</a></li>
+                    <li><a href="../html/novidades.html">Novidades</a></li>
+                    <li><a href="../html/suporte.html">Suporte</a></li>
+                </ul>
+            </nav>
+
+            <div class="user-actions">
+                <div id="login-button-container">
+                    <a href="../html/login.html" class="btn-login" id="desktop-login-link">Login</a>
+                </div>
+
+                <div id="profile-menu-container" class="hidden">
+                    <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário" id="profile-avatar">
+                    </button>
+
+                    <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
+                        <a href="../html/myAccount.html" role="menuitem">Minha Conta</a>
+                        <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
+                    </div>
+                </div>
+
+                <!-- Botão hamburger responsivo (ao lado do menu de usuário) -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false">☰</button>
+            </div>
+        </div>
+        <!-- Menu mobile hamburger -->
+        <nav id="mobile-menu" class="main-nav hidden-mobile">
+            <ul>
+                <li><a href="catalogo.html">Jogos</a></li>
+                <li><a href="novidades.html">Novidades</a></li>
+                <li><a href="suporte.html">Suporte</a></li>
+                <li><a href="myAccount.html">Minha Conta</a></li>
+            </ul>
         </nav>
-        <button class="c-button c-button--primary js-login-btn">
-            <span class="c-button__icon">ðŸ”‘</span> Login
-        </button>
     </header>
 
-    <main class="l-container">
-        <section class="c-hero-banner" data-game-id="DE-FC">
-            <div class="c-hero-banner__content">
-                <h1 class="c-hero-banner__title-top">DISCO ELYSIUM - THE FINAL CUT!</h1>
-                <p class="c-hero-banner__subtitle">Compre agora e receba bÃ´nus exclusivos.</p>
-                
-                <div class="c-hero-banner__logo-wrapper u-border--accent">
-                    <span class="c-hero-banner__logo-text">DISCO ELYSIUM</span>
-                </div>
-                
-                <a href="#" class="c-button c-button--cta c-button--large">Comprar Agora R$ 119,90</a>
-            </div>
-            <div class="c-hero-banner__background-overlay"></div>
-        </section>
+    <nav id="mobile-menu" class="main-nav hidden-mobile">
+        <ul>
+            <li><a href="catalogo.html">Jogos</a></li>
+            <li><a href="novidades.html">Novidades</a></li>
+            <li><a href="suporte.html">Suporte</a></li>
+            <li><a href="myAccount.html">Minha Conta</a></li>
+        </ul>
+    </nav>
 
-        <section class="c-content-section">
-            <h2 class="u-heading--section">NotÃ­cias Recentes</h2>
-            
-            <div class="c-card-grid">
-                <div class="c-info-card c-info-card--new">
-                    <h3 class="c-info-card__title">Patch 1.5 Liberado</h3>
-                    <p class="c-info-card__body">Melhorias de performance e correÃ§Ãµes de bugs.</p>
-                    <a href="#" class="c-info-card__link">Leia Mais</a>
-                </div>
-                
-                <div class="c-info-card">
-                    <h3 class="c-info-card__title">Evento de Fim de Semana</h3>
-                    <p class="c-info-card__body">XP em dobro em todos os jogos por 48h.</p>
-                    <a href="#" class="c-info-card__link">Leia Mais</a>
-                </div>
-                
-                <div class="c-info-card">
-                    <h3 class="c-info-card__title">Vendas da Primavera</h3>
-                    <p class="c-info-card__body">Descontos de atÃ© 80% em centenas de tÃ­tulos.</p>
-                    <a href="#" class="c-info-card__link">Ver PromoÃ§Ãµes</a>
-                </div>
-            </div>
-        </section>
+    <main class="l-container suporte-page">
+        <div class="container">
+            <h1 class="page-title">Sobre a DevGames</h1>
+
+            <nav class="suporte-toc" aria-label="Sumário da página">
+                <ul>
+                    <li><a href="#historia">Nossa História</a></li>
+                    <li><a href="#missao">Missão, Visão e Valores</a></li>
+                    <li><a href="#termos">Termos de Serviço</a></li>
+                    <li><a href="#privacidade">Política de Privacidade</a></li>
+                </ul>
+            </nav>
+
+            <section id="historia" class="suporte-section">
+                <h2>Nossa História</h2>
+                <p>A DevGames nasceu em 2019 como um pequeno coletivo de desenvolvedores e entusiastas de jogos independentes. Ao longo dos anos, crescemos mantendo o foco em trazer experiências digitais cuidadosamente curadas, apoio a desenvolvedores independentes e uma loja confiável para jogadores.</p>
+                <p>Da primeira loja virtual a uma comunidade ativa de jogadores, a DevGames se orgulha de crescer com ética, transparência e paixão por jogos que emocionam e transformam.</p>
+            </section>
+
+            <section id="missao" class="suporte-section">
+                <h2>Missão, Visão e Valores</h2>
+                <h3>Missão</h3>
+                <p>Oferecer uma plataforma acessível e segura onde jogadores descobrem títulos com personalidade e desenvolvedores independentes encontram suporte para alcançar seu público.</p>
+
+                <h3>Visão</h3>
+                <p>Ser referência em curadoria de jogos independentes e uma comunidade acolhedora que celebra criatividade e diversidade na indústria de jogos.</p>
+
+                <h3>Valores</h3>
+                <ul>
+                    <li><strong>Transparência:</strong> comunicamos claramente nossas práticas de venda e privacidade.</li>
+                    <li><strong>Respeito:</strong> tratamos jogadores e desenvolvedores com equidade e empatia.</li>
+                    <li><strong>Qualidade:</strong> focamos em títulos com identidade e valor cultural ou artístico.</li>
+                    <li><strong>Privacidade:</strong> protegemos dados pessoais com responsabilidade.</li>
+                </ul>
+            </section>
+
+            <section id="termos" class="suporte-section">
+                <h2>Termos de Serviço</h2>
+                <p>Ao utilizar a plataforma DevGames, você concorda com nossos termos: todas as compras são regidas pelas políticas de reembolso publicadas na página do produto; contas são pessoais e intransferíveis; abusos e fraudes podem levar ao banimento e perda de acesso a conteúdos comprados.</p>
+                <p>Detalhes completos sobre prazos de reembolso, cobrança e limitações de responsabilidade estão descritos abaixo (resumo):</p>
+                <ul>
+                    <li>Reembolsos são analisados caso a caso e aplicam-se regras baseadas no tempo de uso e na política do editor.</li>
+                    <li>Ao comprar, o usuário aceita eventuais atualizações do serviço e termos, que serão comunicadas por e-mail ou aviso em site.</li>
+                    <li>A DevGames reserva-se o direito de modificar preços, promoções e conteúdos, sem prejuízo dos direitos adquiridos.</li>
+                </ul>
+            </section>
+
+            <section id="privacidade" class="suporte-section">
+                <h2>Política de Privacidade</h2>
+                <p>Coletamos apenas os dados necessários para fornecer nossos serviços: e-mail, nome de usuário, histórico de compras e informações de pagamento (processadas por provedores terceiros seguros). Nunca vendemos seus dados a terceiros.</p>
+                <p>Você pode solicitar a remoção ou exportação de seus dados entrando em contato com nossa equipe de suporte via e-mail: <a href="mailto:privacidade@devgames.example">privacidade@devgames.example</a>.</p>
+                <p>Medidas de segurança incluem criptografia de comunicações (SSL/TLS), práticas de armazenamento seguro e revisão periódica de acessos aos dados.</p>
+            </section>
+
+            <section class="suporte-section contato">
+                <h2>Fale Conosco</h2>
+                <p>Se precisar de suporte direto, preencha o formulário abaixo ou envie um e-mail para <a href="mailto:suporte@devgames.example">suporte@devgames.example</a>. Respondemos em até 48 horas úteis.</p>
+
+                <form id="contact-form" class="contact-form" novalidate>
+                    <div class="field">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seunome@exemplo.com" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="subject">Assunto</label>
+                        <select id="subject" name="subject">
+                            <option value="duvida">Dúvida</option>
+                            <option value="problema-tecnico">Problema técnico</option>
+                            <option value="reembolso">Reembolso</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="order">Pedido/ID (opcional)</label>
+                        <input type="text" id="order" name="order" placeholder="Número do pedido ou login">
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" placeholder="Descreva o problema ou sua dúvida" required></textarea>
+                    </div>
+
+                    <div class="actions">
+                        <button type="submit" class="btn-submit">Enviar ao Suporte</button>
+                        <div class="form-message" id="form-message" aria-live="polite"></div>
+                    </div>
+                </form>
+
+            </section>
+        </div>
     </main>
-    
-    <footer class="c-footer">
-        <p>&copy; 2025 DevGames. Todos os direitos reservados. | <span class="js-status">Status: Online</span></p>
+
+    <footer class="main-footer">
+        <div class="footer-links">
+            <ul>
+                <li><a href="#historia">Sobre Nós</a></li>
+                <li><a href="#termos">Termos de Serviço</a></li>
+                <li><a href="#privacidade">Política de Privacidade</a></li>
+            </ul>
+        </div>
+        <p>&copy; 2025 DevGames. Todos os direitos reservados.</p>
+        <div class="social-media"></div>
     </footer>
 
-    <script type="module" src="app.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Formulário de contato: validação básica e feedback (client-side)
+        (function(){
+            const form = document.getElementById('contact-form');
+            const msg = document.getElementById('form-message');
+
+            if (!form) return;
+
+            function showMessage(text, success = true){
+                msg.textContent = text;
+                msg.style.color = success ? 'var(--color-accent)' : 'var(--color-text-muted)';
+            }
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                const name = form.name.value.trim();
+                const email = form.email.value.trim();
+                const message = form.message.value.trim();
+
+                if (!name || !email || !message){
+                    showMessage('Por favor, preencha nome, e-mail e mensagem.', false);
+                    return;
+                }
+
+                // Simula envio: aqui você pode integrar com API / backend
+                const payload = {
+                    name, email, subject: form.subject.value, order: form.order.value, message
+                };
+
+                console.log('Contato enviado (simulado):', payload);
+                showMessage('Mensagem enviada com sucesso! Responderemos em até 48h.');
+                form.querySelector('.btn-submit').disabled = true;
+
+                // Limpa campos após pequena espera (melhora UX)
+                setTimeout(()=>{
+                    form.reset();
+                    form.querySelector('.btn-submit').disabled = false;
+                }, 2500);
+            });
+        })();
+    </script>
 </body>
+
 </html>

@@ -3,10 +3,10 @@ const swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 0,
     loop: true,
-    autoplay: {
-        delay: 5000, 
-        disableOnInteraction: false,
-    },
+    // autoplay: {
+    //     delay: 5000,
+    //     disableOnInteraction: false,
+    // },
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -15,6 +15,21 @@ const swiper = new Swiper(".mySwiper", {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
     },
+    // Tornar responsivo: em telas pequenas manter 1 slide com height menor
+    breakpoints: {
+        // quando largura >= 768px
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+        },
+        // quando largura >= 1024px (desktop) mantenha o mesmo comportamento
+        1024: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+        }
+    },
+    // Habilita arrastar/slide por toque em mobile
+    simulateTouch: true,
 });
 
 // FUNÇÃO PARA GERENCIAR ANIMAÇÕES DOS SLIDES
@@ -46,3 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialActiveSlide = swiper.slides[swiper.activeIndex];
     animateSlideContent(initialActiveSlide);
 });
+
+// Ajusta comportamento ao redimensionar: reduz altura do wrapper em telas pequenas
+function adjustCarouselForViewport() {
+    const wrap = document.querySelector('.slide-content-wrapper');
+    if (!wrap) return;
+    if (window.innerWidth <= 768) {
+        wrap.style.flexDirection = 'column';
+        wrap.style.height = '60vh';
+        wrap.style.padding = '16px';
+    } else {
+        wrap.style.flexDirection = '';
+        wrap.style.height = '';
+        wrap.style.padding = '';
+    }
+}
+
+window.addEventListener('load', adjustCarouselForViewport);
+window.addEventListener('resize', adjustCarouselForViewport);

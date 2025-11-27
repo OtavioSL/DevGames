@@ -1,10 +1,108 @@
-:root{
+/* Favoritos: coração nos cards (compartilhado entre páginas) */
+.game-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.game-header-row h4 {
+    margin: 8px 0;
+}
+
+.fav-heart {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    color: #c0c0c0;
+    /* vazio */
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.fav-heart:hover {
+    color: #ff4d4d;
+}
+
+.fav-heart:active {
+    transform: scale(0.95);
+}
+
+.fav-heart.favorited {
+    color: #e50914;
+}
+
+:root {
+    /* Altura do header fixa para posicionar menus abaixo dele */
+    --header-height: 50px;
+}
+
+/* Painel mobile alinhado à direita (menu aberto) */
+@media (max-width: 768px) {
+
+    /* Drawer estilo YouTube: base e estado aberto */
+    #mobile-menu {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 260px;
+        /* estreito */
+        max-width: 80vw;
+        height: auto;
+        /* background só até o fim dos itens */
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
+        background: rgba(20, 20, 20, 0.98);
+        box-shadow: 6px 0 16px rgba(0, 0, 0, 0.35);
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        z-index: 11000;
+        transform: translateX(-100%);
+        transition: transform 0.22s ease;
+        display: block;
+        /* Mantém visível mas fora da tela */
+    }
+
+    #mobile-menu.menu-open {
+        transform: translateX(0);
+    }
+
+    #mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 8px 0;
+    }
+
+    #mobile-menu a {
+        color: #fff;
+    }
+
+    /* Backdrop para fechar ao clicar fora */
+    .mobile-backdrop {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 10;
+        display: none;
+        pointer-events: auto;
+        /* Permite cliques no backdrop para fechar */
+    }
+}
+
+:root {
     --primary-color: #212226;
     --secondary-color: #1F5373;
     --accent-color: #D99311;
     --text-color: #BFBBB0;
-    
-}/*
+
+}
+
+/*
     ESTILOS GERAIS
     (Use fontes limpas, como 'Arial', 'sans-serif' por enquanto)
 */
@@ -15,10 +113,14 @@ body {
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif; /* Mudar para uma fonte mais elegante depois */
-    background-color: #0d0d10; /* Fundo escuro */
-    color: var(--secondary-color); /* Texto branco */
+    font-family: Arial, sans-serif;
+    /* Mudar para uma fonte mais elegante depois */
+    background-color: #0d0d10;
+    /* Fundo escuro */
+    color: var(--secondary-color);
+    /* Texto branco */
     line-height: 1.6;
+    /* Removido o padding-top global para evitar espaço extra antes do carrossel */
 }
 
 /*
@@ -33,7 +135,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 15000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: fixed;
 }
@@ -42,6 +144,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.user-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu-toggle {
+    order: 2;
 }
 
 .main-nav ul {
@@ -66,12 +179,14 @@ body {
 /* --- ESTILOS DO MENU DROPDOWN DE PERFIL --- */
 
 #profile-menu-container {
-    position: relative; /* FUNDAMENTAL para posicionar o menu interno */
+    position: relative;
+    /* FUNDAMENTAL para posicionar o menu interno */
 }
 
 .hidden {
     display: none !important;
 }
+
 #profile-menu-container.hidden {
     display: none !important;
 }
@@ -86,11 +201,13 @@ body {
 }
 
 .avatar-trigger:hover {
-    box-shadow: 0 0 0 3px var(--accent-color); /* Efeito de destaque no hover */
+    box-shadow: 0 0 0 3px var(--accent-color);
+    /* Efeito de destaque no hover */
 }
 
 #profile-avatar {
-    width: 40px; /* Tamanho do avatar */
+    width: 40px;
+    /* Tamanho do avatar */
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
@@ -100,12 +217,15 @@ body {
 /* O MENU DROPDOWN */
 .profile-dropdown-content {
     position: absolute;
-    top: 100%; /* Posiciona abaixo do avatar */
+    top: 100%;
+    /* Posiciona abaixo do avatar */
     right: 0;
-    background-color: #333333; /* Fundo do menu (Pode usar secondary-color se quiser) */
+    background-color: #333333;
+    /* Fundo do menu (Pode usar secondary-color se quiser) */
     min-width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-    z-index: 1001; /* Garante que fique acima do resto do conteúdo */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    /* Garante que fique acima do resto do conteúdo */
     border-radius: 4px;
     padding: 5px 0;
 }
@@ -141,7 +261,8 @@ body {
 
 .profile-dropdown-content a:hover,
 .btn-dropdown-logout:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* Destaque no hover */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Destaque no hover */
 }
 
 .logo {
@@ -193,11 +314,13 @@ body {
 }
 
 .main-nav ul li a:hover {
-    color: var(--accent-color); /* hover da nav */
+    color: var(--accent-color);
+    /* hover da nav */
 }
 
 .btn-login {
-    background-color: #007bff; /* Azul primário para botões */
+    background-color: #007bff;
+    /* Azul primário para botões */
     color: white;
     padding: 8px 20px;
     border: none;
@@ -214,12 +337,14 @@ body {
     display: none;
     background: none;
     border: none;
-    color: var(--text-color); /* Use a cor do seu texto */
+    color: var(--text-color);
+    /* Use a cor do seu texto */
     font-size: 2em;
     cursor: pointer;
     padding: 0;
     line-height: 1;
-    order: 1; /* Posiciona no meio entre logo e user-actions em mobile */
+    order: 1;
+    /* Posiciona no meio entre logo e user-actions em mobile */
 }
 
 /* Estilos do Menu Mobile */
@@ -231,10 +356,12 @@ body {
     /* Estado aberto do menu */
     display: block;
     position: absolute;
-    top: 60px; /* Ajuste para logo abaixo do header */
+    top: 60px;
+    /* Ajuste para logo abaixo do header */
     left: 0;
     width: 100%;
-    background-color: var(--secondary-color); /* Fundo do menu */
+    background-color: var(--secondary-color);
+    /* Fundo do menu */
     z-index: 999;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -266,6 +393,7 @@ body {
 
 /* --- MEDIA QUERY (Revisão e Adição do Menu Mobile) --- */
 @media screen and (max-width: 768px) {
+
     /* 1. HEADER (Cabeçalho) */
     .main-header .container {
         /* Garante que logo, menu-toggle e user-actions fiquem alinhados */
@@ -276,9 +404,9 @@ body {
 
     /* Oculta o menu de navegação principal em mobile (agora será controlado pelo JS) */
     .main-nav {
-        display: none; 
+        display: none;
     }
-    
+
     /* Mostra o botão de menu sanduíche */
     .menu-toggle {
         display: block;
@@ -291,18 +419,18 @@ body {
 
     #mobile-menu.menu-open {
         display: block;
-        position: absolute;       
+        position: absolute;
         top: 60px;
         left: auto;
         right: 0;
         width: auto;
         min-width: 180px;
         background-color: var(--secondary-color);
-        z-index: 999;
+        z-index: 11000;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-/* Garante que os links dentro do menu mobile pareçam itens de lista */
+    /* Garante que os links dentro do menu mobile pareçam itens de lista */
     #mobile-menu.menu-open li a {
         display: block;
         padding: 15px 20px;
@@ -312,11 +440,11 @@ body {
     }
 
     /* Remove qualquer estilo de botão extra para o item de login dentro do menu mobile */
-#mobile-menu.menu-open li #mobile-login-link a.btn-login {
-    background: none;
-    padding: 15px 20px;
-}
-    
+    #mobile-menu.menu-open li #mobile-login-link a.btn-login {
+        background: none;
+        padding: 15px 20px;
+    }
+
     /* 3. Ajuste do Menu de Perfil Logado */
     /* Empurra o logo um pouco para liberar espaço para o menu toggle e o user-actions */
     .logo {
@@ -329,22 +457,25 @@ body {
 */
 .hero-carousel {
     /* height: 50vh; */
-    margin-top: 40px;
+    margin-top: calc(var(--header-height) + 20px) ;
     width: 100%;
     /* overflow: hidden; */
     position: relative;
     background-color: var(--primary-color);
+    padding-left: 0;
+    /* evita espaço à esquerda */
 }
 
 /* Garante que os slides ocupem 100% do container pai */
-.swiper-container, .swiper-slide {
+.swiper-container,
+.swiper-slide {
     width: 100%;
     /* height: 800px; Herda a altura de 60vh do .hero-carousel */
 }
 
 /* .swiper-slide { */
-    /* Garante que o conteúdo fique centralizado no slide */
-    /* display: flex;
+/* Garante que o conteúdo fique centralizado no slide */
+/* display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -359,7 +490,7 @@ body {
     object-fit: cover;
     /* max-width: 1200px; */
     height: calc(80vh - 70px);
-    padding: 30px;
+    padding: 5px;
     padding-bottom: 0;
 }
 
@@ -426,46 +557,97 @@ body {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 5; /* Fica acima da imagem, mas abaixo do texto */
-    pointer-events: none; /* Não interfere em cliques */
-    
+    z-index: 5;
+    /* Fica acima da imagem, mas abaixo do texto */
+    pointer-events: none;
+    /* Não interfere em cliques */
+
     /* Degradê padrão (Texto à Esquerda, Imagem à Direita): fade no lado esquerdo da imagem */
-    background: linear-gradient(to right, 
-        var(--primary-color) 15%,        /* Cor de Fundo no início da imagem (onde o texto começa) */
-        rgba(33, 34, 38, 0) 40%         /* Fade para transparente */
-    );
+    background: linear-gradient(to right,
+            var(--primary-color) 15%,
+            /* Cor de Fundo no início da imagem (onde o texto começa) */
+            rgba(33, 34, 38, 0) 40%
+            /* Fade para transparente */
+        );
 }
 
 /* Degradê Invertido (Texto à Direita, Imagem à Esquerda): fade no lado direito da imagem */
 .slide-content-wrapper.reverse-layout .slide-image::after {
-    background: linear-gradient(to left, 
-        var(--primary-color) 0%,        /* Cor de Fundo no final da imagem (onde o texto começa) */
-        rgba(33, 34, 38, 0) 35%         /* Fade para transparente */
-    );
+    background: linear-gradient(to left,
+            var(--primary-color) 0%,
+            /* Cor de Fundo no final da imagem (onde o texto começa) */
+            rgba(33, 34, 38, 0) 35%
+            /* Fade para transparente */
+        );
 }
 
 /* --- Animações --- */
-.slide-text, .slide-image {
-    opacity: 0; /* Esconde inicialmente */
-    transform: translateX(0); /* Posição inicial neutra para transição */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição suave */
+.slide-text,
+.slide-image {
+    opacity: 0;
+    /* Esconde inicialmente */
+    transform: translateX(0);
+    /* Posição inicial neutra para transição */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    /* Transição suave */
 }
 
-.slide-text.active-animation.from-left {
-    transform: translateX(60px); /* Começa 50px à esquerda */
+
+
+
+
+
+@media(min-width:756px) {
+
+    .slide-image.active-animation.from-right {
+        transform: translateX(50px);
+        /* Começa 50px à direita */
+    }
+
+    .slide-image.active-animation.from-left {
+        transform: translateX(60px);
+        /* Começa 50px à esquerda */
+    }
+
+    .slide-text.active-animation.from-left {
+        transform: translateX(60px);
+        /* Começa 50px à esquerda */
+    }
+
+    .slide-text.active-animation.from-right {
+        transform: translateX(50px);
+        /* Começa 50px à direita */
+    }
 }
 
-.slide-text.active-animation.from-right {
-    transform: translateX(50px); /* Começa 50px à direita */
+@media(max-width:756px) {
+
+    .slide-text.active-animation.from-right {
+        transform: translateX(0px);
+        /* Começa 50px à direita */
+    }
+
+    .slide-text.active-animation.from-left {
+        transform: translateX(0px);
+        /* Começa 50px à esquerda */
+    }
+
+    .slide-image.active-animation.from-right {
+        transform: translateX(0px);
+        /* Começa 50px à direita */
+    }
+
+    .slide-image.active-animation.from-left {
+        transform: translateX(0px);
+        /* Começa 50px à esquerda */
+    }
+
+    .slide-content-wrapper {
+        padding: 0 !important;
+    }
 }
 
-.slide-image.active-animation.from-left {
-    transform: translateX(60px); /* Começa 50px à esquerda */
-}
 
-.slide-image.active-animation.from-right {
-    transform: translateX(50px); /* Começa 50px à direita */
-}
 
 /* Quando a animação está ativa, move para a posição final (0) e aparece */
 .swiper-slide-active .active-animation {
@@ -475,12 +657,13 @@ body {
 
 /* Estilo para a Paginação (Bolinhas) */
 .swiper-pagination-bullet {
-    background: #ffffff !important; 
+    background: #ffffff !important;
     opacity: 0.8;
 }
 
 .swiper-pagination-bullet-active {
-    background: #ffd700 !important; /* Destaque dourado */
+    background: #ffd700 !important;
+    /* Destaque dourado */
     opacity: 1;
 }
 
@@ -490,7 +673,8 @@ body {
     top: 50%;
     transform: translateY(-50%);
     z-index: 50;
-    color: #ffffff !important; /* Mude a cor das setas */
+    color: #ffffff !important;
+    /* Mude a cor das setas */
     cursor: pointer;
 }
 
@@ -505,9 +689,12 @@ body {
 /* Ocultar o texto padrão do Swiper (se aparecer) */
 .swiper-button-next::after,
 .swiper-button-prev::after {
-    content: ''; /* Remove o texto padrão (tipo "prev" ou "next") */
-    font-size: 30px; /* Mantém o ícone de seta do Swiper */
+    content: '';
+    /* Remove o texto padrão (tipo "prev" ou "next") */
+    font-size: 30px;
+    /* Mantém o ícone de seta do Swiper */
 }
+
 /*
     SEÇÃO DE DESTAQUE (HERO)
 */
@@ -516,13 +703,16 @@ body {
 /* ========================================================= */
 .banner-indie-highlight {
     /* Substitua 'url(../assets/images/seu_jogo_indie.jpg)' pela imagem real */
-    background-image: url(../assets/images/capasJogos/Silksong.jpg); 
+    background-image: url(../assets/images/capasJogos/Silksong.jpg);
     background-size: cover;
-    background-position: center 30%; /* Ajuste a posição para focar no jogo */
+    background-position: center 30%;
+    /* Ajuste a posição para focar no jogo */
     background-repeat: no-repeat;
-    padding: 80px 0; /* Espaçamento interno */
+    padding: 80px 0;
+    /* Espaçamento interno */
     margin-top: 0px;
-    margin-bottom: 0px; /* Separa do conteúdo abaixo */
+    margin-bottom: 0px;
+    /* Separa do conteúdo abaixo */
     position: relative;
     color: var(--text-color);
 }
@@ -535,13 +725,16 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Overlay preto com 60% de opacidade */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Overlay preto com 60% de opacidade */
 }
 
 .banner-indie-highlight .container {
     display: flex;
-    justify-content: flex-start; /* Alinha o conteúdo à esquerda */
-    z-index: 10; /* Garante que o conteúdo fique acima do overlay */
+    justify-content: flex-start;
+    /* Alinha o conteúdo à esquerda */
+    z-index: 10;
+    /* Garante que o conteúdo fique acima do overlay */
     position: relative;
 }
 
@@ -553,7 +746,8 @@ body {
 
 .banner-content .tag-lancamento {
     display: inline-block;
-    background-color: var(--accent-color); /* Laranja/Amarelo */
+    background-color: var(--accent-color);
+    /* Laranja/Amarelo */
     color: var(--primary-color);
     padding: 5px 15px;
     border-radius: 3px;
@@ -564,7 +758,8 @@ body {
 
 .banner-content h2 {
     font-size: 3em;
-    color: #ffffff; /* Título bem claro */
+    color: #ffffff;
+    /* Título bem claro */
     margin: 10px 0;
 }
 
@@ -576,7 +771,8 @@ body {
 
 .banner-actions {
     display: flex;
-    gap: 15px; /* Espaço entre os botões */
+    gap: 15px;
+    /* Espaço entre os botões */
 }
 
 /* ⚠️ Responsividade para o Banner */
@@ -584,24 +780,27 @@ body {
     .banner-indie-highlight {
         padding: 50px 0;
     }
-    
+
     .banner-content {
         text-align: center;
         max-width: 100%;
     }
-    
+
     .banner-content h2 {
         font-size: 2em;
     }
-    
+
     .banner-actions {
-        justify-content: center; /* Centraliza os botões no mobile */
-        flex-direction: column; /* Botões ficam empilhados */
+        justify-content: center;
+        /* Centraliza os botões no mobile */
+        flex-direction: column;
+        /* Botões ficam empilhados */
         gap: 10px;
     }
-    
+
     .banner-actions a {
-        width: 100%; /* Botões ocupam a largura total no mobile */
+        width: 100%;
+        /* Botões ocupam a largura total no mobile */
     }
 }
 
@@ -614,12 +813,15 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.6); /* Overlay preto com 60% de opacidade */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Overlay preto com 60% de opacidade */
     padding: 70px 0;
     text-align: center;
     /* Adiciona Sombra para o Efeito 3D de Nicho */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), /* Sombra inferior */
-                0 -5px 15px rgba(0, 0, 0, 0.3); /* Sombra superior (sutil) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+        /* Sombra inferior */
+        0 -5px 15px rgba(0, 0, 0, 0.3);
+    /* Sombra superior (sutil) */
 }
 
 .game-showcase .container {
@@ -637,7 +839,8 @@ body {
 
 .game-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsivo: 3 ou 4 colunas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Responsivo: 3 ou 4 colunas */
     gap: 30px;
 }
 
@@ -652,7 +855,8 @@ body {
     flex-direction: column;
 }
 
-.game-card h4, p {
+.game-card h4,
+p {
     font-family: 'Arcane';
     color: var(--text-color);
 }
@@ -671,37 +875,42 @@ body {
 
 .btn-primary {
     /* Cor de Fundo: A cor de destaque (Laranja/Amarelo) */
-    background-color: var(--accent-color); 
-    
+    background-color: var(--accent-color);
+
     /* Cor do Texto: O primário escuro para alto contraste */
-    color: var(--primary-color); 
-    
+    color: var(--primary-color);
+
     padding: 10px 20px;
-    border: none; /* Não precisa de borda, pois o fundo já define */
+    border: none;
+    /* Não precisa de borda, pois o fundo já define */
     border-radius: 4px;
-    text-decoration: none; /* Remove sublinhado se for um <a> */
+    text-decoration: none;
+    /* Remove sublinhado se for um <a> */
     font-weight: bold;
     font-size: 1em;
     cursor: pointer;
-    display: inline-block; /* Garante que o padding funcione corretamente */
+    display: inline-block;
+    /* Garante que o padding funcione corretamente */
     transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
 }
 
 .btn-primary:hover {
     /* Aumenta o brilho para dar feedback visual de interação */
-    background-color: #f7a81a; /* Ex: Uma variação levemente mais clara do D99311 */
+    background-color: #f7a81a;
+    /* Ex: Uma variação levemente mais clara do D99311 */
     /* Ou simplesmente: filter: brightness(1.15); */
-    
+
     /* Leve elevação e sombra para dar profundidade */
-    transform: translateY(-1px); 
+    transform: translateY(-1px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .btn-primary:active {
     /* Efeito de "clique" ou "pressionado" */
-    transform: translateY(0); 
+    transform: translateY(0);
     box-shadow: none;
-    background-color: #b3730e; /* Cor ligeiramente mais escura que o padrão */
+    background-color: #b3730e;
+    /* Cor ligeiramente mais escura que o padrão */
 }
 
 .btn-secondary {
@@ -709,7 +918,8 @@ body {
     color: white;
     padding: 8px 15px;
     text-decoration: none;
-    display: block; /* Ocupa a largura total do card */
+    display: block;
+    /* Ocupa a largura total do card */
     text-align: center;
     margin-top: auto;
     border-radius: 4px;
@@ -718,14 +928,17 @@ body {
 /* --- ESTILO PARA O FOOTER DA SEÇÃO SHOWCASE NA PÁGINA INICIAL --- */
 
 .showcase-footer {
-    text-align: center; /* Centraliza o conteúdo (o link/botão) */
-    margin-top: 50px; /* Adiciona espaçamento generoso acima */
-    margin-bottom: 50px; /* Adiciona espaçamento generoso abaixo */
+    text-align: center;
+    /* Centraliza o conteúdo (o link/botão) */
+    margin-top: 50px;
+    /* Adiciona espaçamento generoso acima */
+    margin-bottom: 50px;
+    /* Adiciona espaçamento generoso abaixo */
 }
 
 .showcase-footer .btn-primary {
     /* Define o botão como inline-block para que o text-align: center funcione */
-    display: inline-block; 
+    display: inline-block;
 }
 
 /*
@@ -761,6 +974,7 @@ body {
 
 /* --- RESPONSIVIDADE PARA TELAS MÉDIAS (até 992px) --- */
 @media screen and (max-width: 992px) {
+
     /* Ajusta o padding para dar mais espaço */
     .container {
         padding: 0 15px;
@@ -769,7 +983,7 @@ body {
 
 /* --- RESPONSIVIDADE PARA CELULARES (até 768px) --- */
 @media screen and (max-width: 768px) {
-    
+
     /* 1. HEADER (Cabeçalho) */
     .main-header .container {
         /* Permite que os itens fiquem na mesma linha, mas alinhados à direita */
@@ -780,7 +994,7 @@ body {
 
     /* Esconde a navegação principal (Jogos, Novidades, Suporte) */
     .main-nav {
-        display: none; 
+        display: none;
     }
 
     .menu-toggle {
@@ -800,6 +1014,7 @@ body {
     .logo {
         font-size: 1.2em;
     }
+
     .logoImg img {
         width: 35px;
         height: 35px;
@@ -807,24 +1022,142 @@ body {
 
     /* Move o bloco de ações do usuário (Login/Perfil) para a direita */
     .user-actions {
-        order: 2; /* Garante que fique à direita do logo */
+        order: 2;
+        /* Garante que fique à direita do logo */
     }
 
     /* 2. SWIPER (Carrossel) */
-    .swiper-slide-content {
-        padding: 20px;
+    /* Ajustes para o wrapper do slide: empilha elementos e reduz altura para celular */
+    .slide-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        /* centraliza horizontal */
+        justify-content: center;
+        /* centraliza vertical */
+        height: calc(100vh - var(--header-height));
+        /* ocupa a tela do mobile abaixo do header */
+        padding: 10px;
+        padding-left: 0;
+        /* elimina folga à esquerda */
+        gap: 10px;
+        text-align: center;
+        width: 100%;
+        max-width: 100vw;
+        /* impede overflow horizontal */
+        margin: 0 auto;
+        /* centra o wrapper */
     }
 
-    .swiper-slide-content h2 {
-        font-size: 2.2em;
-        margin-top: 50px; /* Reduz o espaçamento superior */
+    /* Imagem em cima, texto embaixo */
+    .slide-image {
+        order: 1;
     }
 
-    .swiper-slide-content p {
-        font-size: 1em;
-        margin: 10px 0 20px;
+    .slide-text {
+        order: 2;
     }
-    
+
+    .slide-text {
+        flex: 0 0 auto;
+        width: 90%;
+        text-align: center;
+        padding: 6px 10px;
+        background: rgba(13, 13, 16, 0.55);
+        /* leve fundo para legibilidade */
+        border-radius: 6px;
+        max-width: 580px;
+        /* limita largura em mobiles grandes */
+        margin: 0 auto;
+
+        /* centraliza o bloco de texto */
+        .game-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .game-header-row h4 {
+            margin: 8px 0;
+        }
+
+        /* Coração inline */
+        .fav-heart {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            color: #c0c0c0;
+            transition: color 0.2s ease, transform 0.1s ease;
+        }
+
+        .fav-heart:hover {
+            color: #ff4d4d;
+        }
+
+        .fav-heart:active {
+            transform: scale(0.95);
+        }
+
+        .fav-heart.favorited {
+            color: #e50914;
+        }
+
+        max-height: 24vh;
+        /* espaço suficiente sem conflitar com imagem */
+        overflow: hidden;
+    }
+
+    .slide-text h2 {
+        font-size: 1.3em;
+        margin-top: 6px;
+    }
+
+    .slide-text p {
+        font-size: 0.9em;
+        margin: 6px 0 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        /* limita linhas para evitar conflito com imagem */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .slide-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 960px;
+        /* evita esticar demais em tablets pequenos */
+        height: 60vh;
+        /* prioriza visibilidade da imagem */
+        display: flex;
+        justify-content: center;
+        /* centraliza horizontal */
+        align-items: center;
+        /* centraliza vertical */
+        padding: 0;
+        margin: 0 auto;
+        /* centraliza bloco da imagem */
+    }
+
+    .slide-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* preenche mantendo destaque visual */
+        object-position: center center;
+        /* garante foco central */
+        border-radius: 6px;
+    }
+
+    /* Atenua o degradê em mobile para não esconder a imagem */
+    .slide-image::after {
+        background: linear-gradient(to bottom,
+                rgba(33, 34, 38, 0.35) 0%,
+                rgba(33, 34, 38, 0) 60%);
+    }
+
     /* Oculta os botões de navegação lateral (setas) para liberar espaço */
     .swiper-button-next,
     .swiper-button-prev {
@@ -845,6 +1178,7 @@ body {
 
 /* --- Ajustes do Menu Hamburger (mobile) --- */
 @media screen and (max-width: 768px) {
+
     /* Garantir que o header agrupe logo + botão menu + ações do usuário corretamente */
     .main-header .container {
         display: flex;
@@ -862,7 +1196,8 @@ body {
         color: var(--text-color);
         font-size: 1.8rem;
         cursor: pointer;
-        order: 2; /* posiciona após o logo */
+        order: 2;
+        /* posiciona após o logo */
         padding: 6px 8px;
     }
 
@@ -887,13 +1222,14 @@ body {
     #mobile-menu {
         display: none;
         position: absolute;
-        top: 60px; /* abaixo do header fixo */
+        top: 60px;
+        /* abaixo do header fixo */
         left: 0;
         right: 0;
         width: 100%;
         background-color: var(--secondary-color);
         z-index: 9999;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
     #mobile-menu.menu-open {
@@ -914,16 +1250,43 @@ body {
         padding: 12px 18px;
         color: var(--text-color);
         text-decoration: none;
-        border-top: 1px solid rgba(255,255,255,0.04);
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
     }
 
     #mobile-menu ul li a:hover {
-        background: rgba(0,0,0,0.08);
+        background: rgba(0, 0, 0, 0.08);
     }
 
     /* Garantir que o botão de login (se houver dentro do menu mobile) não quebre o layout */
     #mobile-menu ul li a.btn-login {
         background: none;
         padding: 12px 18px;
+    }
+}
+
+/* Quando o menu mobile estiver aberto, evita o scroll do fundo */
+.no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Em desktop, mantém o menu mobile completamente oculto */
+@media (min-width: 769px) {
+    #mobile-menu {
+        display: none !important;
+    }
+
+    /* Header com logo à esquerda e ações do usuário à direita */
+    .main-header .container {
+        justify-content: space-between;
+        gap: 24px;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .user-actions {
+        margin-left: auto;
     }
 }

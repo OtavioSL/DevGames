@@ -8,26 +8,24 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/novidades.css">
     <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/mobile-fixes.css">
     <link rel="shortcut icon" href="../assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
 
-    <header class="main-header">
+     <header class="main-header">
         <div class="container">
             <a href="../../index.html" class="logo">
                 <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
 
-            <button id="menu-toggle" class="menu-toggle">â˜°</button>
-
             <nav class="main-nav">
                 <ul>
-                    <li><a href="catalogo.html">Jogos</a></li>
-                    <li><a href="novidades.html">Novidades</a></li>
-                    <li><a href="../suporte.html">Suporte</a></li>
-                    
+                    <li><a href="../html/catalogo.html">Jogos</a></li>
+                    <li><a href="../html/novidades.html">Novidades</a></li>
+                    <li><a href="../html/suporte.html">Suporte</a></li>
                 </ul>
             </nav>
 
@@ -35,19 +33,31 @@
                 <div id="login-button-container">
                     <a href="../html/login.html" class="btn-login" id="desktop-login-link">Login</a>
                 </div>
-
                 <div id="profile-menu-container" class="hidden">
                     <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
-                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do UsuÃ¡rio" id="profile-avatar">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário"
+                            id="profile-avatar">
                     </button>
-
                     <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
-                        <span class="dropdown-welcome">OlÃ¡, [Nome do UsuÃ¡rio]!</span>
+                        <span class="dropdown-welcome">Olá, [Nome do Usuário]!</span>
                         <a href="../html/myAccount.html" role="menuitem">Minha Conta</a>
                         <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
                     </div>
                 </div>
+
+                <!-- Botão hamburger responsivo (ao lado do menu de usuário) -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu" aria-expanded="false">☰</button>
             </div>
+        </div>
+        <!-- Menu mobile hamburger -->
+        <nav id="mobile-menu" class="main-nav hidden-mobile">
+            <ul>
+                <li><a href="../html/catalogo.html">Jogos</a></li>
+                <li><a href="../html/novidades.html">Novidades</a></li>
+                <li><a href="../html/suporte.html">Suporte</a></li>
+                <li><a href="../html/myAccount.html">Minha Conta</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main class="news-page-content">
@@ -56,7 +66,7 @@
 
             <section class="featured-news-section">
                 <div class="featured-news">
-                    <img src="../assets/images/noticias/TGA_nominees.webp" alt="NotÃ­cia em Destaque: Cyberpunk 2077"
+                    <img src="../assets/images/noticias/TGA_nominees.webp" alt="TGA nominees"
                         class="featured-img">
                     <div class="featured-content">
                         <span class="news-tag featured-tag">ESPECIAL TGA</span>
@@ -93,22 +103,20 @@
                     </article>
 
                 <article class="news-card">
-                    <img src="../assets/images/noticias/news_eldenring.jpg" alt="Capa da Notícia Elden Ring DLC">
+                    <img src="../assets/images/noticias/Blue Prince.jpg" alt="Capa da Notícia Blue Prince">
                     <div class="card-info">
-                        <h4>Elden Ring: DLC 'Shadow of the Erdtree' Ã© O Mais Vendido de 2025</h4>
-                        <p class="card-excerpt">A FromSoftware quebra recordes novamente com uma expansÃ£o que Ã©
-                            considerada um jogo novo...</p>
-                        <p class="news-date">17 de Novembro, 2025</p>
+                        <h4>🏰 "Blue Prince": O Roguelike de Puzzle Que Combina Lógica e Mistério em Uma Mansão Mutável</h4>
+                        <p class="card-excerpt">Com elementos clássicos de puzzle, o título consegue trazer uma ótima síntese dos dois gêneros</p>
+                        <p class="news-date">26 de Novembro, 2025</p>
                         <a href="./noticia2.html" class="read-more-link">Continuar Lendo</a>
                     </div>
                 </article>
 
                 <article class="news-card">
-                    <img src="../assets/images/noticias/news_indiegame.jpg" alt="Capa da Notícia Indie Game">
+                    <img src="../assets/images/noticias/HadesII.jpg" alt="Capa da Notícia HadesII">
                     <div class="card-info">
-                        <h4>Novo Indie de Impacto "Echoes of Mind" LanÃ§a Demo com Sucesso</h4>
-                        <p class="card-excerpt">Com foco em saÃºde mental e jogabilidade inovadora, o game tem tudo
-                            para ser o novo Omori...</p>
+                        <h4>🏆 Triunfo de 'Hades 2': Como a Supergiant Dominou 2025 e Superou Expectativas</h4>
+                        <p class="card-excerpt">O sucesso não se limitou à crítica: o jogo se firmou como um dos maiores hits de vendas do ano.</p>
                         <p class="news-date">16 de Novembro, 2025</p>
                         <a href="./noticia3.html" class="read-more-link">Continuar Lendo</a>
                     </div>
@@ -127,9 +135,9 @@
     <footer class="main-footer">
         <div class="footer-links">
             <ul>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Termos de Serviço</a></li>
-                <li><a href="#">Política de Privacidade</a></li>
+               <li><a href="../html/suporte.html/#historia">Sobre Nós</a></li>
+                <li><a href="../html/suporte.html/#termos">Termos de Serviço</a></li>
+                <li><a href="../html/suporte.html/#privacidade">Política de Privacidade</a></li>
             </ul>
         </div>
         <p>&copy; 2025 DevGames. Todos os direitos reservados.</p>
@@ -138,6 +146,7 @@
     </footer>
 
     <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
     <script src="../js/newsPagination.js"></script>
 </body>
 

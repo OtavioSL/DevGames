@@ -6,31 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Conta - Rastreador de PromoÃ§Ãµes | DevGames</title>
     <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/mobile-fixes.css">
     <link rel="stylesheet" href="../css/account.css"> 
+    <link rel="stylesheet" href="../css/account-custom.css">
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="shortcut icon" href="../assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+
     <header class="main-header">
         <div class="container">
             <a href="../../index.html" class="logo">
                 <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
-            <button id="menu-toggle" class="menu-toggle">â˜°</button>
+
+            <button id="menu-toggle" class="menu-toggle">☰</button>
 
             <nav class="main-nav">
                 <ul>
-                    <li><a href="../html/catalogo.html">Jogos</a></li>
-                    <li><a href="../html/novidades.html">Novidades</a></li>
-                    <li><a href="../suporte.html">Suporte</a></li>
+                    <li><a href="./catalogo.html">Jogos</a></li>
+                    <li><a href="./novidades.html">Novidades</a></li>
+                    <li><a href="./suporte.html">Suporte</a></li>
                 </ul>
             </nav>
 
             <div class="user-actions">
                 <div id="login-button-container">
-                    <a href="./public/html/login.html" class="btn-login" id="desktop-login-link">Login</a>
+                    <a href="./login.html" class="btn-login" id="desktop-login-link">Login</a>
                 </div>
 
                 <div id="profile-menu-container" class="hidden">
@@ -48,59 +52,131 @@
             </div>
     </header>
 
+    <nav id="mobile-menu" class="main-nav hidden-mobile">
+        <ul>
+            <li><a href="./catalogo.html">Jogos</a></li>
+            <li><a href="./novidades.html">Novidades</a></li>
+            <li><a href="./suporte.html">Suporte</a></li>
+            <li><a href="./myAccount.html">Minha Conta</a></li>
+        </ul>
+    </nav>
+
     <main class="account-page-content">
         <div class="container">
-            
+            <!-- Estado deslogado -->
             <section id="logged-out-content" class="auth-message-box">
-                <h1 class="page-title">Acompanhe Seus Jogos Favoritos!</h1>
-                <p>Para criar sua lista de jogos, monitorar preços e receber alertas de promoções exclusivas, você precisa fazer login ou criar uma conta.</p>
-                
+                <h1 class="page-title">Crie seu Perfil</h1>
+                <p>Faça login para gerenciar seus favoritos, escrever reviews e acompanhar novidades dos jogos.</p>
                 <div class="auth-actions">
                     <a href="login.html" class="btn-primary">Fazer Login</a>
                     <a href="cadastro.html" class="btn-secondary">Criar Conta</a>
                 </div>
             </section>
 
-            <section id="logged-in-content" class="tracker-section hidden">
-                <h1 class="page-title">Seu Rastreador de Promoções</h1>
-                <p class="tracker-info">Aqui estão os jogos que você está monitorando. Avisaremos se o preço cair abaixo do seu limite desejado!</p>
-
-                <div id="promo-list" class="promo-grid">
-                    
-                    <div class="promo-card">
-                        <img src="../assets/images/capasJogos/hades_2_capa.jpg" alt="Capa Hades II" class="promo-img">
-                        <div class="promo-details">
-                            <h4>Hades II</h4>
-                            <p class="current-price">Preço Atual: **R$ 88,99**</p>
-                            <p class="target-price">Meta de Preço: R$ 60,00</p>
-                            <span class="status alert">ALERTA: Ainda não está em promoçãp!</span>
-                        </div>
-                        <button class="btn-remove">Remover</button>
+            <!-- Página de Perfil (logado) -->
+            <section id="profile-content" class="hidden">
+                <!-- Cabeçalho do Perfil -->
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar" id="profile-page-avatar">
                     </div>
-
-                    <div class="promo-card">
-                        <img src="../assets/images/capasJogos/celeste_capa.jpg" alt="Capa Celeste" class="promo-img">
-                        <div class="promo-details">
-                            <h4>Celeste</h4>
-                            <p class="current-price">Preço Atual: **R$ 18,50**</p>
-                            <p class="target-price">Meta de Preço: R$ 20,00</p>
-                            <span class="status success">PROMOÇÃO ATINGIDA!</span>
-                        </div>
-                        <button class="btn-remove">Remover</button>
+                    <div class="profile-info">
+                        <h1 id="profile-username">Seu Nome</h1>
+                        <p id="profile-bio">Adicione uma breve descrição sobre você.</p>
+                        <button id="edit-profile-btn" class="btn-secondary">Editar Perfil</button>
                     </div>
+                </div>
 
+                <!-- Favoritos -->
+                <div class="profile-section">
+                    <h2>Favoritos</h2>
+                    <div id="favorites-list" class="favorites-grid">
+                        <!-- Cards de jogos favoritos renderizados via JS -->
+                    </div>
+                    <p id="favorites-empty" class="empty-hint hidden">Nenhum favorito ainda. Adicione nos cards do catálogo.</p>
+                </div>
+
+                <!-- Reviews do Usuário -->
+                <div class="profile-section">
+                    <h2>Minhas Reviews</h2>
+                    <form id="review-form" class="review-form">
+                        <div class="form-row">
+                            <label for="review-game">Jogo</label>
+                            <div class="game-search">
+                                <input type="text" id="review-game" name="reviewGame" placeholder="Busque um jogo pelo nome" autocomplete="off" required>
+                                <div id="game-suggestions" class="game-suggestions hidden" role="listbox" aria-label="Sugestões de jogos"></div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="review-rating">Nota</label>
+                            <select id="review-rating" name="reviewRating">
+                                <option value="5">10</option>
+                                <option value="5">9</option>
+                                <option value="5">8</option>
+                                <option value="5">7</option>
+                                <option value="5">6</option>
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="review-text">Review</label>
+                            <textarea id="review-text" name="reviewText" rows="4" placeholder="Conte brevemente sua experiência" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Publicar Review</button>
+                    </form>
+
+                    <div id="reviews-list" class="reviews-list">
+                        <!-- Reviews renderizadas via JS -->
+                    </div>
+                    <p id="reviews-empty" class="empty-hint hidden">Você ainda não escreveu reviews.</p>
                 </div>
             </section>
-
+            
+            <!-- Modal de Edição de Perfil -->
+            <div id="edit-profile-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="editProfileTitle">
+                <div class="modal-backdrop"></div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 id="editProfileTitle">Editar Perfil</h3>
+                        <button class="modal-close" id="edit-profile-close" aria-label="Fechar">✕</button>
+                    </div>
+                    <form id="edit-profile-form" class="edit-profile-form">
+                        <div class="form-row">
+                            <label for="edit-name">Nome</label>
+                            <input type="text" id="edit-name" name="name" placeholder="Seu nome">
+                        </div>
+                        <div class="form-row">
+                            <label for="edit-bio">Descrição</label>
+                            <textarea id="edit-bio" name="bio" rows="3" placeholder="Fale sobre você"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <label for="edit-avatar">Imagem de Perfil</label>
+                            <input type="file" id="edit-avatar" accept="image/*">
+                        </div>
+                        <div class="form-row">
+                            <label for="edit-extra">Informações adicionais</label>
+                            <input type="text" id="edit-extra" name="extra" placeholder="Ex.: Plataforma favorita, gênero preferido">
+                        </div>
+                        <div class="modal-actions">
+                            <button type="button" class="btn-secondary" id="edit-profile-cancel">Cancelar</button>
+                            <button type="submit" class="btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer class="main-footer">
         <div class="footer-links">
             <ul>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Termos de Serviço</a></li>
-                <li><a href="#">Política de Privacidade</a></li>
+                <li><a href="../html/suporte.html/#historia">Sobre Nós</a></li>
+                <li><a href="../html/suporte.html/#termos">Termos de Serviço</a></li>
+                <li><a href="../html/suporte.html/#privacidade">Política de Privacidade</a></li>
             </ul>
         </div>
         <p>&copy; 2025 DevGames. Todos os direitos reservados.</p>
@@ -108,7 +184,11 @@
         </div>
     </footer>
 
-    <script src="../js/auth.js"></script> 
+    <script src="../js/auth.js"></script>
+    <!-- <script src="../js/account-api.js"></script> -->
+    <script src="../js/main.js"></script>
+    <script src="../js/gameList.js"></script>
+    <script src="../js/profile.js"></script>
 </body>
 
 </html>

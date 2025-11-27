@@ -103,16 +103,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupMobileMenu() {
         if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.toggle('menu-open');
+            // define estado inicial acessível
+            menuToggle.setAttribute('aria-controls', mobileMenu.id || 'mobile-menu');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            // display control via CSS transform; do not force display here
+            // Alterna visibilidade e acessibilidade
+            menuToggle.addEventListener('click', (e) => {
+                const opened = mobileMenu.classList.toggle('menu-open');
+                menuToggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+                // Atualiza ícone do botão (hamburger -> fechar)
+                menuToggle.textContent = opened ? '✕' : '☰';
+                // Evita scroll do body quando o menu estiver aberto
+                document.body.classList.toggle('no-scroll', opened);
+                // Backdrop (drawer estilo YouTube)
+                toggleBackdrop(opened);
+                // Em mobile, garante que o menu de usuário esteja dentro do drawer
+                manageProfileMenuInDrawer();
             });
 
+            // Fecha o menu ao clicar em qualquer link interno
             const menuLinks = mobileMenu.querySelectorAll('a');
             menuLinks.forEach(link => {
-                link.addEventListener('click', () => {
+                link.addEventListener('click', (e) => {
+                    // Fecha o menu visualmente antes da navegação
                     mobileMenu.classList.remove('menu-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.textContent = '☰';
+                    document.body.classList.remove('no-scroll');
+                    toggleBackdrop(false);
                 });
             });
+
+            // Fecha ao clicar fora do menu
+            document.addEventListener('click', (ev) => {
+                if (!mobileMenu.classList.contains('menu-open')) return;
+                const isClickInside = ev.target.closest && ev.target.closest('#mobile-menu, #menu-toggle');
+                const isBackdrop = ev.target.classList && ev.target.classList.contains('mobile-backdrop');
+                if (!isClickInside || isBackdrop) {
+                    mobileMenu.classList.remove('menu-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.classList.remove('no-scroll');
+                    toggleBackdrop(false);
+                }
+            });
+
+            // Fecha com Esc
+            document.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Escape' && mobileMenu.classList.contains('menu-open')) {
+                    mobileMenu.classList.remove('menu-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.classList.remove('no-scroll');
+                    toggleBackdrop(false);
+                }
+            });
+        }
+    }
+
+    // Move o menu de usuário (dropdown) para dentro do drawer em mobile e retorna em desktop
+    function manageProfileMenuInDrawer(){
+        const profileContainer = document.getElementById('profile-menu-container');
+        const profileDropdown = document.getElementById('profile-dropdown-content');
+        if (!mobileMenu || !profileDropdown || !profileContainer) return;
+
+        const isMobile = window.innerWidth <= 768;
+        // Placeholder para restaurar em desktop
+        let placeholder = document.getElementById('profile-dropdown-placeholder');
+        if (!placeholder){
+            placeholder = document.createElement('div');
+            placeholder.id = 'profile-dropdown-placeholder';
+            profileContainer.parentNode.insertBefore(placeholder, profileContainer.nextSibling);
+        }
+
+        if (isMobile){
+            // Move dropdown para dentro do drawer e torna visível como lista
+            if (!mobileMenu.contains(profileDropdown)){
+                mobileMenu.appendChild(profileDropdown);
+                profileDropdown.classList.remove('hidden');
+            }
+        } else {
+            // Retorna dropdown para o container original e mantém comportamento padrão
+            if (!profileContainer.contains(profileDropdown)){
+                profileContainer.appendChild(profileDropdown);
+                // Em desktop, mantém o estado oculto até o avatar abrir
+                if (!profileDropdown.classList.contains('hidden')){
+                    profileDropdown.classList.add('hidden');
+                }
+            }
         }
     }
 
@@ -121,6 +197,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 4.1. Configura o Menu Mobile
     setupMobileMenu();
+    // 4.1.1. Ajusta a posição do menu de usuário conforme viewport
+    manageProfileMenuInDrawer();
 
     // 4.2. Configura os Listeners do Catálogo
     if (gameListContainer) { // Só executa a lógica do catálogo se os elementos existirem
@@ -148,6 +226,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+});
+
+// Backdrop para o drawer mobile (inserido ao final para escopo global)
+function toggleBackdrop(show){
+    let backdrop = document.querySelector('.mobile-backdrop');
+    if (show){
+        if (!backdrop){
+            backdrop = document.createElement('div');
+            backdrop.className = 'mobile-backdrop';
+            document.body.appendChild(backdrop);
+        }
+        backdrop.style.display = 'block';
+    } else if (backdrop){
+        backdrop.style.display = 'none';
+    }
+}
+
+// Reage a mudanças de tamanho de janela para reposicionar o menu de usuário
+window.addEventListener('resize', () => {
+    try { if (typeof manageProfileMenuInDrawer === 'function') manageProfileMenuInDrawer(); } catch(e){}
 });
 
 function filterGames() {

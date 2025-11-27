@@ -166,17 +166,18 @@
     // --- 4. PÁGINA MINHA CONTA ---
     function renderAccountPage() {
         const user = checkLoginStatus();
-        const loggedInContent = document.getElementById('logged-in-content');
+        // Compatível com nova estrutura de perfil
         const loggedOutContent = document.getElementById('logged-out-content');
+        const profileContent = document.getElementById('profile-content');
 
         if (user) {
-            if (loggedInContent) loggedInContent.classList.remove('hidden');
+            if (profileContent) profileContent.classList.remove('hidden');
             if (loggedOutContent) loggedOutContent.classList.add('hidden');
         } else {
+            if (profileContent) profileContent.classList.add('hidden');
+            if (loggedOutContent) loggedOutContent.classList.remove('hidden');
+            // Não redireciona automaticamente; apenas mostra chamada para login
             if (loginButton) loginButton.onclick = () => { window.location.href = 'login.html'; };
-            if (document.querySelector('.account-page-content')) {
-                window.location.href = 'login.html';
-            }
         }
     }
 
