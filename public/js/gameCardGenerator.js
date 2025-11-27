@@ -125,9 +125,17 @@
         }
 
         // Aplicar ordenação sempre (não conta como filtro)
-        if (sort === 'price-asc') items.sort((a,b)=> parsePrice(a.infos.price) - parsePrice(b.infos.price));
-        else if (sort === 'price-desc') items.sort((a,b)=> parsePrice(b.infos.price) - parsePrice(a.infos.price));
+        if (sort === 'alphabetical') {
+            items.sort((a,b)=> {
+                const nameA = (a.infos.name || '').toLowerCase();
+                const nameB = (b.infos.name || '').toLowerCase();
+                return nameA.localeCompare(nameB);
+            });
+        }
         else if (sort === 'recent') items.sort((a,b)=> (a.__originalIndex||0) - (b.__originalIndex||0));
+        else if (sort === 'oldest') items.sort((a,b)=> (b.__originalIndex||0) - (a.__originalIndex||0));
+        else if (sort === 'price-asc') items.sort((a,b)=> parsePrice(a.infos.price) - parsePrice(b.infos.price));
+        else if (sort === 'price-desc') items.sort((a,b)=> parsePrice(b.infos.price) - parsePrice(a.infos.price));
 
         // Render
         if (!items || items.length === 0) {
@@ -161,10 +169,31 @@
     const genreSelect = document.getElementById('genre-select');
     const sortSelect = document.getElementById('sort-select');
 
+    // Função para disparar busca temporária e limpar
+    function triggerTempSearch() {
+        if (searchInput) {
+            searchInput.value = 'a';
+            applyFilters();
+            setTimeout(() => {
+                searchInput.value = '';
+                applyFilters();
+            }, 100);
+        }
+    }
+
     if (searchButton) searchButton.addEventListener('click', applyFilters);
     if (searchInput) searchInput.addEventListener('input', ()=>{ applyFilters(); });
-    if (genreSelect) genreSelect.addEventListener('change', applyFilters);
-    if (sortSelect) sortSelect.addEventListener('change', applyFilters);
+    if (genreSelect) genreSelect.addEventListener('change', () => { 
+        triggerTempSearch();
+    });
+    if (sortSelect) sortSelect.addEventListener('change', () => { 
+        triggerTempSearch();
+    });
+
+    // Dispara busca ao carregar e limpa depois
+    setTimeout(() => {
+        triggerTempSearch();
+    }, 100);
     // Garantir coração presente mesmo se algum card vier sem header-row
     function ensureHearts(){
         const favs = (window.DevGamesProfile && typeof window.DevGamesProfile.listFavorites === 'function')

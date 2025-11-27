@@ -528,14 +528,34 @@ main { flex: 1 0 auto; }
 
 .game-card img {
     width: 100%;
-    height: 180px; /* altura fixa ajuda a uniformizar os cards */
-    object-fit: cover;
+    height: 260px; /* altura aumentada para proporção mais vertical (similar a capas de jogos) */
+    object-fit: cover; /* mantém proporção cortando excesso */
+    object-position: center top; /* prioriza o topo da imagem */
     border-radius: 4px;
     margin-bottom: 10px;
+    display: block;
 }
 
-/* estabiliza a altura de título e preço para evitar variações de layout */
-.game-card h4 { min-height: 48px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+/* Linha do título com coração de favorito */
+.game-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.game-header-row h4 {
+    margin: 0;
+    flex: 1;
+    min-height: 48px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* estabiliza a altura de preço para evitar variações de layout */
 .game-card .game-price { min-height: 24px; }
 
 /* --- ESTILO PARA AS TAGS DE GÊNERO DENTRO DO CARD --- */
@@ -630,8 +650,8 @@ main { flex: 1 0 auto; }
 
 /* Ajustes específicos para viewport ~430x932 (mobile alto) */
 @media screen and (max-width: 480px) {
-    .game-card { min-height: 380px; }
-    .game-card img { max-height: 180px; object-fit: cover; }
+    .game-card { min-height: 420px; }
+    .game-card img { height: 240px; object-fit: cover; object-position: center top; }
     .card-actions { width: 100%; }
 }
 
