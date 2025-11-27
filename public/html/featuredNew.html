@@ -1,31 +1,23 @@
-﻿ <!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TGA 2025: A Ascensão dos Jogos Indie | DevGames</title>
-    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/featuredNew.css">
+    <link rel="stylesheet" href="../css/mobile-fixes.css">
     <link rel="shortcut icon" href="../assets/images/Logo/favicon_io/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
-     <header class="main-header">
+    <header class="main-header">
         <div class="container">
             <a href="../../index.html" class="logo">
                 <div class="logoImg"><img src="../assets/images/Logo/favicon_io/android-chrome-192x192.png"
                         alt="Logo Da Empresa"></div><span>DevGames</span>
             </a>
-
-            <button id="menu-toggle" class="menu-toggle">â˜°</button>
-
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="catalogo.html">Jogos</a></li>
-                    <li><a href="novidades.html">Novidades</a></li> <li><a href="../suporte.html">Suporte</a></li>
-                </ul>
-            </nav>
 
             <div class="user-actions">
                 <div id="login-button-container">
@@ -34,8 +26,7 @@
 
                 <div id="profile-menu-container" class="hidden">
                     <button class="avatar-trigger" aria-controls="profile-dropdown-content" aria-expanded="false">
-                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário"
-                            id="profile-avatar">
+                        <img src="../assets/images/avatar/avatar.jpg" alt="Avatar do Usuário" id="profile-avatar">
                     </button>
 
                     <div id="profile-dropdown-content" class="profile-dropdown-content hidden" role="menu">
@@ -44,60 +35,98 @@
                         <button class="btn-dropdown-logout" id="btn-logout" role="menuitem">Sair</button>
                     </div>
                 </div>
+
+                <!-- Botão hamburger responsivo (ao lado do menu de usuário) -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu" aria-controls="mobile-menu"
+                    aria-expanded="false">☰</button>
             </div>
+        </div>
+        <!-- Menu mobile hamburger -->
+        <nav id="mobile-menu" class="main-nav hidden-mobile">
+            <ul>
+                <li><a href="../html/catalogo.html">Jogos</a></li>
+                <li><a href="../html/novidades.html">Novidades</a></li>
+                <li><a href="../html/suporte.html">Suporte</a></li>
+                <li><a href="../html/myAccount.html">Minha Conta</a></li>
+                <li id="mobile-login-container" class="hidden"><a href="../html/login.html" class="btn-mobile-login">Login</a></li>
+                <li id="mobile-logout-container" class="hidden"><button id="mobile-logout-btn"
+                        class="btn-mobile-logout">Sair</button></li>
+            </ul>
+        </nav>
+        </div>
     </header>
 
     <main class="article-container">
         <article class="news-article">
-            
+
             <div class="article-meta">
                 <span class="news-tag featured-tag">ESPECIAL TGA</span>
                 <h1>Hades II, Silksong e Clair Obscur Lideram: TGA 2025 Confirma a Força dos Jogos Indie</h1>
-                <p class="author-date">Por Ana Blogueira  19 de Novembro, 2025  Tempo de Leitura: 6 min</p>
+                <p class="author-date">Por Ana Blogueira 19 de Novembro, 2025 Tempo de Leitura: 6 min</p>
                 <hr>
             </div>
-            
+
             <figure class="article-figure">
                 <img src="../assets/images/noticias/tga_indicados_2025.jpg" alt="TGA 2025">
                 <figcaption>Jogos Independentes roubam a cena em diversas categorias.</figcaption>
             </figure>
 
             <div class="article-content">
-                <p class="lead">O anúncio dos indicados ao The Game Awards (TGA) 2025 solidificou uma tendência que se desenha há anos: a ascensão meteórica dos jogos independentes. Longe de serem meros coadjuvantes na categoria "Melhor Jogo Indie", títulos como <strong>Hades II</strong>, <strong>Hollow Knight: Silksong</strong> e o surpreendente <strong>Clair Obscur: Expedition 33</strong> dominaram as listas, garantindo indicações em categorias de peso, incluindo a cobiçada Jogo do Ano (GOTY).</p>
+                <p class="lead">O anúncio dos indicados ao The Game Awards (TGA) 2025 solidificou uma tendência que se
+                    desenha há anos: a ascensão meteórica dos jogos independentes. Longe de serem meros coadjuvantes na
+                    categoria "Melhor Jogo Indie", títulos como <strong>Hades II</strong>, <strong>Hollow Knight:
+                        Silksong</strong> e o surpreendente <strong>Clair Obscur: Expedition 33</strong> dominaram as
+                    listas, garantindo indicações em categorias de peso, incluindo a cobiçada Jogo do Ano (GOTY).</p>
 
                 <h2>O Dominío no GOTY</h2>
-                <p>Neste ano, a categoria principal, Game of the Year, conta com um número impressionante de jogos que nasceram no cenário independente. A presença de Hades II (Supergiant Games) e Hollow Knight: Silksong (Team Cherry) ao lado de grandes produções como <strong>Death Stranding 2</strong> mostra que o impacto emocional e a qualidade de design superam orçamentos multimilionários.</p>
+                <p>Neste ano, a categoria principal, Game of the Year, conta com um número impressionante de jogos que
+                    nasceram no cenário independente. A presença de Hades II (Supergiant Games) e Hollow Knight:
+                    Silksong (Team Cherry) ao lado de grandes produções como <strong>Death Stranding 2</strong> mostra
+                    que o impacto emocional e a qualidade de design superam orçamentos multimilionários.</p>
 
                 <blockquote>
-                    <p>"A inovação em narrativa e mecânica muitas vezes floresce longe da pressão dos grandes estúdios. O TGA 2025 é uma celebração dessa liberdade criativa."</p>
+                    <p>"A inovação em narrativa e mecânica muitas vezes floresce longe da pressão dos grandes estúdios.
+                        O TGA 2025 é uma celebração dessa liberdade criativa."</p>
                     <cite> Geoff Keighley, Apresentador do TGA</cite>
                 </blockquote>
 
                 <h2>Destaques Indie por Categoria</h2>
-                
+
                 <h3>Melhor Jogo Independente</h3>
-                <p>Esta categoria, tradicionalmente o lar dos títulos indie, está mais forte do que nunca. Além dos já citados, os indicados incluem:</p>
+                <p>Esta categoria, tradicionalmente o lar dos títulos indie, está mais forte do que nunca. Além dos já
+                    citados, os indicados incluem:</p>
                 <ul>
-                    <li><strong>Absolum (Guard Crush Games/Supamonks/Dotemu):</strong> Aventura de plataforma com foco em temas de ansiedade social.</li>
-                    <li><strong>Ball x Pit (Kenny Sun/Devolver Digital):</strong> Quebra-cabeça minimalista com uma jogabilidade envolvente.</li>
-                    <li><strong>Blue Prince (Dogubomb/Raw Fury):</strong> Estreia de peso com uma direÃ§Ã£o de arte Ãºnica e narrativa profunda.</li>
-                    <li><strong>Clair Obscur: Expedition 33 (Sandfall Interactive/Kepler Interactive):</strong> RPG de turnos com foco no sacrifício desesperado.</li>
-                    <li><strong>Hades II (Supergiant Games):</strong> Roguelite de ação com narrativa densa e mitologia.</li>
-                    <li><strong>Hollow Knight: Silksong (Team Cherry):</strong> Metroidvania de plataforma e aÃ§Ã£o de alta dificuldade.</li>
+                    <li><strong>Absolum (Guard Crush Games/Supamonks/Dotemu):</strong> Aventura de plataforma com foco
+                        em temas de ansiedade social.</li>
+                    <li><strong>Ball x Pit (Kenny Sun/Devolver Digital):</strong> Quebra-cabeça minimalista com uma
+                        jogabilidade envolvente.</li>
+                    <li><strong>Blue Prince (Dogubomb/Raw Fury):</strong> Estreia de peso com uma direÃ§Ã£o de arte
+                        Ãºnica e narrativa profunda.</li>
+                    <li><strong>Clair Obscur: Expedition 33 (Sandfall Interactive/Kepler Interactive):</strong> RPG de
+                        turnos com foco no sacrifício desesperado.</li>
+                    <li><strong>Hades II (Supergiant Games):</strong> Roguelite de ação com narrativa densa e mitologia.
+                    </li>
+                    <li><strong>Hollow Knight: Silksong (Team Cherry):</strong> Metroidvania de plataforma e aÃ§Ã£o de
+                        alta dificuldade.</li>
                 </ul>
 
                 <h3>Narrativa e Direção de Arte</h3>
-                <p>Em Áreas historicamente dominadas por AAA, os jogos menores brilharam. <b>Clair Obscur: Expedition 33</b>, por exemplo, conseguiu múltiplas indicações, incluindo <em>Narrativa e Melhor Direção de Arte</em>, provando que a visão artística e a profundidade emocional são os verdadeiros critérios de excelência.</p>
+                <p>Em Áreas historicamente dominadas por AAA, os jogos menores brilharam. <b>Clair Obscur: Expedition
+                        33</b>, por exemplo, conseguiu múltiplas indicações, incluindo <em>Narrativa e Melhor Direção de
+                        Arte</em>, provando que a visão artística e a profundidade emocional são os verdadeiros
+                    critérios de excelência.</p>
 
-                <p>Para conferir a lista completa de indicados e votar no seu favorito, acesse o <a href="https://thegameawards.com/nominees" target="_blank">site oficial do The Game Awards.</a></p>
+                <p>Para conferir a lista completa de indicados e votar no seu favorito, acesse o <a
+                        href="https://thegameawards.com/nominees" target="_blank">site oficial do The Game Awards.</a>
+                </p>
             </div>
-            
+
         </article>
-        
+
         <div class="back-to-news">
             <a href="novidades.html" class="btn-primary"> ← Voltar para Novidades</a>
         </div>
-        
+
     </main>
 
     <footer class="main-footer">
@@ -112,7 +141,8 @@
         <div class="social-media">
         </div>
     </footer>
-    
+
+    <script src="../js/main.js"></script>
     <script src="../js/auth.js"></script>
 
 </body>

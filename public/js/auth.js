@@ -9,6 +9,11 @@
     const avatarTrigger = document.querySelector('.avatar-trigger');
     const dropdownContent = document.getElementById('profile-dropdown-content');
     const welcomeSpan = document.querySelector('.dropdown-welcome');
+    
+    // Elementos do menu mobile
+    const mobileLoginContainer = document.getElementById('mobile-login-container');
+    const mobileLogoutContainer = document.getElementById('mobile-logout-container');
+    const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
 
     const registerForm = document.getElementById('register-form');
     const loginForm = document.getElementById('login-form');
@@ -36,10 +41,18 @@
             const userData = checkLoginStatus();
             const userName = userData && userData.name ? userData.name.split(' ')[0] : 'Usuário';
             if (welcomeSpan) welcomeSpan.textContent = `Olá, ${userName}!`;
+            
+            // Mostra botão de logout e esconde login no menu mobile
+            if (mobileLogoutContainer) mobileLogoutContainer.classList.remove('hidden');
+            if (mobileLoginContainer) mobileLoginContainer.classList.add('hidden');
         } else {
             loginContainer.classList.remove('hidden');
             profileContainer.classList.add('hidden');
             if (welcomeSpan) welcomeSpan.textContent = '';
+            
+            // Esconde botão de logout e mostra login no menu mobile
+            if (mobileLogoutContainer) mobileLogoutContainer.classList.add('hidden');
+            if (mobileLoginContainer) mobileLoginContainer.classList.remove('hidden');
         }
     }
 
@@ -91,10 +104,19 @@
             if (dropdownUserName) dropdownUserName.textContent = user.name.split(' ')[0];
             if (profileAvatar) profileAvatar.src = user.avatarUrl || defaultAvatar;
             if (logoutButton) logoutButton.onclick = handleLogout; // evita múltiplos listeners
+            
+            // Configura botão de logout mobile e esconde login
+            if (mobileLogoutBtn) mobileLogoutBtn.onclick = handleLogout;
+            if (mobileLogoutContainer) mobileLogoutContainer.classList.remove('hidden');
+            if (mobileLoginContainer) mobileLoginContainer.classList.add('hidden');
         } else {
             if (loginAction) loginAction.classList.remove('hidden');
             if (profileMenuContainer) profileMenuContainer.classList.add('hidden');
             if (profileAvatar) profileAvatar.src = defaultAvatar;
+            
+            // Esconde botão de logout e mostra login mobile
+            if (mobileLogoutContainer) mobileLogoutContainer.classList.add('hidden');
+            if (mobileLoginContainer) mobileLoginContainer.classList.remove('hidden');
         }
     }
 

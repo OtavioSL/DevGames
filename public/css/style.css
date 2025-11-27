@@ -1263,6 +1263,61 @@ p {
         background: none;
         padding: 12px 18px;
     }
+
+    /* Botões de login/logout no menu mobile */
+    #mobile-login-container,
+    #mobile-logout-container {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-mobile-login {
+        display: block;
+        width: 100%;
+        padding: 12px 18px;
+        background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .btn-mobile-login:hover {
+        background: linear-gradient(135deg, #0096c7 0%, #005f8a 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4);
+    }
+
+    .btn-mobile-logout {
+        width: 100%;
+        padding: 12px 18px;
+        background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+    }
+
+    .btn-mobile-logout:hover {
+        background: linear-gradient(135deg, #d62828 0%, #a01017 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+    }
+
+    .btn-mobile-logout:active,
+    .btn-mobile-login:active {
+        transform: translateY(0);
+    }
 }
 
 /* Quando o menu mobile estiver aberto, evita o scroll do fundo */
