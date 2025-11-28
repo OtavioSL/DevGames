@@ -78,18 +78,6 @@ let jogos = [
         }
     },  {
         img: {
-            src: "../assets/images/capasJogos/Undertale.jpg",
-            alt: "texto alternativo da imagem"
-        },
-        infos: {
-            name: "Undertale",
-            price: "R$ 19,99",
-            genre: ["rpg"],
-            theme: "Consequências das Ações, Moralidade, Amizade",
-            href: "https://store.steampowered.com/app/391540/Undertale/"
-        }
-    },  {
-        img: {
             src: "../assets/images/capasJogos/Hollow Knight.jpg",
             alt: "texto alternativo da imagem"
         },
@@ -112,19 +100,7 @@ let jogos = [
              theme: "Identidade, Destino, Responsabilidade, Agilidade",
              href: "https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/"
          }
-     },  {
-        img: {
-            src: "../assets/images/capasJogos/this War of Mine.jpg",
-            alt: "texto alternativo da imagem"
-        },
-        infos: {
-            name: "This War of Mine",
-            price: "R$ 59,99",
-            genre: ["adventure", "simulation"],
-            theme: "Sobrevivência, Escolhas Morais em Guerra, Desespero",
-            href: "https://store.steampowered.com/app/282070/This_War_of_Mine/"
-        }
-    },  {
+     }, {
         img: {
             src: "../assets/images/capasJogos/Limbo.jpg",
             alt: "texto alternativo da imagem"
@@ -305,7 +281,31 @@ let jogos = [
             theme: "Arrependimento, Tempo, Obsessão, Autoengano",
             href: "https://store.steampowered.com/app/26800/Braid/"
         }
-    },
+    }, {
+        img: {
+            src: "../assets/images/capasJogos/This War of Mine.jpg",
+            alt: "texto alternativo da imagem"
+        },
+        infos: {
+            name: "This War of Mine",
+            price: "R$ 59,99",
+            genre: ["adventure", "simulation"],
+            theme: "Sobrevivência, Escolhas Morais em Guerra, Desespero",
+            href: "https://store.steampowered.com/app/282070/This_War_of_Mine/"
+        }
+    }, {
+        img: {
+            src: "../assets/images/capasJogos/undertale.jpg",
+            alt: "texto alternativo da imagem"
+        },
+        infos: {
+            name: "Undertale",
+            price: "R$ 19,99",
+            genre: ["rpg"],
+            theme: "Consequências das Ações, Moralidade, Amizade",
+            href: "https://store.steampowered.com/app/391540/Undertale/"
+        }
+    }, 
 
     ];
 
