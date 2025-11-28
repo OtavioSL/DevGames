@@ -246,18 +246,6 @@ let jogos = [
         }
     },  {
         img: {
-            src: "../assets/images/capasJogos/Braind.jpg",
-            alt: "texto alternativo da imagem"
-        },
-        infos: {
-            name: "Braid",
-            price: "R$ 27,99",
-            genre: ["casual", "strategy"],
-            theme: "Arrependimento, Tempo, Obsessão, Autoengano",
-            href: "https://store.steampowered.com/app/26800/Braid/"
-        }
-    },  {
-        img: {
             src: "../assets/images/capasJogos/Florence.jpg",
             alt: "texto alternativo da imagem"
         },
@@ -305,7 +293,19 @@ let jogos = [
             theme: "Dívida, Comunidade, Fracasso Americano, Desespero Quotidiano.",
             href: "https://store.steampowered.com/app/1145350/Hades_II/"
         }
-    }
+    },{
+        img: {
+            src: "../assets/images/capasJogos/braind.jpg",
+            alt: "texto alternativo da imagem"
+        },
+        infos: {
+            name: "Braid",
+            price: "R$ 27,99",
+            genre: ["casual", "strategy"],
+            theme: "Arrependimento, Tempo, Obsessão, Autoengano",
+            href: "https://store.steampowered.com/app/26800/Braid/"
+        }
+    },
 
     ];
 
